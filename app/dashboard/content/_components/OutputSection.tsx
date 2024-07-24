@@ -91,7 +91,7 @@ function OutputSection({ aiOutput, loading }: Props) {
                 <textarea
                   value={currentOutput}
                   readOnly
-                  className="w-full h-screen p-4 bg-white dark:bg-gray-900 border-none focus:outline-none rounded-md dark:text-white text-black resize-none"
+                  className="w-full hello h-screen p-4 bg-white dark:bg-gray-900 border-none focus:outline-none rounded-md dark:text-white text-black resize-none"
                 />
               </>
             ) : (

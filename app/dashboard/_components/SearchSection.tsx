@@ -48,7 +48,7 @@ const SearchSection = () => {
           className="lg:mb-3 gap-3 mb-3 flex justify-center items-center text-center dark:text-white text-black lg:text-5xl md:text-4xl sm:text-2xl text-xl font-bold flex-wrap animate-fadeIn"
         >
           Hello
-          <span className="ml-2 capitalize usespan py-10">
+          <span className="ml-2 capitalize usespan md:py-10 py-0">
             {user?.firstName}
           </span>
           , how can I help you?

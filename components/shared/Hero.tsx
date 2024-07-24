@@ -68,15 +68,16 @@ const Hero = () => {
                 <Button>Get Started</Button>
                 <Button variant="ghost">About us</Button>
               </div>
-              {/* <p className="font-normal text-gray-500 text-sm px-4">
+              <p className="font-normal text-gray-500 text-sm px-4">
                 Myaimix is an open-source AI prompting tools for the Idea for
                 your project and get Solve your Problem .
-              </p> */}
+              </p>
             </Link>
           </div>
         </div>
       </div>
       <LogoScroll />
+      <StarAnimation />
     </section>
   );
 };

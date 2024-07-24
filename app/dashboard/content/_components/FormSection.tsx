@@ -81,7 +81,6 @@ const FormSection = ({ selectedTemplate, userFormInput, loading }: PROPS) => {
           </div>
         </form>
       </div>
-      <div ref={bottomRef} />
     </>
   );
 };
