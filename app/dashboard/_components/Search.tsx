@@ -1,8 +1,7 @@
 "use client";
-import Image from "next/image";
+
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import Hello from "../../../components/public/Search.svg";
+
 import { GoSearch } from "react-icons/go";
 
 const SearchBar = ({ onSearchInput }: any) => {
@@ -25,7 +24,7 @@ const SearchBar = ({ onSearchInput }: any) => {
   };
 
   return (
-    <div className="relative w-full flex justify-center items-center md:mx-auto m-4 lg:mt-5">
+    <div className="relative  w-full flex justify-center items-center md:mx-auto m-4 lg:mt-5">
       <form
         onSubmit={handleSubmit}
         className="flex items-center w-full md:w-[450px]  lg:w-[600px] rounded-md bg-white dark:bg-gray-800 dark:text-white text-black shadow-lg  overflow-hidden transition-transform duration-300 ease-in-out transform"
@@ -36,7 +35,7 @@ const SearchBar = ({ onSearchInput }: any) => {
           value={query}
           onChange={handleInputChange}
           placeholder="Search..."
-          className="w-full px-2 py-2 border-none dark:text-white text-gray-900 bg-transparent focus:outline-none"
+          className="w-full px-2 py-4 border-none dark:text-white text-gray-900 bg-transparent focus:outline-none"
         />
       </form>
     </div>

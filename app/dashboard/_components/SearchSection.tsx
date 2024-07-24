@@ -38,27 +38,27 @@ const SearchSection = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative ">
       {/* Galaxy Effect */}
       <div ref={galaxyRef} style={{ zIndex: -1 }}></div>
-
-      <div className="relative  flex mb-4 mt-4 flex-col justify-center items-center h-[250px] sm:h-[250px]   md:h-[250px] lg:h-[250px] p-[20px] rounded-md w-full bg-gradient-to-r">
-        <h2
-          id="heading"
-          className="lg:mb-3 gap-3 mb-3 flex justify-center items-center text-center dark:text-white text-black lg:text-5xl md:text-4xl sm:text-2xl text-xl font-bold flex-wrap animate-fadeIn"
-        >
-          Hello
-          <span className="ml-2 capitalize usespan md:py-10 py-0">
-            {user?.firstName}
-          </span>
-          , how can I help you?
-        </h2>
-
-        <SearchBar
-          onSearchInput={(value: string) => setUserSearchInput(value)}
-          className="transition duration-300 ease-in-out transform hover:scale-105 "
-        />
+      <div className="relative p-[20px] flex mb-4 mt-4 flex-col justify-center items-center min-h-[274px] rounded-md w-full bg-cover bg-center bg-fixed bg-[url('https://img.freepik.com/free-vector/gradient-geometric-shapes-dark-background_23-2148445831.jpg?t=st=1721835255~exp=1721838855~hmac=c510eda5c322abf271010a5d940d73d1f9744799ea0dd3105e7d91b0732ca97d&w=1060')]">
+        <div className="absolute inset-0 bg-black opacity-50 blur-sm"></div>
+        <div className="relative z-10 flex flex-col justify-center items-center text-center">
+          <h1
+            id="heading"
+            className="lg:mb-3 gap-3 mb-3 flex justify-center items-center text-center dark:text-white text-white lg:text-5xl md:text-5xl sm:text-5xl text-4xl font-bold flex-wrap animate-fadeIn"
+          >
+            Hello
+            <span className="capitalize usespan py-0">{user?.firstName}</span>
+            how can I help you?
+          </h1>
+          <SearchBar
+            onSearchInput={(value: string) => setUserSearchInput(value)}
+            className="transition duration-300 ease-in-out transform hover:scale-105"
+          />
+        </div>
       </div>
+
       <TemplateListSection userSearchInput={userSearchInput} />
     </div>
   );

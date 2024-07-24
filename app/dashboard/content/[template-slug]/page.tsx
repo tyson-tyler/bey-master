@@ -100,13 +100,12 @@ function CreateNewContent(props: PROPS) {
         <div className="flex  h-[60px] border-b-2 border-gray-800 dark:border-gray-600 w-full justify-between items-center dark:bg-gray-950 p-2 relative top-0 bg-white  dark:text-white text-black">
           <div className="flex">
             {selectedTemplate?.icon && (
-              <Image
+              <img
                 src={selectedTemplate.icon}
                 alt="Template Icon"
                 width={60}
-                height={20}
-                objectFit="cover"
-                className="p-2"
+                height={60}
+                className="p-2 w-[60px] h-[60px] object-cover rounded-full"
               />
             )}
             <div className="flex justify-center flex-col ml-3">

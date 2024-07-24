@@ -60,7 +60,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="h-screen fixed hidden dark:bg-gray-950 bg-gray-100 text-black dark:text-white md:flex lg:w-64 md:w-[80px] flex-col">
+    <div className="h-screen fixed hidden dark:bg-gray-900 bg-gray-100 text-black dark:text-white md:flex lg:w-64 md:w-[80px] flex-col">
       <div className="text-2xl font-bold p-4 flex items-center">
         <Link href="/">
           <div className="flex items-center space-x-2 cursor-pointer">

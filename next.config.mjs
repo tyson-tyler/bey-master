@@ -11,6 +11,7 @@ const nextConfig = {
       "freesvg.org",
       "mighty.tools",
       "media.istockphoto.com",
+      "cdn.waifu.im",
     ],
   },
 };
