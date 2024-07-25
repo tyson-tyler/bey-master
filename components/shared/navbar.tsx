@@ -23,7 +23,7 @@ const Navbar = () => {
           ].map((nav) => (
             <div
               className="px-5 text-sm cursor-pointer text-gray-400 hover:text-white transition-all"
-              key={nav.key}
+              key={nav.props}
             >
               {nav}
             </div>

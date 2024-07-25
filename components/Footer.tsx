@@ -9,7 +9,7 @@ import { useUser } from "@clerk/nextjs"; // Import useUser hook
 import styles from "../app/dashboard/_components/sidebar.module.css"; // Import your custom sidebar styles
 import { GoHistory } from "react-icons/go";
 import { MdOutlineAttachMoney } from "react-icons/md";
-import { FaGear } from "react-icons/fa6";
+import { FaGear, FaWpforms } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader"; // Import your loader component
 
@@ -34,6 +34,13 @@ const Sidebar = () => {
       icon: <RiImageCircleFill className="inline-block lg:mr-3" />,
       colorClass: "bg-purple-600",
       animationClass: styles.animatePulse, // Ensure correct class name from CSS module
+    },
+    {
+      href: "/dashboard/rusme",
+      label: "Resume",
+      icon: <FaWpforms className="inline-block lg:mr-3" />,
+      colorClass: "bg-pink-600",
+      animationClass: styles.animateShake,
     },
     {
       href: "/dashboard/billing",

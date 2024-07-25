@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaHome, FaAppStore, FaUser } from "react-icons/fa";
+import { FaWpforms } from "react-icons/fa";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -34,6 +35,13 @@ const Sidebar = () => {
       icon: <RiImageCircleFill className="inline-block lg:mr-3" />,
       colorClass: "bg-green-600",
       animationClass: styles.animateSpin, // Ensure correct class name from CSS module
+    },
+    {
+      href: "/dashboard/rusme",
+      label: "Resume",
+      icon: <FaWpforms className="inline-block lg:mr-3" />,
+      colorClass: "bg-pink-600",
+      animationClass: styles.animateShake,
     },
     {
       href: "/dashboard/billing",

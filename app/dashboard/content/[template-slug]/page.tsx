@@ -12,6 +12,8 @@ import moment from "moment";
 import gsap from "gsap";
 import Image from "next/image";
 import { ModeToggle } from "@/components/Toogle";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 interface PROPS {
   params: {
@@ -98,7 +100,10 @@ function CreateNewContent(props: PROPS) {
     <>
       <div className="p-0 bg-white dark:bg-gray-900">
         <div className="flex  h-[60px] border-b-2 border-gray-800 dark:border-gray-600 w-full justify-between items-center dark:bg-gray-950 p-2 relative top-0 bg-white  dark:text-white text-black">
-          <div className="flex">
+          <div className="flex justify-center items-center">
+            <Link href={"/dashboard"}>
+              <ArrowLeft className="dark:text-white text-black transition  hover:bg-blue-600 hover:p-2 rounded-full flex justify-center items-center" />
+            </Link>
             {selectedTemplate?.icon && (
               <img
                 src={selectedTemplate.icon}

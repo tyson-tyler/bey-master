@@ -34,7 +34,7 @@ const FormSection = ({ selectedTemplate, userFormInput, loading }: PROPS) => {
 
   return (
     <>
-      <div className="lg:m-5 mb-5 sm:mb-5 md:mb-0 shadow-md rounded-lg bg-gray-100 sm:bottom-[4.5rem] bottom-[3.5rem] md:bottom-2 sticky z-50 dark:bg-gray-900">
+      <div className="lg:m-5 mb-5 sm:mb-5 md:mb-0 shadow-md rounded-lg bg-gray-100 sm:bottom-[4.5rem] bottom-[4.5rem] md:bottom-2 sticky z-50 dark:bg-gray-900">
         <form className="flex flex-row w-full" onSubmit={onSubmit}>
           <div className="flex flex-row w-full space-y-4">
             {selectedTemplate?.form?.map((item, index) => (
