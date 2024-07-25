@@ -14,11 +14,14 @@ const Navbar = () => {
         </Link>
 
         <div className="flex flex-1 items-center justify-center max-sm:hidden">
-          {["Product", "Image", "Pricing", "About"].map((nav) => (
-            <div
-              key={nav}
-              className="px-5 text-sm cursor-pointer text-gray-400 hover:text-white transition-all"
-            >
+          {[
+            <Link href={"/"}>Home</Link>,
+            <Link href={"/dashboard/did"}>Image</Link>,
+            <Link href={"/pricing"}>Pricing</Link>,
+
+            <Link href={"/hello"}>Blog</Link>,
+          ].map((nav) => (
+            <div className="px-5 text-sm cursor-pointer text-gray-400 hover:text-white transition-all">
               {nav}
             </div>
           ))}

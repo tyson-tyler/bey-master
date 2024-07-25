@@ -38,14 +38,7 @@ const Topbar = () => {
           </div>
         </Link>
       </div>
-      <div className=" border lg:flex hidden gap-2 items-center p-2 shadow-md rounded-md w-[300px] sm:w-[300px] md:w-[330px] lg:w-[500px] bg-white dark:bg-gray-800 border-none">
-        <GoSearch className="w-5 h-5" />
-        <input
-          type="text"
-          placeholder="Search..."
-          className="outline-none bg-none dark:bg-gray-800 bg-white  dark:text-white text-black"
-        />
-      </div>
+
       <div className="xl:flex hidden">
         <h2 className="bg-purple-600 p-1 rounded-full text-xs text-white px-2">
           🔥 Join the membership at only $9 per month

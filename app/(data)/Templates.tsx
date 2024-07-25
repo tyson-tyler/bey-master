@@ -79,7 +79,7 @@ export default [
     name: "Youtube Description",
     desc: "An AI tool that generates catchy and viral-worthy YouTube descriptions.",
     category: "Youtube Tool",
-    icon: "https://img.freepik.com/free-vector/blogger-review-concept_23-2148518576.jpg?t=st=1721830710~exp=1721834310~hmac=9b41dc363dbaae8280f453bde22347a4d24257e962d1daffc17107c9826c949f&w=740",
+    icon: "https://img.freepik.com/free-vector/hand-drawn-blogger-illustration_23-2149086390.jpg?t=st=1721886198~exp=1721889798~hmac=5f194f250b63c1d2ec25cd7230ba6ce1322e3115a82465eed7177ee19f449ba9&w=740",
     slug: "youtube-description",
     aiPrompt:
       "Generate a YouTube description with emojis under 4-5 lines based on the given topic and outline. The results should be in Rich Text Editor format.",

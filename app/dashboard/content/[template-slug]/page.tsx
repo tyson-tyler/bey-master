@@ -124,7 +124,7 @@ function CreateNewContent(props: PROPS) {
       </div>
       <div
         ref={formSectionRef}
-        className="flex  flex-col-reverse md:gap-[10px] lg:gap-3 md:p-4 lg:p-0 sm:p-2 p-1 sm:gap-2 gap-2 bg-gray-200 dark:bg-gray-900"
+        className="flex  flex-col-reverse md:gap-[10px] lg:gap-3 md:p-4 lg:p-0 sm:p-2 p-1 sm:gap-2 gap-2 bg-white dark:bg-gray-950"
       >
         <FormSection
           selectedTemplate={selectedTemplate}

@@ -71,10 +71,10 @@ function OutputSection({ aiOutput, loading }: Props) {
   };
 
   return (
-    <div className="bg-white rounded-md dark:bg-gray-900 h-screen dark:text-white shadow-lg text-black">
-      <div className="bg-white dark:bg-gray-900 h-screen rounded-lg">
+    <div className="bg-white rounded-md dark:bg-gray-950 h-screen dark:text-white  text-black">
+      <div className="bg-white dark:bg-gray-950 h-screen rounded-lg">
         {loading ? (
-          <div className="h-screen flex items-center justify-center bg-gray-900">
+          <div className="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950">
             <LoadingScreen />
           </div>
         ) : (
@@ -91,11 +91,11 @@ function OutputSection({ aiOutput, loading }: Props) {
                 <textarea
                   value={currentOutput}
                   readOnly
-                  className="w-full hello h-screen p-4 bg-white dark:bg-gray-900 border-none focus:outline-none rounded-md dark:text-white text-black resize-none"
+                  className="w-full hello h-screen p-4 bg-white dark:bg-gray-950 border-none focus:outline-none rounded-md dark:text-white text-black resize-none"
                 />
               </>
             ) : (
-              <div className="flex justify-center h-screen dark:bg-gray-900 dark:text-white bg-white text-black items-center flex-col m-auto gap-3 w-full p-4">
+              <div className="flex justify-center h-screen dark:bg-gray-950 dark:text-white bg-white text-black items-center flex-col m-auto gap-3 w-full p-4">
                 <Image
                   width={100}
                   height={100}
