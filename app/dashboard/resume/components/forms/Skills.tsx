@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 import GlobalApi from "@/app/service/GlobalApi";
 import toast from "react-hot-toast";
 import { FaPaintBrush } from "react-icons/fa";
+
 const Skills = () => {
   const [skillsList, setSkillsList] = useState([
     {
@@ -62,10 +63,11 @@ const Skills = () => {
       ...resumeInfo,
       skills: skillsList,
     });
-  }, [skillsList]);
+  }, [skillsList, resumeInfo, setResumeInfo]);
+
   return (
     <div className="shadow-lg rounded-lg dark:text-white text-black gap-4">
-      <div className="top-0  items-center  w-full absolute p-4 flex gap-2 dark:bg-gray-800 dark:text-white bg-gray-50 text-black">
+      <div className="top-0 items-center w-full absolute p-4 flex gap-2 dark:bg-gray-800 dark:text-white bg-gray-50 text-black">
         <FaPaintBrush className="w-8 h-8 dark:text-white text-black" />
         <div className="flex flex-col ml-3">
           <h2 className="font-bold text-[15px]">Add Skills</h2>
@@ -73,14 +75,15 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className="lg:pt-10 px-11 md:px-5  md:pt-5 sm:pt-5 pt-5 pb-0">
+      <div className="lg:pt-10 px-11 md:px-5 md:pt-5 sm:pt-5 pt-5 pb-0">
         {skillsList.map((item, index) => (
-          <div className="flex justify-between">
+          <div key={index} className="flex justify-between">
             <div className="my-2">
               <label className="text-xs mb-2">Name</label>
               <Input
-                className="w-full mt-2 "
+                className="w-full mt-2"
                 onChange={(e) => handleChange(index, "name", e.target.value)}
+                defaultValue={item.name}
               />
             </div>
             <Rating
@@ -98,20 +101,16 @@ const Skills = () => {
             onClick={AddNewSkills}
             className="text-purple-600"
           >
-            Add More Skill{" "}
+            Add More Skill
           </Button>
           <Button
             variant="outline"
             onClick={RemoveSkills}
             className="text-primary"
           >
-            {" "}
             - Remove
           </Button>
         </div>
-        {/* <Button disabled={loading} onClick={() => onSave()}>
-          {loading ? <Loader className="animate-spin" /> : "Save"}
-        </Button> */}
         <Button disabled={loading} onClick={() => onSave()}>
           {loading ? <Loader className="animate-spin" /> : "Save"}
         </Button>
