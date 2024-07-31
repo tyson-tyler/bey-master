@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ResumeInfoContext } from "@/app/constants/ResumeInfoContext";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, Plus, Trash } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import GlobalApi from "@/app/service/GlobalApi";
@@ -25,8 +25,11 @@ function Education() {
   ]);
 
   useEffect(() => {
-    resumeInfo && setEducationalList(resumeInfo?.education);
-  }, []);
+    if (resumeInfo) {
+      setEducationalList(resumeInfo?.education || []);
+    }
+  }, [resumeInfo]);
+
   const handleChange = (event: any, index: any) => {
     const newEntries: any = educationalList.slice();
     const { name, value } = event.target;
@@ -47,9 +50,11 @@ function Education() {
       },
     ]);
   };
+
   const RemoveEducation = () => {
     setEducationalList((educationalList) => educationalList.slice(0, -1));
   };
+
   const onSave = () => {
     setLoading(true);
     const data = {
@@ -77,10 +82,11 @@ function Education() {
       ...resumeInfo,
       education: educationalList,
     });
-  }, [educationalList]);
+  }, [educationalList, resumeInfo, setResumeInfo]);
+
   return (
-    <div className="text-black dark:text-white shadow-lg rounded-lg  mt-10">
-      <div className="top-0  items-center  w-full absolute p-4 flex gap-2 dark:bg-gray-800 dark:text-white bg-gray-50 text-black">
+    <div className="text-black dark:text-white shadow-lg rounded-lg mt-10">
+      <div className="top-0 items-center w-full absolute p-4 flex gap-2 dark:bg-gray-800 dark:text-white bg-gray-50 text-black">
         <FaBookOpen className="w-8 h-8 dark:text-white text-black" />
         <div className="flex flex-col ml-3">
           <h2 className="font-bold text-[15px]">Add Education</h2>
@@ -90,58 +96,59 @@ function Education() {
 
       <div className="lg:p-10 md:p-5 sm:p-5 p-5">
         {educationalList.map((item, index) => (
-          <div>
-            <div className="grid grid-cols-2 gap-3  p-3 my-5 rounded-lg">
-              <div className="col-span-2">
-                <label>University Name</label>
-                <Input
-                  name="universityName"
-                  onChange={(e) => handleChange(e, index)}
-                  defaultValue={item?.universityName}
-                />
-              </div>
-              <div>
-                <label>Degree</label>
-                <Input
-                  name="degree"
-                  onChange={(e) => handleChange(e, index)}
-                  defaultValue={item?.degree}
-                />
-              </div>
-              <div>
-                <label>Major</label>
-                <Input
-                  name="major"
-                  onChange={(e) => handleChange(e, index)}
-                  defaultValue={item?.major}
-                />
-              </div>
-              <div>
-                <label>Start Date</label>
-                <Input
-                  type="date"
-                  name="startDate"
-                  onChange={(e) => handleChange(e, index)}
-                  defaultValue={item?.startDate}
-                />
-              </div>
-              <div>
-                <label>End Date</label>
-                <Input
-                  type="date"
-                  name="endDate"
-                  onChange={(e) => handleChange(e, index)}
-                  defaultValue={item?.endDate}
-                />
-              </div>
-              <div className="col-span-2">
-                <label>Description</label>
-                <Textarea
-                  name="description"
-                  onChange={(e) => handleChange(e, index)}
-                  defaultValue={item?.description}
-                />
-              </div>
+          <div
+            key={index}
+            className="grid grid-cols-2 gap-3 p-3 my-5 rounded-lg"
+          >
+            <div className="col-span-2">
+              <label>University Name</label>
+              <Input
+                name="universityName"
+                onChange={(e) => handleChange(e, index)}
+                defaultValue={item?.universityName}
+              />
+            </div>
+            <div>
+              <label>Degree</label>
+              <Input
+                name="degree"
+                onChange={(e) => handleChange(e, index)}
+                defaultValue={item?.degree}
+              />
+            </div>
+            <div>
+              <label>Major</label>
+              <Input
+                name="major"
+                onChange={(e) => handleChange(e, index)}
+                defaultValue={item?.major}
+              />
+            </div>
+            <div>
+              <label>Start Date</label>
+              <Input
+                type="date"
+                name="startDate"
+                onChange={(e) => handleChange(e, index)}
+                defaultValue={item?.startDate}
+              />
+            </div>
+            <div>
+              <label>End Date</label>
+              <Input
+                type="date"
+                name="endDate"
+                onChange={(e) => handleChange(e, index)}
+                defaultValue={item?.endDate}
+              />
+            </div>
+            <div className="col-span-2">
+              <label>Description</label>
+              <Textarea
+                name="description"
+                onChange={(e) => handleChange(e, index)}
+                defaultValue={item?.description}
+              />
             </div>
           </div>
         ))}
@@ -153,16 +160,16 @@ function Education() {
             onClick={AddNewEducation}
             className="text-primary"
           >
-            {" "}
-            + Add More Education
+            <Plus className="w-5 h-5 text-white" />
+            Add More Education
           </Button>
           <Button
             variant="outline"
             onClick={RemoveEducation}
             className="text-primary"
           >
-            {" "}
-            - Remove
+            <Trash className="w-5 h-5 text-white" />
+            Remove
           </Button>
         </div>
         <Button disabled={loading} onClick={() => onSave()}>
