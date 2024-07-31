@@ -69,12 +69,12 @@ const AddResume = () => {
             </DialogTitle>
             <DialogDescription>
               <p>
-                {" "}
-                Make changes to your profile here. Click save when you're done.
+                Make changes to your profile here. Click save when you&apos;re
+                done.
               </p>
               <Input
                 className="my-2"
-                placeholder="Ex.full Web development"
+                placeholder="Ex. full Web development"
                 onChange={(e) => setResumeTitle(e.target.value)}
               />
             </DialogDescription>
