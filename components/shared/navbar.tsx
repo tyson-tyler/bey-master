@@ -13,21 +13,31 @@ const Navbar = () => {
           <Image width={44} height={48} src={Logo} alt="hello" />
         </Link>
 
-        <div className="flex flex-1 items-center justify-center max-sm:hidden">
-          {[
-            <Link href={"/"}>Home</Link>,
-            <Link href={"/dashboard/did"}>Image</Link>,
-            <Link href={"/pricing"}>Pricing</Link>,
-
-            <Link href={"/hello"}>Blog</Link>,
-          ].map((nav) => (
-            <div
-              className="px-5 text-sm cursor-pointer text-gray-400 hover:text-white transition-all"
-              key={nav.props}
-            >
-              {nav}
-            </div>
-          ))}
+        <div className="flex flex-1 gap-4  items-center px-5 justify-center max-sm:hidden">
+          <Link
+            className="text-gray-600 hover:text-white transition "
+            href={"/"}
+          >
+            Home
+          </Link>
+          <Link
+            className="text-gray-600 hover:text-white transition "
+            href={"/dashboard/did"}
+          >
+            Image
+          </Link>
+          <Link
+            className="text-gray-600 hover:text-white transition "
+            href={"/pricing"}
+          >
+            Pricing
+          </Link>
+          <Link
+            className="text-gray-600 hover:text-white transition "
+            href={"/hello"}
+          >
+            Blog
+          </Link>
         </div>
         <Link
           href={"/dashboard"}
