@@ -1,7 +1,5 @@
-/**
- * user-resume router
- */
+// src/api/user-resume/routes/user-resume.ts
 
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreRouter('api::user-resume.user-resume');
+export default factories.createCoreRouter("api::user-resume.user-resume");
