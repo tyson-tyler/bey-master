@@ -22,6 +22,14 @@ function Education() {
       endDate: "",
       description: "",
     },
+    {
+      universityName: "",
+      degree: "",
+      major: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
   ]);
 
   useEffect(() => {
@@ -40,6 +48,14 @@ function Education() {
   const AddNewEducation = () => {
     setEducationalList([
       ...educationalList,
+      {
+        universityName: "",
+        degree: "",
+        major: "",
+        startDate: "",
+        endDate: "",
+        description: "",
+      },
       {
         universityName: "",
         degree: "",
@@ -105,7 +121,7 @@ function Education() {
               <Input
                 name="universityName"
                 onChange={(e) => handleChange(e, index)}
-                defaultValue={item?.universityName}
+                placeholder="MIT Unversity"
               />
             </div>
             <div>
@@ -113,7 +129,7 @@ function Education() {
               <Input
                 name="degree"
                 onChange={(e) => handleChange(e, index)}
-                defaultValue={item?.degree}
+                placeholder="Degree"
               />
             </div>
             <div>
@@ -121,7 +137,7 @@ function Education() {
               <Input
                 name="major"
                 onChange={(e) => handleChange(e, index)}
-                defaultValue={item?.major}
+                placeholder="major"
               />
             </div>
             <div>
@@ -130,7 +146,7 @@ function Education() {
                 type="date"
                 name="startDate"
                 onChange={(e) => handleChange(e, index)}
-                defaultValue={item?.startDate}
+                placeholder="Start Date"
               />
             </div>
             <div>
@@ -139,7 +155,7 @@ function Education() {
                 type="date"
                 name="endDate"
                 onChange={(e) => handleChange(e, index)}
-                defaultValue={item?.endDate}
+                placeholder="End Date"
               />
             </div>
             <div className="col-span-2">
@@ -147,7 +163,7 @@ function Education() {
               <Textarea
                 name="description"
                 onChange={(e) => handleChange(e, index)}
-                defaultValue={item?.description}
+                placeholder="Description"
               />
             </div>
           </div>
@@ -160,7 +176,7 @@ function Education() {
             onClick={AddNewEducation}
             className="text-primary"
           >
-            <Plus className="w-5 h-5 text-white" />
+            <Plus className="w-5 h-5 text-white mr-2" />
             Add More Education
           </Button>
           <Button
@@ -168,7 +184,7 @@ function Education() {
             onClick={RemoveEducation}
             className="text-primary"
           >
-            <Trash className="w-5 h-5 text-white" />
+            <Trash className="w-5 h-5 text-white mr-2" />
             Remove
           </Button>
         </div>

@@ -22,6 +22,7 @@ const EditResume = () => {
     });
   };
   return (
+    //  @ts-ignore
     <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>
       <div className="gap-10  w-full">
         <FormSection />

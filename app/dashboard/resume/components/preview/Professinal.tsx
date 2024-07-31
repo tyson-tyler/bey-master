@@ -8,7 +8,7 @@ const Professinal = ({ resumeInfo }: any) => {
       </h2>
       <hr className="border-2 dark:border-sky-50 border-black" />
 
-      {resumeInfo?.experience.map((experience: any, index: any) => (
+      {resumeInfo?.experience?.map((experience: any, index: any) => (
         <div key={index} className="my-5">
           <h2 className="text-sm font-bold">{experience?.title}</h2>
           <h2 className="text-sm flex justify-between">
