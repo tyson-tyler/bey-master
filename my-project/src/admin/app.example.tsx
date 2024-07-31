@@ -1,4 +1,8 @@
-import { StrapiApp } from "@strapi/strapi/admin";
+type StrapiApp = {
+  // Define only the properties you need
+  config: any;
+  bootstrap: (app: StrapiApp) => void;
+};
 
 export default {
   config: {
