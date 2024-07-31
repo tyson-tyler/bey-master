@@ -33,7 +33,7 @@ export default function RootLayout({
     >
       <SideNav />
 
-      <div className=" lg:ml-64 md:ml-[80px] ml-0">
+      <div id="print-area" className=" lg:ml-64 md:ml-[80px] ml-0">
         <Toaster />
 
         {children}

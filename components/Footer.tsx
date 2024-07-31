@@ -13,7 +13,7 @@ import { FaGear, FaWpforms } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader"; // Import your loader component
 
-const Sidebar = () => {
+const Sidebar1 = () => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState(pathname);
   const [indicatorStyle, setIndicatorStyle] = useState({});
@@ -86,7 +86,10 @@ const Sidebar = () => {
   }, [pathname]);
 
   return (
-    <div className="fixed w-full md:hidden bottom-0 dark:bg-gray-900 bg-gray-100 dark:text-white text-black flex justify-around items-center p-2">
+    <div
+      id="no-print"
+      className="fixed w-full md:hidden bottom-0 dark:bg-gray-900 bg-gray-100 dark:text-white text-black flex justify-around items-center p-2"
+    >
       <div
         className="absolute h-1 bottom-0 bg-purple-600 transition-all duration-300"
         style={indicatorStyle}
@@ -122,4 +125,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar1;
