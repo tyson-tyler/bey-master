@@ -3,7 +3,7 @@ export default [
     name: "Blog Title",
     desc: "An AI tool that generates blog titles based on your blog information.",
     category: "Blog",
-    icon: "https://img.freepik.com/free-vector/hand-drawn-iranian-women-illustration_23-2149855990.jpg?t=st=1721826933~exp=1721830533~hmac=15d314c19444fd5aa38f6a9235f0d1854c9d13a4b1479584c031ce7a640bb781&w=900",
+    icon: "https://i.ibb.co/mSjTJLb/ps-Sw-F8f-Tb-M4-UXc-MQck-YOL-transformed.jpg",
     aiPrompt:
       "Generate 5 blog topic ideas in bullet points based on the given niche and outline. The results should be in Rich Text Editor format.",
     slug: "generate-blog-title",

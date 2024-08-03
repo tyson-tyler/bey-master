@@ -98,7 +98,7 @@ function CreateNewContent(props: PROPS) {
 
   return (
     <>
-      <div className="p-0 bg-white dark:bg-gray-900">
+      <div className="p-0 bg-white sticky top-0 z-50 dark:bg-gray-900">
         <div className="flex  h-[60px] border-b-2 border-gray-800 dark:border-gray-600 w-full justify-between items-center dark:bg-gray-950 p-2 relative top-0 bg-white  dark:text-white text-black">
           <div className="flex justify-center items-center">
             <Link href={"/dashboard"}>

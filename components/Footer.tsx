@@ -35,13 +35,13 @@ const Sidebar1 = () => {
       colorClass: "bg-purple-600",
       animationClass: styles.animatePulse, // Ensure correct class name from CSS module
     },
-    {
-      href: "/dashboard/rusme",
-      label: "Resume",
-      icon: <FaWpforms className="inline-block lg:mr-3" />,
-      colorClass: "bg-pink-600",
-      animationClass: styles.animateShake,
-    },
+    // {
+    //   href: "/dashboard/rusme",
+    //   label: "Resume",
+    //   icon: <FaWpforms className="inline-block lg:mr-3" />,
+    //   colorClass: "bg-pink-600",
+    //   animationClass: styles.animateShake,
+    // },
     {
       href: "/dashboard/billing",
       label: "Billing",
