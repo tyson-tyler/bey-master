@@ -22,7 +22,7 @@ export default [
     name: "Blog Content",
     desc: "An AI tool that generates blog content based on the given topic and outline.",
     category: "Blog",
-    icon: "https://img.freepik.com/free-vector/flat-cms-concept-illustrated_23-2148925795.jpg?t=st=1721830431~exp=1721834031~hmac=38c006386a063a3861b2131508a0389083382ff4611a500115f426ed404cadbd&w=900",
+    icon: "https://i.ibb.co/sJSF2Sx/B87-JLTyn-Iiamj2e-Hn-Zu-L2-transformed.jpg",
     slug: "blog-content-generation",
     aiPrompt:
       "Generate detailed blog content based on the given topic and outline. The result should be in Rich Text Editor format.",
@@ -41,7 +41,7 @@ export default [
     name: "Blog Topic Ideas",
     desc: "An AI tool that generates catchy and viral-worthy blog topic ideas.",
     category: "Blog",
-    icon: "https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150315303.jpg?t=st=1721830044~exp=1721833644~hmac=9dc217f903b90f47a152f4fcfd8e2aeb93281084b8c7ec0cbe2489557c677497&w=740",
+    icon: "https://i.ibb.co/87gCn4N/Eeh-Khdqbgxt-T07-D-m-PN2z-transformed.jpg",
     slug: "blog-topic-idea",
     aiPrompt:
       "Generate the top 5 blog topic ideas in bullet points based on the given niche. The results should be in Rich Text Editor format.",

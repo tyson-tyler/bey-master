@@ -12,6 +12,8 @@ const nextConfig = {
       "mighty.tools",
       "media.istockphoto.com",
       "cdn.waifu.im",
+
+      "i.ibb.co",
     ],
   },
 };
