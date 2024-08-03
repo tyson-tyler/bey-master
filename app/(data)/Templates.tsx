@@ -60,7 +60,7 @@ export default [
     name: "Youtube Title",
     desc: "An AI tool that generates optimized high-ranked titles for YouTube videos.",
     category: "Youtube Tools",
-    icon: "https://img.freepik.com/free-vector/influencer-recording-new-video_52683-37608.jpg?t=st=1721830603~exp=1721834203~hmac=84ee676fe357ad556685bf300cf80f174adb2c65ec63e6485fee6d694020aaf7&w=1060",
+    icon: "https://i.ibb.co/5F7VLFQ/De-Watermark-ai-1722685353597.png",
     slug: "youtube-seo-title",
     aiPrompt:
       "Generate the best SEO optimized high-ranked 5 title ideas in bullet points based on the given keywords and outline. The results should be in HTML tags format.",
@@ -79,7 +79,7 @@ export default [
     name: "Youtube Description",
     desc: "An AI tool that generates catchy and viral-worthy YouTube descriptions.",
     category: "Youtube Tool",
-    icon: "https://img.freepik.com/free-vector/hand-drawn-blogger-illustration_23-2149086390.jpg?t=st=1721886198~exp=1721889798~hmac=5f194f250b63c1d2ec25cd7230ba6ce1322e3115a82465eed7177ee19f449ba9&w=740",
+    icon: "https://i.ibb.co/wcfr1XF/influencer-recording-new-video-23-2148522553.jpg",
     slug: "youtube-description",
     aiPrompt:
       "Generate a YouTube description with emojis under 4-5 lines based on the given topic and outline. The results should be in Rich Text Editor format.",
@@ -98,7 +98,7 @@ export default [
     name: "Youtube Tags",
     desc: "An AI tool that generates catchy and viral-worthy YouTube tags.",
     category: "Youtube Tool",
-    icon: "https://img.freepik.com/free-vector/flat-design-unboxing-illustration_23-2150306505.jpg?t=st=1721830858~exp=1721834458~hmac=5dfab7c09a1aaa85f3891a1cd331a2340fb7da5df573365ea3b519a3ed88935e&w=1060",
+    icon: "https://i.ibb.co/fdP7wzp/flat-design-unboxing-illustration-23-2150306505-transformed.jpg",
     slug: "youtube-tag",
     aiPrompt:
       "Generate 10 YouTube tags in bullet points based on the given title and outline. The results should be in Rich Text Editor format.",
@@ -118,7 +118,7 @@ export default [
     desc: "Use this tool to rewrite existing articles or blog posts to bypass AI detectors and ensure they are plagiarism-free.",
     image: "",
     vist: "544",
-    icon: "https://img.freepik.com/free-vector/hand-drawn-essay-illustration_52683-111953.jpg?t=st=1721830929~exp=1721834529~hmac=c0f938c76e525aee7ee691613ad5d570134f94da04380427d63ace2e41c98827&w=740",
+    icon: "https://i.ibb.co/wC9QZth/rhn-Ju-Ebxk-X8go9do-WNXck-transformed.jpg",
     category: "Rewriting Tool",
     slug: "rewrite-article",
     aiPrompt:
@@ -135,9 +135,10 @@ export default [
   {
     name: "Text Improver",
     desc: "This tool refines your writing, eliminating errors and redundancies for a clear, readable result. It also offers tone analysis and suggests better word choices.",
-    image: "",
+    image:
+      "https://i.ibb.co/dJwFpQJ/flat-employee-appreciation-day-illustration-23-2151220497.jpg",
     vist: "232",
-    icon: "https://img.freepik.com/free-vector/english-book-illustration-design_23-2149501740.jpg?t=st=1721831053~exp=1721834653~hmac=589fd257028a758c65efa666cd75b5b7c8183dae07e2aeaca9878671ffbf0662&w=740",
+    icon: "https://i.ibb.co/dJwFpQJ/flat-employee-appreciation-day-illustration-23-2151220497.jpg",
     category: "Writing Assistant",
     slug: "text-improver",
     aiPrompt:
@@ -154,7 +155,7 @@ export default [
   {
     name: "Add Emojis to Text",
     desc: "An AI tool that adds emojis to your text based on the given outline.",
-    icon: "https://img.freepik.com/free-vector/sharing-content-social-media-with-woman-holding-smartphone_23-2148519025.jpg?t=st=1721831126~exp=1721834726~hmac=203aa65fe7243e3d6fcb87203ba4cb4a0e98fc01eb5c16da66f66d05ebd870a3&w=740",
+    icon: "https://i.ibb.co/KL9tvDH/M7f8y-Ht-se8tn-N5-N9nz-QT-transformed.jpg",
     category: "Blog",
     slug: "add-emoji-to-text",
     aiPrompt:
@@ -171,7 +172,7 @@ export default [
   {
     name: "Instagram Post Generator",
     desc: "An AI tool that generates Instagram posts based on given keywords.",
-    icon: "https://img.freepik.com/free-vector/person-addicted-social-media_23-2148390871.jpg?t=st=1721831211~exp=1721834811~hmac=bf4fde821ab7d53301e2e379f5a2190e27f0e68e3750978f8f3fc8f6f1059055&w=740",
+    icon: "https://i.ibb.co/J5VVx93/BCe9-Lz-Rnsys-NRq8-QTZo-V0-transformed-transformed.jpg",
     category: "Blog",
     slug: "instagram-post-generator",
     aiPrompt:
@@ -188,7 +189,7 @@ export default [
   {
     name: "Instagram Hash Tag Generator",
     desc: "An AI tool that generates Instagram hashtags based on given keywords.",
-    icon: "https://img.freepik.com/free-vector/social-media-marketing-mobile-phone-concept_23-2148430942.jpg?t=st=1721831266~exp=1721834866~hmac=d8ddf9b469a4115496c102535a0275bf3944f567f8852f4e99aabb475333c903&w=740",
+    icon: "https://i.ibb.co/CQvdm7J/i-LOJmwu-O-a8teq-XJ7qm9-transformed.jpg",
     category: "Blog",
     slug: "instagram-hash-tag-generator",
     aiPrompt:
@@ -205,7 +206,7 @@ export default [
   {
     name: "Instagram Post/Reel Idea",
     desc: "An AI tool that generates new and trending Instagram post ideas based on your niche.",
-    icon: "https://img.freepik.com/free-vector/gradient-instagram-post-frame_52683-146739.jpg?t=st=1721831319~exp=1721834919~hmac=8f8779e31767f1d77009f4bf71e6c5ad664d1df6fa40ecb67fde74c5974ec17d&w=740",
+    icon: "https://i.ibb.co/PcT101S/m-CLDE9-Rw-I1-Vhgw-PTk-EIIb-transformed.jpg",
     category: "Instagram",
     slug: "instagram-post-idea-generator",
     aiPrompt:
@@ -222,7 +223,7 @@ export default [
   {
     name: "English Grammar Check",
     desc: "An AI tool that corrects your English grammar by providing the text.",
-    icon: "https://img.freepik.com/free-vector/people-speaking-different-languages-with-flat-design_23-2147863366.jpg?t=st=1721831397~exp=1721834997~hmac=830df573275fda60b7fee97d813e0137c5838d2db428b371c4d406de0df6542e&w=740",
+    icon: "https://i.ibb.co/BrvL7TN/El-uhe-PQ1g-SGO7ms7-I8-Lz-transformed.jpg",
     category: "English",
     slug: "english-grammar-checker",
     aiPrompt:
@@ -239,7 +240,7 @@ export default [
   {
     name: "Write Code",
     desc: "Generate programming code based on your description in any language.",
-    icon: "https://img.freepik.com/free-vector/programmer-doing-his-job-flat-design_52683-14150.jpg?t=st=1721831453~exp=1721835053~hmac=5426f00d4904b6e3abfdebf2b6fdf2457c6c00434275953d090291e892b5234b&w=740",
+    icon: "https://i.ibb.co/tMThYXh/TO3pj-Mfagqrw-Wz-KWPl-Ugi-transformed.jpg",
     category: "Coding",
     slug: "write-code",
     aiPrompt:
@@ -256,7 +257,7 @@ export default [
   {
     name: "Explain Code",
     desc: "Get a detailed explanation of your programming code, broken down line by line.",
-    icon: "https://img.freepik.com/free-vector/people-with-technology-devices_23-2148458555.jpg?t=st=1721831527~exp=1721835127~hmac=4579973580b0d0c0650a10aa1d951cade94d1d6f17fa02e922c2a461d6038788&w=740",
+    icon: "https://i.ibb.co/23n176J/jr-Lm0-Lvsnt-Njjipv-Jz-e-transformed.jpg",
     category: "Coding",
     slug: "explain-code",
     aiPrompt:
@@ -273,7 +274,7 @@ export default [
   {
     name: "Code Bug Detector",
     desc: "Identify and fix bugs in your code with detailed solutions and alternatives.",
-    icon: "https://img.freepik.com/free-vector/debugger-profession-programmer-code-analytic-debug-process-flat-isometric_126523-1769.jpg?t=st=1721831586~exp=1721835186~hmac=c46425c273eef298048c6cb270b6f7ae31ef9499a94ba26321d97015471db055&w=740",
+    icon: "https://i.ibb.co/C7TZPnb/d-LOo-O3a-Liegm-Zr-P0-HYP3-S-transformed.jpg",
     category: "Coding",
     slug: "code-bug-detector",
     aiPrompt:
@@ -290,7 +291,7 @@ export default [
   {
     name: "Tagline Generator",
     desc: "Create compelling and memorable taglines for your brand or product.",
-    icon: "https://img.freepik.com/free-vector/summer-sale-design-with-trendy-blue-clothes_1324-154.jpg?t=st=1721831749~exp=1721835349~hmac=4b2864781a120ee2472e142354dab4951fff2ac9f48fe322387066d6c09d4551&w=740",
+    icon: "https://i.ibb.co/3NCpZkH/f-VTl-POh-Nymy0-ZAidinx-W-transformed.jpg",
     category: "Marketing",
     slug: "tagline-generator",
     aiPrompt:
@@ -307,7 +308,7 @@ export default [
   {
     name: "Product Description",
     desc: "Craft captivating and SEO-optimized product descriptions for your e-commerce needs.",
-    icon: "https://img.freepik.com/free-vector/flat-design-food-manufacturing-illustration_23-2149486456.jpg?t=st=1721831857~exp=1721835457~hmac=74ac8322db6216af0b70f730b5850e1a9d02211a5c24f409810f283e37fb94b5&w=740",
+    icon: "https://i.ibb.co/0Jr5KXK/Deev-CJA97p-JCLERj-Qi-ZT-transformed.jpg",
     category: "Marketing",
     slug: "product-description",
     aiPrompt:
