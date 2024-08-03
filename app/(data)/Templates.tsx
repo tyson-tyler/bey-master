@@ -3,7 +3,7 @@ export default [
     name: "Blog Title",
     desc: "An AI tool that generates blog titles based on your blog information.",
     category: "Blog",
-    icon: "https://i.ibb.co/mSjTJLb/ps-Sw-F8f-Tb-M4-UXc-MQck-YOL-transformed.jpg",
+    icon: "https://i.ibb.co/BBGGCX0/media-player-concept-illustration-114360-3331.jpg",
     aiPrompt:
       "Generate 5 blog topic ideas in bullet points based on the given niche and outline. The results should be in Rich Text Editor format.",
     slug: "generate-blog-title",
@@ -22,7 +22,7 @@ export default [
     name: "Blog Content",
     desc: "An AI tool that generates blog content based on the given topic and outline.",
     category: "Blog",
-    icon: "https://i.ibb.co/sJSF2Sx/B87-JLTyn-Iiamj2e-Hn-Zu-L2-transformed.jpg",
+    icon: "https://i.ibb.co/fXDX8Nn/load-more-concept-illustration-114360-3033.jpg",
     slug: "blog-content-generation",
     aiPrompt:
       "Generate detailed blog content based on the given topic and outline. The result should be in Rich Text Editor format.",
@@ -41,7 +41,7 @@ export default [
     name: "Blog Topic Ideas",
     desc: "An AI tool that generates catchy and viral-worthy blog topic ideas.",
     category: "Blog",
-    icon: "https://i.ibb.co/87gCn4N/Eeh-Khdqbgxt-T07-D-m-PN2z-transformed.jpg",
+    icon: "https://i.ibb.co/xmyMkRN/flat-autumn-illustration-23-2149115982.jpg",
     slug: "blog-topic-idea",
     aiPrompt:
       "Generate the top 5 blog topic ideas in bullet points based on the given niche. The results should be in Rich Text Editor format.",
