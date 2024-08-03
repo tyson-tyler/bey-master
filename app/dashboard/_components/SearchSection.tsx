@@ -41,7 +41,7 @@ const SearchSection = () => {
     <div className="relative ">
       {/* Galaxy Effect */}
       <div ref={galaxyRef} style={{ zIndex: -1 }}></div>
-      <div className="relative p-[20px] flex mb-4 mt-4 flex-col justify-center items-center min-h-[274px] rounded-md w-full bg-cover bg-center bg-fixed bg-[url('https://img.freepik.com/free-vector/gradient-geometric-shapes-dark-background_23-2148445831.jpg?t=st=1721835255~exp=1721838855~hmac=c510eda5c322abf271010a5d940d73d1f9744799ea0dd3105e7d91b0732ca97d&w=1060')]">
+      <div className="relative p-[20px] flex mb-4 mt-4 flex-col justify-center items-center min-h-[274px] rounded-md w-full bg-contain bg-left bg-fixed bg-[url('https://i.ibb.co/qCSXmf1/futuristic-web-tech-concept-wallpaper-with-human-head-design-1017-53534.jpg')]">
         <div className="absolute inset-0 bg-black opacity-50 blur-sm"></div>
         <div className="relative z-10 flex flex-col justify-center items-center text-center">
           <h1

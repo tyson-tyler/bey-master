@@ -172,7 +172,7 @@ export default [
   {
     name: "Instagram Post Generator",
     desc: "An AI tool that generates Instagram posts based on given keywords.",
-    icon: "https://i.ibb.co/J5VVx93/BCe9-Lz-Rnsys-NRq8-QTZo-V0-transformed-transformed.jpg",
+    icon: "https://i.ibb.co/v3SXF1L/illustration-with-person-addicted-social-media-design-23-2148415707.jpg",
     category: "Blog",
     slug: "instagram-post-generator",
     aiPrompt:
@@ -189,7 +189,7 @@ export default [
   {
     name: "Instagram Hash Tag Generator",
     desc: "An AI tool that generates Instagram hashtags based on given keywords.",
-    icon: "https://i.ibb.co/CQvdm7J/i-LOJmwu-O-a8teq-XJ7qm9-transformed.jpg",
+    icon: "https://i.ibb.co/jfHKNF5/person-addicted-social-media-23-2148414752.jpg",
     category: "Blog",
     slug: "instagram-hash-tag-generator",
     aiPrompt:
@@ -223,7 +223,7 @@ export default [
   {
     name: "English Grammar Check",
     desc: "An AI tool that corrects your English grammar by providing the text.",
-    icon: "https://i.ibb.co/BrvL7TN/El-uhe-PQ1g-SGO7ms7-I8-Lz-transformed.jpg",
+    icon: "https://i.ibb.co/Cv5pzkx/hand-drawn-flat-new-year-s-resolutions-illustration-23-2149193694.jpg",
     category: "English",
     slug: "english-grammar-checker",
     aiPrompt:
@@ -240,7 +240,7 @@ export default [
   {
     name: "Write Code",
     desc: "Generate programming code based on your description in any language.",
-    icon: "https://i.ibb.co/tMThYXh/TO3pj-Mfagqrw-Wz-KWPl-Ugi-transformed.jpg",
+    icon: "https://i.ibb.co/j5q0mmG/app-development-illustration-52683-47931.jpg",
     category: "Coding",
     slug: "write-code",
     aiPrompt:
@@ -257,7 +257,7 @@ export default [
   {
     name: "Explain Code",
     desc: "Get a detailed explanation of your programming code, broken down line by line.",
-    icon: "https://i.ibb.co/23n176J/jr-Lm0-Lvsnt-Njjipv-Jz-e-transformed.jpg",
+    icon: "https://i.ibb.co/gt1Pwyv/telecommuting-concept-23-2148490218.jpg",
     category: "Coding",
     slug: "explain-code",
     aiPrompt:
@@ -291,7 +291,7 @@ export default [
   {
     name: "Tagline Generator",
     desc: "Create compelling and memorable taglines for your brand or product.",
-    icon: "https://i.ibb.co/3NCpZkH/f-VTl-POh-Nymy0-ZAidinx-W-transformed.jpg",
+    icon: "https://i.ibb.co/hs4PHGM/cosmetics-product-realistic-composition-poster-1284-18215.jpg",
     category: "Marketing",
     slug: "tagline-generator",
     aiPrompt:
@@ -308,7 +308,7 @@ export default [
   {
     name: "Product Description",
     desc: "Craft captivating and SEO-optimized product descriptions for your e-commerce needs.",
-    icon: "https://i.ibb.co/0Jr5KXK/Deev-CJA97p-JCLERj-Qi-ZT-transformed.jpg",
+    icon: "https://i.ibb.co/F41xxfN/sale-banner-with-product-description-1361-1333.jpg",
     category: "Marketing",
     slug: "product-description",
     aiPrompt:
