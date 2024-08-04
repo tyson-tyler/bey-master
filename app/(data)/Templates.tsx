@@ -1,5 +1,160 @@
 export default [
   {
+    name: "Trending YouTube Titles",
+    desc: "An AI tool that generates optimized, high-ranked YouTube titles based on current trends.",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/9tG969r/bloggers-screen-collection-23-2148546455.jpg",
+    slug: "trending-youtube-titles",
+    aiPrompt:
+      "Generate 5 title ideas incorporating the latest trends related to the given keywords and outline. Provide in HTML tags format.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video topic keywords",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+
+  {
+    name: "Competitor Title Analysis",
+    desc: "An AI tool that analyzes popular videos on similar topics and suggests titles based on competitor strategies.",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/LJ5mK8j/video-upload-concept-illustration-114360-4358.jpg",
+    slug: "competitor-title-analysis",
+    aiPrompt:
+      "Analyze the top 5 titles from popular competitors in the given topic. Generate 5 new title ideas based on this analysis.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video topic keywords",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Emotion and Tone Customization",
+    desc: "An AI tool that allows users to specify the desired tone or emotion for the YouTube titles.",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/18gRmgg/online-christmas-celebration-23-2148782256.jpg",
+    slug: "emotion-tone-customization",
+    aiPrompt:
+      "Generate 5 title ideas with a [tone/emotion] that match the given keywords and outline. Provide in HTML tags format.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video topic keywords",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+      {
+        label: "Select the desired tone or emotion",
+        field: "select",
+        name: "tone",
+        options: ["exciting", "informative", "humorous"],
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Title Length Options",
+    desc: "An AI tool that provides YouTube title options based on different lengths (short, medium, long).",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/LkXbvyf/influencer-video-blogging-illustration-23-2148642924.jpg",
+    slug: "title-length-options",
+    aiPrompt:
+      "Generate 5 title ideas in [short/medium/long] format based on the given keywords and outline. Provide in HTML tags format.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video topic keywords",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+      {
+        label: "Select the desired title length",
+        field: "select",
+        name: "length",
+        options: ["short", "medium", "long"],
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Keyword Placement Customization",
+    desc: "An AI tool that allows users to specify keyword placement in the YouTube titles.",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/ckFwMFd/share-link-concept-illustration-114360-28001.jpg",
+    slug: "keyword-placement-customization",
+    aiPrompt:
+      "Generate 5 title ideas with the given keywords placed at [specific position] in the title. Provide in HTML tags format.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video topic keywords",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+      {
+        label: "Select keyword placement position",
+        field: "select",
+        name: "placement",
+        options: ["start", "middle", "end"],
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Title Variations",
+    desc: "An AI tool that provides variations of titles by slightly altering the keywords or phrasing.",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/Q6Z6Lkv/placeholder-concept-illustration-114360-8289.jpg",
+    slug: "title-variations",
+    aiPrompt:
+      "Generate 5 variations of titles based on the given keywords and outline. Provide in HTML tags format.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video topic keywords",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Custom SEO Tags",
+    desc: "An AI tool that suggests additional SEO tags and meta descriptions to complement the generated titles.",
+    category: "Youtube Tools",
+    icon: "https://i.ibb.co/H7hCKWn/seo-analytics-concept-illustration-114360-9862.jpg",
+    slug: "custom-seo-tags",
+    aiPrompt:
+      "Provide additional SEO tags and meta descriptions to complement the given title ideas.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your YouTube video title ideas",
+        field: "textarea",
+        name: "titles",
+        required: true,
+      },
+    ],
+  },
+  {
     name: "Blog Title",
     desc: "An AI tool that generates blog titles based on your blog information.",
     category: "Blog",

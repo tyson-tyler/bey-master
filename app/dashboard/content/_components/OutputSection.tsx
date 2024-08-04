@@ -10,15 +10,18 @@ interface Props {
   aiOutput: string;
   loading: boolean;
 }
+
 import Hello from "../../../../components/public/logo.svg";
 import Nice from "../../../../app/public/hello1.png";
 import LoadingScreen from "./ani";
 
 function OutputSection({ aiOutput, loading }: Props) {
-  const [currentOutput, setCurrentOutput] = useState("");
+  const [currentOutput, setCurrentOutput] = useState<string>("");
 
   useEffect(() => {
-    if (!loading && aiOutput) {
+    console.log("aiOutput:", aiOutput);
+
+    if (!loading && aiOutput && typeof aiOutput === "string") {
       let index = 0;
       setCurrentOutput("");
       const interval = setInterval(() => {
@@ -70,8 +73,10 @@ function OutputSection({ aiOutput, loading }: Props) {
     }
   };
 
+  const formattedContent = currentOutput; // No need to modify if it's already a string
+
   return (
-    <div className="bg-white rounded-md dark:bg-gray-950 h-screen dark:text-white  text-black">
+    <div className="bg-white rounded-md dark:bg-gray-950 h-screen dark:text-white text-black">
       <div className="bg-white dark:bg-gray-950 h-screen rounded-lg">
         {loading ? (
           <div className="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950">
@@ -88,10 +93,9 @@ function OutputSection({ aiOutput, loading }: Props) {
                 >
                   <Copy className="text-black dark:text-white w-4 h-4" />
                 </Button>
-                <textarea
-                  value={currentOutput}
-                  readOnly
-                  className="w-full hello h-screen p-4 bg-white dark:bg-gray-950 border-none focus:outline-none rounded-md dark:text-white text-black resize-none"
+                <div
+                  className="w-full h-screen p-4 bg-white dark:bg-gray-950 border-none rounded-md dark:text-white text-black overflow-auto custom-html-content"
+                  dangerouslySetInnerHTML={{ __html: formattedContent }}
                 />
               </>
             ) : (
@@ -104,7 +108,7 @@ function OutputSection({ aiOutput, loading }: Props) {
                   className="animate-bounce"
                 />
                 <h1 className="lg:text-2xl md:text-lg font-semibold sm:text-lg text-[14px]">
-                  Myaimix, is the Best Ai for Ai Content.
+                  Myaimix is the Best AI for AI Content.
                 </h1>
                 <p className="text-sm text-gray-600">
                   Myaimix can make mistakes sometimes. Please give AI some time.

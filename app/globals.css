@@ -541,21 +541,60 @@ canvas {
     animation-delay: 1s;
   }
 }
-@media print {
-  #no-print {
-    display: none;
-  }
-  #print-area {
-    display: block;
-    margin-left: 0px;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-  }
+/* Custom CSS for content inside OutputSection */
+.custom-html-content h1 {
+  font-size: 2rem;
+  color: #2d3748; /* Darker text color for headings */
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
-@page {
-  size: auto;
-  margin: 0mm;
+
+.custom-html-content h2 {
+  font-size: 1.5rem;
+  color: #4a5568; /* Medium-dark color for subheadings */
+  font-weight: semi-bold;
+  margin-bottom: 0.75rem;
+}
+
+.custom-html-content p {
+  font-size: 1rem;
+  /* Darker text color for paragraphs */
+  margin-bottom: 1rem;
+}
+
+.custom-html-content i {
+  font-style: italic;
+}
+
+.custom-html-content b {
+  font-weight: bold;
+}
+
+.custom-html-content u {
+  text-decoration: underline;
+}
+/* Custom CSS for content inside OutputSection */
+.custom-html-content {
+  padding: 1rem; /* Add padding around the content */
+}
+
+.custom-html-content h1,
+.custom-html-content h2,
+.custom-html-content h3,
+.custom-html-content h4,
+.custom-html-content h5,
+.custom-html-content h6 {
+  margin-left: 1rem; /* Indent headings */
+}
+
+.custom-html-content p {
+  margin-left: 1rem; /* Indent paragraphs */
+  text-indent: 1rem; /* Optional: Indent the first line of paragraphs */
+}
+
+.custom-html-content blockquote {
+  margin-left: 2rem; /* Indent blockquotes */
+  padding-left: 1rem;
+  border-left: 2px solid #ddd; /* Optional: Add a border for blockquotes */
+  font-style: italic; /* Optional: Style for blockquotes */
 }
