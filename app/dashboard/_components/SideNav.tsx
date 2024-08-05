@@ -10,6 +10,7 @@ import Image from "next/image";
 import Hello from "../../../components/public/logo.svg";
 import { UserButton, useUser } from "@clerk/nextjs";
 import styles from "../_components/sidebar.module.css";
+import { IoShareSocialSharp } from "react-icons/io5";
 
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaGear, FaImage } from "react-icons/fa6";
@@ -36,13 +37,14 @@ const Sidebar = () => {
       colorClass: "bg-green-600",
       animationClass: styles.animateSpin, // Ensure correct class name from CSS module
     },
-    // {
-    //   href: "/dashboard/rusme",
-    //   label: "Resume",
-    //   icon: <FaWpforms className="inline-block lg:mr-3" />,
-    //   colorClass: "bg-pink-600",
-    //   animationClass: styles.animateShake,
-    // },
+
+    {
+      href: "/dashboard/rusme",
+      label: "Social Media",
+      icon: <IoShareSocialSharp className="inline-block lg:mr-3" />,
+      colorClass: "bg-pink-600",
+      animationClass: styles.animateShake,
+    },
     {
       href: "/dashboard/billing",
       label: "Billing",

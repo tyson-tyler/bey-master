@@ -148,7 +148,7 @@ export default [
     form: [
       {
         label: "Enter your YouTube video title ideas",
-        field: "textarea",
+        field: "input",
         name: "titles",
         required: true,
       },
