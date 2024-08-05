@@ -18,6 +18,25 @@ export default [
       },
     ],
   },
+  {
+    name: "LinkedIn Post Topic",
+    desc: "An AI tool that generates optimized, high-ranked Linked in post generation.",
+    category: "LinkedIn Post",
+    icon: "https://i.ibb.co/JkKD8k0/business-waiting-room-concept-illustration-114360-17596.jpg",
+    slug: "LinkedIn-post-topic",
+    aiPrompt:
+      "Generate the top 5 LinkedIn post topic ideas in bullet points based on the given niche: [Your Niche]. The results should be in Rich Text Editor format.",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your Something about your post",
+        field: "input",
+        name: "keywords",
+        required: true,
+      },
+    ],
+  },
 
   {
     name: "Competitor Title Analysis",

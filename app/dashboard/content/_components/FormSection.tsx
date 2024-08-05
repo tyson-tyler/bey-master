@@ -45,14 +45,14 @@ const FormSection = ({ selectedTemplate, userFormInput, loading }: PROPS) => {
                       name={item.field}
                       required={item?.required}
                       onChange={handleInputChange}
-                      placeholder="Enter the niche of your blog"
+                      placeholder={selectedTemplate.slug}
                     />
                   </div>
                 ) : item.field === "textarea" ? (
                   <div className="mt-2 hidden">
                     <Textarea
                       className="dark:bg-gray-900 bg-white border border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring focus:ring-blue-200 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-black w-full p-2 rounded-md shadow-sm transition-all duration-200"
-                      rows={6}
+                      rows={5}
                       name={item.field}
                       required={item?.required}
                       onChange={handleInputChange}
