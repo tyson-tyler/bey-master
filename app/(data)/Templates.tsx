@@ -154,6 +154,7 @@ export default [
       },
     ],
   },
+
   {
     name: "Custom SEO Tags",
     desc: "An AI tool that suggests additional SEO tags and meta descriptions to complement the generated titles.",
@@ -167,6 +168,24 @@ export default [
     form: [
       {
         label: "Enter your YouTube video title ideas",
+        field: "input",
+        name: "titles",
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "Reddit and Subreddit Generation",
+    desc: "An AI tool that suggests make Reddit and Subbreddit Generation",
+    category: "Reddit and SubReddit",
+    icon: "https://i.ibb.co/bFQV6vG/sharing-content-social-media-with-woman-smartphone-23-2148519560.jpg",
+    slug: "reddit-subreddit",
+    aiPrompt: "Make reddit post and subbreddit post",
+    image: "",
+    vist: "0",
+    form: [
+      {
+        label: "Enter your Reddit and SubReddit",
         field: "input",
         name: "titles",
         required: true,
