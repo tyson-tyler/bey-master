@@ -77,7 +77,7 @@ const Hero = () => {
         </div>
       </div>
       <LogoScroll />
-      <StarAnimation />
+      {/* <StarAnimation /> */}
     </section>
   );
 };

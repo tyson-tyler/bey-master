@@ -1,5 +1,3 @@
-import AddDocumentBtn from "@/components/ui/AddDocumentBtn";
-
 import { getDocuments } from "@/lib/actions/room.action";
 import { dateConverter } from "@/lib/utils";
 import { currentUser } from "@clerk/nextjs/server";
@@ -8,9 +6,12 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import Hello from "../../public/Vector.svg";
 
+import dynamic from "next/dynamic";
 import { DeleteModal } from "@/components/ShareModal/DeleteModal";
-import Notifications from "@/components/ShareModal/Notfication";
-import Topbar from "@/components/ShareModal/Top";
+// Dynamically import components
+const AddDocumentBtn = dynamic(() => import("@/components/ui/AddDocumentBtn"));
+
+const Topbar = dynamic(() => import("@/components/ShareModal/Top"));
 
 const Home = async () => {
   const clerkUser = await currentUser();
