@@ -12,7 +12,7 @@ import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaGear, FaWpforms } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader"; // Import your loader component
-import { IoShareSocialSharp } from "react-icons/io5";
+import { IoDocument, IoShareSocialSharp } from "react-icons/io5";
 
 const Sidebar1 = () => {
   const pathname = usePathname();
@@ -37,10 +37,9 @@ const Sidebar1 = () => {
       animationClass: styles.animatePulse, // Ensure correct class name from CSS module
     },
     {
-      href: "/dashboard/rusme",
-      label: "Social Media",
-      icon: <IoShareSocialSharp className="inline-block lg:mr-3" />,
-
+      href: "/dashboard/document",
+      label: "Document Builder",
+      icon: <IoDocument className="inline-block lg:mr-3" />,
       colorClass: "bg-pink-600",
       animationClass: styles.animateShake,
     },
