@@ -76,7 +76,7 @@ function OutputSection({ aiOutput, loading }: Props) {
   const formattedContent = currentOutput; // No need to modify if it's already a string
 
   return (
-    <div className="bg-white rounded-md dark:bg-gray-950 h-screen dark:text-white text-black">
+    <div className="bg-white rounded-md dark:bg-gray-950 h-[100vh] dark:text-white text-black">
       <div className="bg-white dark:bg-gray-950 h-screen rounded-lg">
         {loading ? (
           <div className="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950">

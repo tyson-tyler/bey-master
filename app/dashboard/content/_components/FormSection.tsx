@@ -65,7 +65,7 @@ const FormSection = ({ selectedTemplate, userFormInput, loading }: PROPS) => {
 
             <Button
               type="submit"
-              className="mr-4 flex items-center justify-center w-[50px] h-[40px] p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 transition-all duration-200"
+              className="mr-4 ml-4 flex items-center justify-center w-[50px] h-[40px] p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 transition-all duration-200"
               disabled={loading}
             >
               {loading ? (

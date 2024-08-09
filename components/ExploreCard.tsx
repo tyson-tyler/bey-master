@@ -23,7 +23,7 @@ const ExploreCard = ({
     transition={{ duration: 0.5, ease: "easeInOut" }}
     className={`relative ${
       active === id ? "lg:flex-[3.5] flex-[10] lg" : "lg:flex-[0.5] flex-[2]"
-    } flex items-center justify-center min-w-[170px] h-[600px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
+    } flex items-center justify-center min-w-[170px] h-[600px] transition-[flex]  ease-out-flex cursor-pointer`}
     onClick={() => handleClick(id)}
   >
     <Image

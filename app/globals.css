@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../app/styles/dark-theme.css";
+@import "@liveblocks/react-ui/styles.css";
+@import "@liveblocks/react-lexical/styles.css";
+
+.toolbar {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.lb-composer-form {
+  @apply bg-gray-900 border-none;
+}
+.border {
+  @apply border-none;
+}
+.lb-comment {
+  @apply bg-gray-900 text-white border-none;
+}
+.document-list-container {
+  @apply flex flex-col items-center mb-10 w-full gap-10 px-5;
+}
+.document-list-title {
+  @apply w-full items-center flex justify-between;
+}
+.document-ul {
+  @apply flex w-full flex-col gap-5;
+}
+.document-list-item {
+  @apply flex items-center justify-between gap-4 rounded-lg  bg-cover p-5 shadow-xl;
+}
+
+.document-list-item {
+  @apply flex items-center justify-between w-full gap-4 rounded-lg  bg-cover p-5 shadow-xl;
+}
 @layer base {
   :root {
     --background: 0 0% 98%;

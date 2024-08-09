@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { GoSearch } from "react-icons/go";
 import Hello from "../components/public/logo.svg";
+
 import { ModeToggle } from "./Toogle";
 // Replace with your logo path
 
