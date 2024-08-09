@@ -31,7 +31,7 @@ const Notifications = () => {
       <PopoverTrigger className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-800 transition duration-300 ease-in-out transform hover:scale-110">
         <BsFillBellFill className="dark:text-white text-black w-5 h-5" />
         {count > 0 && (
-          <div className="absolute right-1 top-1 z-20 h-4 w-4 rounded-full bg-red-500 flex items-center justify-center">
+          <div className="absolute right-1 border-none top-1 z-20 h-4 w-4 rounded-full bg-red-500 flex items-center justify-center">
             <div className="absolute h-full w-full rounded-full bg-red-500 opacity-75 animate-ping"></div>
             <div className="absolute h-full w-full rounded-full bg-red-500 opacity-100 animate-fadeOut"></div>
           </div>
@@ -39,7 +39,7 @@ const Notifications = () => {
       </PopoverTrigger>
       <PopoverContent
         align="end"
-        className="w-[460px] border-none bg-white dark:bg-gray-900 p-4 shadow-lg transition-all duration-300 ease-in-out transform origin-top-right"
+        className="w-[460px] border-gray-900 bg-white dark:bg-gray-900 p-4 shadow-lg transition-all duration-300 ease-in-out transform origin-top-right"
       >
         <LiveblocksUIConfig
           overrides={{
