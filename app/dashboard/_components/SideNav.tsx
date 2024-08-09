@@ -40,7 +40,7 @@ const Sidebar = () => {
 
     {
       href: "/dashboard/document",
-      label: "Document Builder",
+      label: "Document",
       icon: <IoDocument className="inline-block lg:mr-3" />,
       colorClass: "bg-pink-600",
       animationClass: styles.animateShake,
