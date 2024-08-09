@@ -55,12 +55,12 @@ const ShareModal = ({
             alt="hello"
             className="min-w-4 md:size-5 mr-0 sm:mr-2"
           />
-          <p className="hidden sm:block">Share</p>
+          <p className="hidden sm:block">Invite</p>
         </Button>
       </DialogTrigger>
       <DialogContent className="bg-gray-800 text-white">
         <DialogHeader>
-          <DialogTitle>Share who can Edit & View this Document</DialogTitle>
+          <DialogTitle>Invite who can Edit & View this Document</DialogTitle>
           <DialogDescription>
             Choose who can write something and view the document.
           </DialogDescription>

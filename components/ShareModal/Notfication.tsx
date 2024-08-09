@@ -17,6 +17,7 @@ import {
 } from "@liveblocks/react/suspense";
 import Image from "next/image";
 import { ReactNode } from "react";
+import { Divide } from "lucide-react";
 
 const Notifications = () => {
   const { inboxNotifications } = useInboxNotifications();
@@ -50,9 +51,18 @@ const Notifications = () => {
         >
           <InboxNotificationList>
             {unreadNotifications.length <= 0 && (
-              <p className="py-2 text-center text-gray-700 dark:text-gray-300">
-                No new notifications
-              </p>
+              <div className="flex flex-col gap-3 justify-center">
+                <Image
+                  src="https://i.ibb.co/n3q9vgJ/telework-concept-illustration-114360-5389-removebg-preview.png"
+                  width={270}
+                  height={150}
+                  alt="hello"
+                  className="justify-center flex items-center mx-auto"
+                />
+                <p className="py-2 text-center text-gray-700 dark:text-gray-300">
+                  No new notifications
+                </p>
+              </div>
             )}
 
             {unreadNotifications.length > 0 &&

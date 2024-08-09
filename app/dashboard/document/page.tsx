@@ -66,18 +66,29 @@ const Home = async () => {
         </div>
       ) : (
         <div className="document-list-empty">
-          <Image
-            src="/assets/icons/doc.svg"
-            alt="Document"
-            width={40}
-            height={40}
-            className="mx-auto"
-          />
+          <div className="document-list-title items-center flex justify-center px-4">
+            <h3 className="font-bold lg:text-2xl md:text-lg sm:text-lg text-sm py-5 px-5 dark:text-white text-black">
+              All documents
+            </h3>
+            <AddDocumentBtn
+              userId={clerkUser.id}
+              email={clerkUser.emailAddresses[0].emailAddress}
+            />
+          </div>
+          <div className="flex justify-center h-[100%] my-auto items-center mx-auto flex-col">
+            <Image
+              src="https://i.ibb.co/rdsNfyf/duplicate-concept-illustration-114360-4010-removebg-preview.png"
+              alt="Document"
+              width={340}
+              height={340}
+              className="mx-auto"
+            />
 
-          <AddDocumentBtn
-            userId={clerkUser.id}
-            email={clerkUser.emailAddresses[0].emailAddress}
-          />
+            <AddDocumentBtn
+              userId={clerkUser.id}
+              email={clerkUser.emailAddresses[0].emailAddress}
+            />
+          </div>
         </div>
       )}
     </main>
