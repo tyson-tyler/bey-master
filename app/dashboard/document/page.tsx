@@ -52,7 +52,7 @@ const Home = async () => {
                     <p className="text-lg font-semibold dark:text-white text-black truncate">
                       {metadata.title}
                     </p>
-                    <p className="text-sm font-light text-gray-400">
+                    <p className="text-sm font-light text-gray-500">
                       Created {dateConverter(createdAt)}
                     </p>
                   </div>
