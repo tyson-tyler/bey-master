@@ -124,6 +124,7 @@
 .lb-inbox-notification-list-item {
   border: none;
 }
+/* global.css or styles.module.css */
 
 .animate-gradient {
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #61a1ff);
