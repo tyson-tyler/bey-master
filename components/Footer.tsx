@@ -12,6 +12,7 @@ import { FaGear, FaVideo } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader";
 import { IoDocument } from "react-icons/io5";
+import { IoLogoFreebsdDevil } from "react-icons/io";
 
 const Sidebar1 = () => {
   const pathname = usePathname();
@@ -49,6 +50,15 @@ const Sidebar1 = () => {
       colorClass: "bg-red-500",
       animationClass: styles.animateSlideInLeft,
     },
+
+    {
+      href: "/dashboard/logo",
+      label: "Logo Builder",
+      icon: <IoLogoFreebsdDevil />,
+      colorClass: "bg-purple-500",
+      animationClass: styles.animateFlash,
+    },
+
     {
       href: "/dashboard/billing",
       label: "Billing",

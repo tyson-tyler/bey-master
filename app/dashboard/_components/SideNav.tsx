@@ -16,6 +16,7 @@ import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaGear, FaImage } from "react-icons/fa6";
 import Loader from "@/components/Loader"; // Import your loader component
 import { RiImageCircleFill } from "react-icons/ri";
+import { IoLogoFreebsdDevil } from "react-icons/io";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -53,12 +54,20 @@ const Sidebar = () => {
       animationClass: styles.animateSlideInLeft,
     },
     {
+      href: "/dashboard/logo",
+      label: "Logo Builder",
+      icon: <IoLogoFreebsdDevil />,
+      colorClass: "bg-purple-500",
+      animationClass: styles.animateFlash,
+    },
+    {
       href: "/dashboard/billing",
       label: "Billing",
       icon: <MdOutlineAttachMoney className="inline-block lg:mr-3" />,
       colorClass: "bg-yellow-600",
       animationClass: styles.animatePing, // Ensure correct class name from CSS module
     },
+
     {
       href: `/dashboard/setting/${user?.id}`,
       label: "Setting",
