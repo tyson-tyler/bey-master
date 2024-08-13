@@ -52,7 +52,7 @@ const Notifications = () => {
       <PopoverContent
         ref={popoverRef}
         align="end"
-        className="w-[360px] md:w-[460px] border-gray-900 bg-white dark:bg-gray-900 p-4 shadow-lg rounded-lg transition-transform duration-300 ease-in-out transform origin-top-right"
+        className="w-[360px] flex-wrap font-bold md:w-[460px] border-gray-900 bg-white dark:bg-gray-950 p-4 text-sm shadow-lg rounded-lg transition-transform duration-300 ease-in-out transform origin-top-right"
       >
         <LiveblocksUIConfig
           overrides={{
@@ -65,11 +65,11 @@ const Notifications = () => {
             {unreadNotifications.length <= 0 && (
               <div className="flex flex-col gap-3 justify-center">
                 <Image
-                  src="https://i.ibb.co/n3q9vgJ/telework-concept-illustration-114360-5389-removebg-preview.png"
+                  src="https://i.ibb.co/FVcPnxf/download-2.png"
                   width={270}
                   height={150}
                   alt="No notifications"
-                  className="justify-center flex items-center mx-auto"
+                  className="justify-center flex items-center mx-auto w-16 h-16 md:h-20 md:w-20 object-cover"
                 />
                 <p className="py-2 text-center text-gray-700 dark:text-gray-300">
                   No new notifications
@@ -81,7 +81,7 @@ const Notifications = () => {
                 <InboxNotification
                   key={notification.id}
                   inboxNotification={notification}
-                  className="bg-gray-100 w-full border-none dark:text-white dark:bg-gray-800 text-black rounded-lg p-3 mb-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out"
+                  className="bg-gray-100 w-full border-none dark:text-white dark:bg-gray-900 text-black rounded-lg p-3 mb-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out"
                   href={`/documents/${notification.roomId}`}
                   showActions={false}
                   kinds={{

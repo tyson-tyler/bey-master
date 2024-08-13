@@ -121,6 +121,9 @@
 #hew {
   border-radius: 4%;
 }
+.lb-inbox-notification-list-item {
+  border: none;
+}
 
 .animate-gradient {
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #61a1ff);
