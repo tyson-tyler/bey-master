@@ -26,7 +26,7 @@ const Topbar = () => {
   return (
     <div
       id="no-print"
-      className="p-1 sticky top-0 w-full z-50 md:p-3 flex shadow-sm  items-center bg-gray-100 dark:bg-gray-900 dark:text-white text-black  justify-between"
+      className="p-1 sticky top-0 w-full z-50 md:p-3 flex shadow-sm  items-center bg-gray-100 dark:bg-gray-950 dark:text-white text-black  justify-between"
     >
       <div className="text-2xl font-bold  flex items-center">
         <Link href="/">

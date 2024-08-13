@@ -79,7 +79,7 @@ const Notifications = () => {
         <PopoverContent
           ref={popoverRef}
           align="end"
-          className="w-[360px] flex-wrap font-bold md:w-[460px] border-gray-900 bg-white dark:bg-gray-950 p-4 text-sm shadow-lg rounded-lg transition-transform duration-300 ease-in-out transform origin-top-right"
+          className="w-[360px] flex-wrap font-bold md:w-[460px] border-gray-900 bg-white dark:bg-gray-800 p-4 text-sm shadow-lg rounded-lg transition-transform duration-300 ease-in-out transform origin-top-right"
         >
           <LiveblocksUIConfig>
             <InboxNotificationList>
