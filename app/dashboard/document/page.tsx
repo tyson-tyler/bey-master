@@ -23,7 +23,7 @@ const Loading = () => (
 const DocumentList = ({ roomDocuments, clerkUser }: any) => (
   <div className="document-list-container">
     <div className="document-list-title items-center flex justify-center">
-      <h3 className="font-bold lg:text-2xl md:text-lg sm:text-lg text-sm py-5 px-5 dark:text-white text-black">
+      <h3 className="font-bold lg:text-2xl md:text-2xl sm:text-2xl text-2xl py-5 px-5 dark:text-white text-black">
         All documents
       </h3>
       <AddDocumentBtn
