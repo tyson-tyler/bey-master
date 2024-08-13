@@ -12,7 +12,6 @@ import { updateDocument } from "@/lib/actions/room.action";
 import Loader from "./Loader";
 import Hello from "../components/public/he.svg";
 import ShareModal from "./ShareModal/Share";
-import Ai from "./ui/Ai";
 
 const CollaborativeRoom = ({
   roomId,
@@ -125,7 +124,6 @@ const CollaborativeRoom = ({
                 creatorId={roomMetadata.creatorId}
                 currentUserType={currentUserType}
               />
-              <Ai />
 
               <SignedOut>
                 <SignInButton />
