@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import Hello from "../../app/assets/Delete.svg";
+import { Loader } from "lucide-react";
 
 export const DeleteModal = ({ roomId }: DeleteModalProps) => {
   const [open, setOpen] = useState(false);
@@ -48,7 +49,7 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
           />
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-gray-800 text-white">
+      <DialogContent className="dark:bg-gray-800 dark:text-white text-black bg-gray-50">
         <DialogHeader>
           <Image
             src={Hello}
@@ -74,7 +75,14 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
             onClick={deleteDocumentHandler}
             className="gradient-red w-full"
           >
-            {loading ? "Deleting..." : "Delete"}
+            {loading ? (
+              <div className="flex gap-2">
+                <Loader className="w-5 h-5 animate-spin" />
+                Deleting...
+              </div>
+            ) : (
+              "Delete"
+            )}
           </Button>
         </DialogFooter>
       </DialogContent>
