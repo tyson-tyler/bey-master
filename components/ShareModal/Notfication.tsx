@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import {
   Popover,
   PopoverContent,
@@ -17,11 +19,20 @@ import {
 } from "@liveblocks/react/suspense";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { Divide } from "lucide-react";
 
 const Notifications = () => {
   const { inboxNotifications } = useInboxNotifications();
   const { count } = useUnreadInboxNotificationsCount();
+  const popoverRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // GSAP animation for PopoverContent
+    gsap.fromTo(
+      popoverRef.current,
+      { opacity: 0, y: -20 },
+      { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
+    );
+  }, []);
 
   const unreadNotifications = inboxNotifications.filter(
     (notification) => !notification.readAt
@@ -29,18 +40,19 @@ const Notifications = () => {
 
   return (
     <Popover>
-      <PopoverTrigger className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-800 transition duration-300 ease-in-out transform hover:scale-110">
-        <BsFillBellFill className="dark:text-white text-black w-5 h-5" />
+      <PopoverTrigger className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-110">
+        <BsFillBellFill className="dark:text-white text-black w-6 h-6" />
         {count > 0 && (
-          <div className="absolute right-1 border-none top-1 z-20 h-4 w-4 rounded-full bg-red-500 flex items-center justify-center">
+          <div className="absolute top-0 right-0 translate-x-1 translate-y-1 flex items-center justify-center h-5 w-5 rounded-full bg-red-500">
             <div className="absolute h-full w-full rounded-full bg-red-500 opacity-75 animate-ping"></div>
-            <div className="absolute h-full w-full rounded-full bg-red-500 opacity-100 animate-fadeOut"></div>
+            <div className="absolute h-full w-full rounded-full bg-red-500 opacity-100"></div>
           </div>
         )}
       </PopoverTrigger>
       <PopoverContent
+        ref={popoverRef}
         align="end"
-        className="w-[460px] border-gray-900 bg-white dark:bg-gray-900 p-4 shadow-lg transition-all duration-300 ease-in-out transform origin-top-right"
+        className="w-[360px] md:w-[460px] border-gray-900 bg-white dark:bg-gray-900 p-4 shadow-lg rounded-lg transition-transform duration-300 ease-in-out transform origin-top-right"
       >
         <LiveblocksUIConfig
           overrides={{
@@ -56,7 +68,7 @@ const Notifications = () => {
                   src="https://i.ibb.co/n3q9vgJ/telework-concept-illustration-114360-5389-removebg-preview.png"
                   width={270}
                   height={150}
-                  alt="hello"
+                  alt="No notifications"
                   className="justify-center flex items-center mx-auto"
                 />
                 <p className="py-2 text-center text-gray-700 dark:text-gray-300">
@@ -64,13 +76,12 @@ const Notifications = () => {
                 </p>
               </div>
             )}
-
             {unreadNotifications.length > 0 &&
               unreadNotifications.map((notification) => (
                 <InboxNotification
                   key={notification.id}
                   inboxNotification={notification}
-                  className=" bg-gray-100 w-full border-none dark:text-white dark:bg-gray-900 text-black rounded-lg p-3 mb-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out"
+                  className="bg-gray-100 w-full border-none dark:text-white dark:bg-gray-800 text-black rounded-lg p-3 mb-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out"
                   href={`/documents/${notification.roomId}`}
                   showActions={false}
                   kinds={{

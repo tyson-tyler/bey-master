@@ -31,7 +31,7 @@ const DocumentList = ({ roomDocuments, clerkUser }: any) => (
         email={clerkUser.emailAddresses[0].emailAddress}
       />
     </div>
-    <ul className="grid-container w-full gap-6 mb-40 p-5 md:mb-4">
+    <ul className="grid-container w-full gap-6 mb-12 p-5 md:mb-4">
       {roomDocuments.data.map(({ id, metadata, createdAt }: any) => (
         <li
           key={id}
