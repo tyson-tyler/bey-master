@@ -1,5 +1,4 @@
-"use client";
-
+// Updated Notifications component
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import {
@@ -29,7 +28,6 @@ const Notifications = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // GSAP animation for PopoverContent
     gsap.fromTo(
       popoverRef.current,
       { opacity: 0, y: -20 },
@@ -38,13 +36,12 @@ const Notifications = () => {
   }, []);
 
   useEffect(() => {
-    // Update isPopoverVisible based on screen width
     const handleResize = () => {
       setIsPopoverVisible(window.innerWidth >= 768); // 768px for md screens
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -66,7 +63,9 @@ const Notifications = () => {
     <Popover>
       <PopoverTrigger
         className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-110"
-        onClick={() => !isPopoverVisible && router.push("/notifications")}
+        onClick={() =>
+          !isPopoverVisible && router.push("/dashboard/notifications")
+        }
       >
         <BsFillBellFill className="dark:text-white text-black w-6 h-6" />
         {count > 0 && (
@@ -82,13 +81,7 @@ const Notifications = () => {
           align="end"
           className="w-[360px] flex-wrap font-bold md:w-[460px] border-gray-900 bg-white dark:bg-gray-950 p-4 text-sm shadow-lg rounded-lg transition-transform duration-300 ease-in-out transform origin-top-right"
         >
-          <LiveblocksUIConfig
-            overrides={{
-              INBOX_NOTIFICATION_TEXT_MENTION: (user: ReactNode) => (
-                <>{user} mentioned you.</>
-              ),
-            }}
-          >
+          <LiveblocksUIConfig>
             <InboxNotificationList>
               {unreadNotifications.length <= 0 && (
                 <div className="flex flex-col gap-3 justify-center">
@@ -97,7 +90,7 @@ const Notifications = () => {
                     width={270}
                     height={150}
                     alt="No notifications"
-                    className="justify-center flex items-center mx-auto w-16 h-16 md:h-[10rem] md:w-[10rem] object-cover"
+                    className="justify-center flex items-center mx-auto w-16 h-16 md:h-[10rem] md:w-20 object-cover"
                   />
                   <p className="py-2 text-center text-gray-700 dark:text-gray-300">
                     No new notifications
@@ -109,7 +102,7 @@ const Notifications = () => {
                   <InboxNotification
                     key={notification.id}
                     inboxNotification={notification}
-                    className="bg-gray-100 w-full border-none dark:text-white dark:bg-sky-950 text-black rounded-lg p-3 mb-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out"
+                    className="bg-gray-100 w-full border-none dark:text-white dark:bg-gray-900 text-black rounded-lg p-3 mb-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300 ease-in-out"
                     href={`/documents/${notification.roomId}`}
                     showActions={false}
                     kinds={{
