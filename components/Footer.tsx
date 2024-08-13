@@ -56,13 +56,6 @@ const Sidebar1 = () => {
       colorClass: "bg-green-600",
       animationClass: styles.animateSpin,
     },
-    {
-      href: `/dashboard/setting/${user?.id}`,
-      label: "Setting",
-      icon: <FaGear />,
-      colorClass: "bg-yellow-600",
-      animationClass: styles.animatePing,
-    },
   ];
 
   const handleLinkClick = (href: string, index: number) => {
