@@ -2,9 +2,9 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome, FaAppStore, FaUser } from "react-icons/fa";
-import { FaWpforms } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 
+import { FaVideo } from "react-icons/fa";
 import { useState } from "react";
 import Image from "next/image";
 import Hello from "../../../components/public/logo.svg";
@@ -44,6 +44,13 @@ const Sidebar = () => {
       icon: <IoDocument className="inline-block lg:mr-3" />,
       colorClass: "bg-pink-600",
       animationClass: styles.animateShake,
+    },
+    {
+      href: "/dashboard/videourl",
+      label: "Ai Video",
+      icon: <FaVideo className="inline-block lg:mr-3" />,
+      colorClass: "bg-red-500",
+      animationClass: styles.animateSlideInLeft,
     },
     {
       href: "/dashboard/billing",
@@ -97,12 +104,8 @@ const Sidebar = () => {
             <div
               onClick={() => handleLinkClick(link.href)}
               className={`flex items-center lg:py-2 lg:px-4 p-3 mb-3 rounded-lg duration-300 hover:scale-105 transition ${
-                pathname === link.href
-                  ? `md:rounded-full lg:rounded-md ${link.colorClass}`
-                  : ""
-              } ${
-                activeLink === link.href
-                  ? `md:rounded-full lg:rounded-md ${link.colorClass} ${styles.activeLink}`
+                pathname === link.href || activeLink === link.href
+                  ? `md:rounded-full lg:rounded-md ${link.colorClass} text-white ${styles.activeLink}`
                   : ""
               }`}
             >

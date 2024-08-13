@@ -115,6 +115,12 @@
     background-position: 0% 50%;
   }
 }
+.toolbar {
+  flex-wrap: wrap;
+}
+#hew {
+  border-radius: 4%;
+}
 
 .animate-gradient {
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #61a1ff);

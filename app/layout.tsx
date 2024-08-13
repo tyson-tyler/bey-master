@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
-import {
-  Inter as FontSans,
-  Roboto,
-  Open_Sans,
-  Lato,
-  Montserrat,
-  Poppins,
-  Merriweather,
-  Playfair_Display,
-  Raleway,
-} from "next/font/google";
+import { Inter as FontSans, Playfair_Display, Raleway } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-
 import { cn } from "@/lib/utils";
+
 import Provider from "./Provider";
+// Import the QueryProvider
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -54,7 +44,6 @@ export default function RootLayout({
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable,
-
             fontPlayfairDisplay.variable,
             fontRaleway.variable
           )}
