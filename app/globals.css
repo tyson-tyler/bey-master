@@ -124,7 +124,73 @@
 .lb-inbox-notification-list-item {
   border: none;
 }
+
 /* global.css or styles.module.css */
+
+.bar {
+  background: linear-gradient(
+    90deg,
+    #ff1493,
+    /* Bright Yellow */ #ffd700,
+    /* Light Yellow */ #0000ff,
+    /* Pink */ #8134af,
+    /* Purple */ #7b68ee,
+    /* Bright Yellow */ #00ff00 /* Light Yellow */ #a52a2a,
+    /* Bright Yellow */ #c0c0c0,
+    /* Light Yellow */ #a21acb,
+    /* Pink */ #33c5db,
+    /* Purple */ #f09f2d,
+    /* Bright Yellow */ #00ff4c /* Light Yellow */
+  ); /* Instagram-like gradient with additional colors */
+  background-size: 400% 100%; /* Stretch gradient */
+  border-radius: 2px;
+  height: 100%;
+  position: relative;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out; /* Smooth transition */
+  animation: gradientShift 3s linear infinite; /* Gradient animation */
+}
+
+.bar.animated {
+  transform: scaleX(1);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-icon {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #f58529; /* Highlight color */
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite; /* Spinning animation */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .animate-gradient {
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #61a1ff);
