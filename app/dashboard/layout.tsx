@@ -8,6 +8,7 @@ import Sidebar from "@/components/Footer";
 import Topbar from "@/components/Topbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "react-hot-toast";
+import { UpdateStrogeContext } from "../constants/UpdateStrageContext";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,20 +33,22 @@ export default function RootLayout({
       disableTransitionOnChange
     >
       <NextTopLoader
-        color="#F58529" // Initial color for the bar
         initialPosition={0.08}
         crawlSpeed={200}
-        height={4} // Increased height for visibility
+        height={3}
         crawl={true}
-        easing="ease-in-out" // Smooth easing
-        speed={300} // Increased speed for dynamic effect
-        shadow="0 0 15px rgba(245, 133, 41, 0.6), 0 0 5px rgba(245, 133, 41, 0.4)" // Soft shadow
-        template={`<div class="bar" role="bar">
-         <div class="peg"></div>
-       </div>
-       <div class="spinner" role="spinner">
-         <div class="spinner-icon"></div>
-       </div>`}
+        showSpinner={true}
+        easing="ease"
+        speed={200}
+        shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+        template={`
+    <div class="bar" role="bar" style="background: linear-gradient(to right, #ff7e5f, #feb47b); transform: translateY(0); transition: transform 0.3s ease;">
+      <div class="peg" style="box-shadow: 0 0 10px #ff7e5f, 0 0 5px #feb47b;"></div>
+    </div> 
+    <div class="spinner" role="spinner">
+      <div class="spinner-icon"></div>
+    </div>
+  `}
         zIndex={1600}
         showAtBottom={false}
       />
