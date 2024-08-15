@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ColorPickerController from "./ColorPickerController";
 import { UpdateStrogeContext } from "@/app/constants/UpdateStrageContext";
 import IconList from "./IconList";
+import BackgroundController from "./BackgroundController";
 
 const IconController = () => {
   const storageValue = JSON.parse(localStorage.getItem("value") || "{}");
@@ -48,22 +49,12 @@ const IconController = () => {
             onValueChange={(event) => setSize(event[0])}
           />
         </div>
-        <div className="py-2">
-          <label className="p-2 flex justify-between items-center">
-            Rotate <span>{rotate} &deg; </span>
-          </label>
-          <Slider
-            className="dark:bg-gray-700 bg-gray-50"
-            defaultValue={[0]}
-            max={360}
-            step={1}
-            onValueChange={(event) => setRotate(event[0])}
-          />
-        </div>
-        <div className="py-2">
-          <label className="p-2 flex justify-between items-center">
-            Icon Color
-          </label>
+      </div>
+      <div className="py-2">
+        <label className="p-2 flex justify-between items-center">
+          Icon Color
+        </label>
+        <div className="p-[20px] flex justify-center items-center">
           <ColorPickerController
             hideController={true}
             selectedColor={(color: any) => setColor(color)}

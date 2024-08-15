@@ -29,7 +29,7 @@ const Header = ({ selectedIndex, DownloadIcon }: any) => {
   return (
     <div
       id="no-print"
-      className="p-1  top-0 w-full z-50 md:p-3 flex shadow-sm  items-center bg-gray-100 dark:bg-gray-900 dark:text-white text-black  justify-between"
+      className="p-1 sticky  top-0 w-full z-50 md:p-3 flex shadow-sm  items-center bg-gray-100 dark:bg-gray-900 dark:text-white text-black  justify-between"
     >
       <div className="text-2xl font-bold flex items-center">
         <Link href="/">
@@ -43,24 +43,6 @@ const Header = ({ selectedIndex, DownloadIcon }: any) => {
             />
           </div>
         </Link>
-      </div>
-
-      <div className="flex justify-center absolute top-24 lg:left-[31rem] left-[6rem]  rounded-md lg:gap-3 md:gap-2 sm:gap-1 gap-1">
-        {menuList.map((menu, index) => (
-          <h2
-            key={index}
-            onClick={() => {
-              setActiveIndex(index);
-              selectedIndex(index);
-            }}
-            className={`text-lg  px-7 py-1 rounded-md text-gray-500 cursor-pointer flex items-center gap-2 hover:bg-blue-500 hover:text-white ${
-              activeIndex == index && "bg-blue-500 text-white"
-            }`}
-          >
-            <menu.icon />
-            <span className="hidden md:flex">{menu.name}</span>
-          </h2>
-        ))}
       </div>
 
       <div className="flex items-center gap-3">

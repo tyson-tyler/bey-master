@@ -1,16 +1,32 @@
 "use client";
 import { UpdateStrogeContext } from "@/app/constants/UpdateStrageContext";
-import { icons } from "lucide-react";
+import { icons, LucideIcon } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
 import html2canvas from "html2canvas";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { FaDownload } from "react-icons/fa6";
 
-const LogoPreview = ({ downloadIcon }: any) => {
-  const [storageValue, setStorageValue] = useState<any>(null);
-  const { updateStorage, setUpdateStorage }: any =
-    useContext(UpdateStrogeContext);
+// Define types for props and state
+interface LogoPreviewProps {
+  downloadIcon: boolean; // Change according to actual type if needed
+}
+
+interface StorageValue {
+  bgPadding?: string;
+  bgRounded?: number;
+  bgColor?: string;
+  icon?: string;
+  iconSize?: number;
+  iconColor?: string;
+  iconRotate?: number;
+}
+
+const LogoPreview: React.FC<LogoPreviewProps> = ({ downloadIcon }) => {
+  const [storageValue, setStorageValue] = useState<StorageValue | null>(null);
+  const { updateStorage, setUpdateStorage } = useContext(
+    UpdateStrogeContext
+  ) || { updateStorage: {}, setUpdateStorage: () => {} };
   const BASE_URL = "https://logoexpress.tubeguruji.com";
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
 
@@ -36,23 +52,37 @@ const LogoPreview = ({ downloadIcon }: any) => {
   }, [downloadIcon]);
 
   const downloadPngLogo = () => {
-    const downloadLogoDiv: any = document.getElementById("downloadLogoDiv");
+    const downloadLogoDiv = document.getElementById("downloadLogoDiv");
 
-    html2canvas(downloadLogoDiv, {
-      backgroundColor: null,
-    }).then((canvas) => {
-      const pngImage = canvas.toDataURL("image/png");
-      const downloadLink = document.createElement("a");
-      downloadLink.href = pngImage;
-      downloadLink.download = "myaimix_logo";
-      downloadLink.click();
-    });
+    if (downloadLogoDiv) {
+      html2canvas(downloadLogoDiv, {
+        backgroundColor: null,
+      }).then((canvas) => {
+        const pngImage = canvas.toDataURL("image/png");
+        const downloadLink = document.createElement("a");
+        downloadLink.href = pngImage;
+        downloadLink.download = "myaimix_logo";
+        downloadLink.click();
+      });
+    }
   };
 
-  const Icon = ({ name, color, size, rotate }: any) => {
-    const LucidIcon = icons[name];
+  const Icon = ({
+    name,
+    color,
+    size,
+    rotate,
+  }: {
+    name: string;
+    color?: string;
+    size?: number;
+    rotate?: number;
+  }) => {
+    const LucidIcon = icons[name as keyof typeof icons] as
+      | LucideIcon
+      | undefined;
     if (!LucidIcon) {
-      return;
+      return null;
     }
 
     return (
@@ -67,15 +97,15 @@ const LogoPreview = ({ downloadIcon }: any) => {
     );
   };
 
-  const PreviewContent = ({ DownloadIcon }: any) => (
+  const PreviewContent = () => (
     <div
-      className="w-full h-full bg-gray-200 outline-dotted flex justify-center items-center rounded-md outline-gray-300 dark:outline-gray-700 rounded-md"
+      className="w-full h-full bg-gray-200 dark:bg-gray-950 outline-dotted flex justify-center items-center  outline-gray-300 dark:outline-gray-700 rounded-md"
       style={{
         padding: storageValue?.bgPadding,
       }}
     >
       <div
-        className="h-full w-full flex justify-center items-center"
+        className="lg:w-[500px] lg:h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] w-[300px] h-[300px] flex justify-center items-center"
         style={{
           borderRadius: storageValue?.bgRounded || 0,
           background: storageValue?.bgColor || "#fff",
@@ -92,11 +122,10 @@ const LogoPreview = ({ downloadIcon }: any) => {
           />
         ) : (
           <Icon
-            name={storageValue?.icon}
+            name={storageValue?.icon || ""}
             color={storageValue?.iconColor}
             size={storageValue?.iconSize}
             rotate={storageValue?.iconRotate}
-            className="max-h-full max-w-full"
           />
         )}
       </div>
@@ -105,25 +134,38 @@ const LogoPreview = ({ downloadIcon }: any) => {
 
   return (
     <>
-      {isSmallScreen ? (
-        <Dialog>
-          <DialogTrigger asChild>
-            <button className="text-blue-500 underline mb-10">
-              Show Preview
-            </button>
-          </DialogTrigger>
-          <DialogContent>
-            <PreviewContent />
-          </DialogContent>
-        </Dialog>
-      ) : (
+      <div
+        className="lg:w-[500px] lg:h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] w-[300px] h-[300px] bg-gray-200 dark:bg-gray-950 outline-dotted flex justify-center items-center  outline-gray-300 dark:outline-gray-700 rounded-md"
+        style={{
+          padding: storageValue?.bgPadding,
+        }}
+      >
         <div
-          id="downloadLogoDiv"
-          className="flex justify-center items-center mx-auto w-full h-screen sm:h-[400px] sm:w-[400px] md:h-[450px] md:w-[450px] lg:h-[500px] lg:w-[500px]"
+          className="h-full w-full flex justify-center items-center"
+          style={{
+            borderRadius: storageValue?.bgRounded || 0,
+            background: storageValue?.bgColor || "#fff",
+          }}
         >
-          <PreviewContent />
+          {storageValue?.icon?.includes(".png") ? (
+            <img
+              src={BASE_URL + "/png/" + storageValue?.icon}
+              style={{
+                height: storageValue?.iconSize,
+                width: storageValue?.iconSize,
+              }}
+              className="max-h-full max-w-full"
+            />
+          ) : (
+            <Icon
+              name={storageValue?.icon || ""}
+              color={storageValue?.iconColor}
+              size={storageValue?.iconSize}
+              rotate={storageValue?.iconRotate}
+            />
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };

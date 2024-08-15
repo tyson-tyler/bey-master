@@ -7,12 +7,18 @@ import LogoPreview from "./logoPreview";
 import { UpdateStrogeContext } from "@/app/constants/UpdateStrageContext";
 import { gsap } from "gsap";
 
-const Page = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [updateStorage, setUpdateStorage] = useState({});
-  const [downloadIcon, setDownloadIcon] = useState();
+// Define types for state values
+interface UpdateStorageContextType {
+  updateStorage: any; // Adjust the type according to your actual data structure
+  setUpdateStorage: React.Dispatch<React.SetStateAction<any>>;
+}
 
-  const contentRef = useRef(null);
+const Page: React.FC = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [updateStorage, setUpdateStorage] = useState<any>({}); // Replace `any` with actual type if possible
+  const [downloadIcon, setDownloadIcon] = useState<any>(undefined); // Replace `any` with the actual type
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -26,7 +32,7 @@ const Page = () => {
     <UpdateStrogeContext.Provider value={{ updateStorage, setUpdateStorage }}>
       <div className="w-full h-full flex flex-col items-center justify-start">
         <Header
-          selectedIndex={(value: any) => {
+          selectedIndex={(value: number) => {
             setSelectedIndex(value);
           }}
           DownloadIcon={setDownloadIcon}
@@ -34,16 +40,12 @@ const Page = () => {
 
         <div
           ref={contentRef}
-          className="flex flex-col md:flex-row w-full mt-2 md:mt-4 lg:mt-3"
+          className="flex  flex-col-reverse justify-center w-full mt-2 md:mt-4 lg:mt-3"
         >
-          <div className="w-full md:w-1/3 lg:px-5 lg:pt-3">
-            {selectedIndex === 0 ? (
-              <IconController />
-            ) : (
-              <BackgroundController />
-            )}
+          <div>
+            <BackgroundController />
           </div>
-          <div className="w-full md:w-2/3 p-2 dark:text-white text-black">
+          <div className="w-full justify-center flex items-center p-2 dark:text-white text-black">
             <LogoPreview downloadIcon={downloadIcon} />
           </div>
         </div>

@@ -58,14 +58,6 @@ const Sidebar1 = () => {
       colorClass: "bg-purple-500",
       animationClass: styles.animateFlash,
     },
-
-    {
-      href: "/dashboard/billing",
-      label: "Billing",
-      icon: <MdOutlineAttachMoney />,
-      colorClass: "bg-green-600",
-      animationClass: styles.animateSpin,
-    },
   ];
 
   const handleLinkClick = (href: string, index: number) => {

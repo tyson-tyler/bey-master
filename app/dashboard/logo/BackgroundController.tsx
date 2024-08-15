@@ -3,6 +3,7 @@ import { Slider } from "@/components/ui/slider";
 import React, { useContext, useEffect, useState } from "react";
 import ColorPickerController from "./ColorPickerController";
 import { UpdateStrogeContext } from "@/app/constants/UpdateStrageContext";
+import IconController from "./IconController";
 
 const BackgroundController = () => {
   const storageValue = JSON.parse(localStorage.getItem("value") || "{}");
@@ -31,10 +32,13 @@ const BackgroundController = () => {
   }, [rounded, padding, color]);
 
   return (
-    <div className="mt-[50px]">
-      <div className="py-2 text-black dark:text-white">
+    <div className="p-6">
+      <IconController />
+
+      <div className="py-2 flex flex-col md:flex-row text-black dark:text-white">
         <label className="p-2 flex justify-between items-center">
-          Rounded <span>{rounded} px</span>
+          Rounded
+          {/* <span>{rounded} px</span> */}
         </label>
         <Slider
           defaultValue={[0]}
@@ -43,7 +47,8 @@ const BackgroundController = () => {
           onValueChange={(event) => setRounded(event[0])}
         />
         <label className="p-2 flex justify-between items-center">
-          Padding <span>{padding} px</span>
+          Padding
+          {/* <span>{padding} px</span> */}
         </label>
         <Slider
           defaultValue={[0]}
@@ -53,12 +58,15 @@ const BackgroundController = () => {
         />
       </div>
       <div className="py-2">
-        <label className="p-2 flex justify-between items-center">
+        <label className="p-2 dark:text-white text-black flex justify-between items-center w-full">
+          Background Color
+        </label>
+        <div className="p-[20px] flex justify-center mb-4 md:mb-3">
           <ColorPickerController
             hideController={false}
             selectedColor={(color: any) => setColor(color)}
           />
-        </label>
+        </div>
       </div>
     </div>
   );

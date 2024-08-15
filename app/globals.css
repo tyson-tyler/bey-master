@@ -129,7 +129,7 @@
 
 .bar {
   background: linear-gradient(
-    90deg,
+    180deg,
     #ff1493,
     /* Bright Yellow */ #ffd700,
     /* Light Yellow */ #0000ff,
@@ -150,6 +150,12 @@
   transform-origin: left;
   transition: transform 0.4s ease-in-out; /* Smooth transition */
   animation: gradientShift 3s linear infinite; /* Gradient animation */
+}
+canvas {
+  width: 100%;
+}
+#rbgcp-wrapper {
+  width: 100%;
 }
 
 .bar.animated {
