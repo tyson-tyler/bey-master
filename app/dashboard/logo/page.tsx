@@ -1,22 +1,15 @@
-"use client";
-import Header from "@/components/logo/Header";
 import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import Header from "@/components/logo/Header";
 import IconController from "./IconController";
 import BackgroundController from "./BackgroundController";
 import LogoPreview from "./logoPreview";
 import { UpdateStrogeContext } from "@/app/constants/UpdateStrageContext";
-import { gsap } from "gsap";
-
-// Define types for state values
-interface UpdateStorageContextType {
-  updateStorage: any; // Adjust the type according to your actual data structure
-  setUpdateStorage: React.Dispatch<React.SetStateAction<any>>;
-}
 
 const Page: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [updateStorage, setUpdateStorage] = useState<any>({}); // Replace `any` with actual type if possible
-  const [downloadIcon, setDownloadIcon] = useState<any>(undefined); // Replace `any` with the actual type
+  const [downloadIcon, setDownloadIcon] = useState<any>(undefined); // Replace `any` with actual type
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -40,7 +33,7 @@ const Page: React.FC = () => {
 
         <div
           ref={contentRef}
-          className="flex  flex-col-reverse justify-center w-full mt-2 md:mt-4 lg:mt-3"
+          className="flex flex-col-reverse justify-center w-full mt-2 md:mt-4 lg:mt-3"
         >
           <div>
             <BackgroundController />
