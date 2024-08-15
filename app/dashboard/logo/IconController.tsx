@@ -1,3 +1,5 @@
+"use client";
+
 import { Slider } from "@/components/ui/slider";
 import { Smile } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";

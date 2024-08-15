@@ -33,7 +33,7 @@ const BackgroundController = () => {
 
   return (
     <div className="p-6">
-      {/* <IconController /> */}
+      <IconController />
 
       <div className="py-2 flex flex-col md:flex-row text-black dark:text-white">
         <label className="p-2 flex justify-between items-center">
