@@ -97,44 +97,10 @@ const LogoPreview: React.FC<LogoPreviewProps> = ({ downloadIcon }) => {
     );
   };
 
-  const PreviewContent = () => (
-    <div
-      className="w-full h-full bg-gray-200 dark:bg-gray-950 outline-dotted flex justify-center items-center  outline-gray-300 dark:outline-gray-700 rounded-md"
-      style={{
-        padding: storageValue?.bgPadding,
-      }}
-    >
-      <div
-        className="lg:w-[500px] lg:h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] w-[300px] h-[300px] flex justify-center items-center"
-        style={{
-          borderRadius: storageValue?.bgRounded || 0,
-          background: storageValue?.bgColor || "#fff",
-        }}
-      >
-        {storageValue?.icon?.includes(".png") ? (
-          <img
-            src={BASE_URL + "/png/" + storageValue?.icon}
-            style={{
-              height: storageValue?.iconSize,
-              width: storageValue?.iconSize,
-            }}
-            className="max-h-full max-w-full"
-          />
-        ) : (
-          <Icon
-            name={storageValue?.icon || ""}
-            color={storageValue?.iconColor}
-            size={storageValue?.iconSize}
-            rotate={storageValue?.iconRotate}
-          />
-        )}
-      </div>
-    </div>
-  );
-
   return (
     <>
       <div
+        id="downloadLogoDiv" // Add the ID here
         className="lg:w-[500px] lg:h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] w-[300px] h-[300px] bg-gray-200 dark:bg-gray-950 outline-dotted flex justify-center items-center  outline-gray-300 dark:outline-gray-700 rounded-md"
         style={{
           padding: storageValue?.bgPadding,
