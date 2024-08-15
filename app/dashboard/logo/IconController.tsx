@@ -38,7 +38,7 @@ const IconController = () => {
   return (
     <div className="dark:text-white text-black">
       <div>
-        <IconList selectedIcon={(icon: any) => setIcon(icon)} />
+        {/* <IconList selectedIcon={(icon: any) => setIcon(icon)} /> */}
         <div className="py-2">
           <label className="p-2 flex justify-between items-center">
             Size <span>{size} px </span>
