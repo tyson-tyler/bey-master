@@ -13,14 +13,9 @@ import axios from "axios";
 
 const IconList = ({ selectedIcon }: any) => {
   const [openDialog, setOpenDialog] = useState(false);
-  const [pngIconList, setPngIconList] = useState([]);
+
   const storageValue = JSON.parse(localStorage.getItem("value") || "{}");
   const [icon, setIcon] = useState(storageValue ? storageValue?.icon : "Smile");
-  const BASE_URL = "https://logoexpress.tubeguruji.com";
-
-  useEffect(() => {
-    getPngIcons();
-  }, []);
 
   const Icon = ({ name, color, size }: any) => {
     const LucideIcon = icons[name as keyof typeof icons];
@@ -28,13 +23,6 @@ const IconList = ({ selectedIcon }: any) => {
       return null;
     }
     return <LucideIcon color={color} size={size} />;
-  };
-
-  const getPngIcons = () => {
-    axios.get(BASE_URL + "/getIcons.php").then((resp) => {
-      console.log(resp.data);
-      setPngIconList(resp.data);
-    });
   };
 
   return (
@@ -45,11 +33,7 @@ const IconList = ({ selectedIcon }: any) => {
           onClick={() => setOpenDialog(true)}
           className="p-3 flex justify-center items-center my-2 cursor-pointer bg-gray-200 dark:bg-gray-800 dark:text-white text-black rounded-md w-[50px] h-[50px]"
         >
-          {icon.includes(".png") ? (
-            <img src={BASE_URL + "/png/" + icon} alt="Selected Icon" />
-          ) : (
-            <Icon name={icon} size={20} />
-          )}
+          <Icon name={icon} size={20} />
         </div>
       </div>
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
