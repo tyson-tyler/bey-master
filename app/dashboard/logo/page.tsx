@@ -32,7 +32,7 @@ const Page: React.FC = () => {
           DownloadIcon={setDownloadIcon}
         />
 
-        <div
+        {/* <div
           ref={contentRef}
           className="flex flex-col-reverse justify-center w-full mt-2 md:mt-4 lg:mt-3"
         >
@@ -42,7 +42,7 @@ const Page: React.FC = () => {
           <div className="w-full justify-center flex items-center p-2 dark:text-white text-black">
             <LogoPreview downloadIcon={downloadIcon} />
           </div>
-        </div>
+        </div> */}
       </div>
     </UpdateStrogeContext.Provider>
   );
