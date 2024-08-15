@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Header from "@/components/logo/Header";
@@ -8,8 +9,8 @@ import { UpdateStrogeContext } from "@/app/constants/UpdateStrageContext";
 
 const Page: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [updateStorage, setUpdateStorage] = useState<any>({}); // Replace `any` with actual type if possible
-  const [downloadIcon, setDownloadIcon] = useState<any>(undefined); // Replace `any` with actual type
+  const [updateStorage, setUpdateStorage] = useState<any>({});
+  const [downloadIcon, setDownloadIcon] = useState<any>(undefined);
 
   const contentRef = useRef<HTMLDivElement | null>(null);
 
