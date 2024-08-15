@@ -33,12 +33,12 @@ const BackgroundController = () => {
 
   return (
     <div className="p-6">
-      <IconController />
+      {/* <IconController /> */}
 
-      {/* <div className="py-2 flex flex-col md:flex-row text-black dark:text-white">
+      <div className="py-2 flex flex-col md:flex-row text-black dark:text-white">
         <label className="p-2 flex justify-between items-center">
           Rounded
-        
+          {/* <span>{rounded} px</span> */}
         </label>
         <Slider
           defaultValue={[0]}
@@ -48,15 +48,16 @@ const BackgroundController = () => {
         />
         <label className="p-2 flex justify-between items-center">
           Padding
+          {/* <span>{padding} px</span> */}
         </label>
         <Slider
           defaultValue={[0]}
-          max={250} 
+          max={250} // Updated max value for padding
           step={1}
           onValueChange={(event) => setPadding(event[0])}
         />
-      </div> */}
-      {/* <div className="py-2">
+      </div>
+      <div className="py-2">
         <label className="p-2 dark:text-white text-black flex justify-between items-center w-full">
           Background Color
         </label>
@@ -66,7 +67,7 @@ const BackgroundController = () => {
             selectedColor={(color: any) => setColor(color)}
           />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
