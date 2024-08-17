@@ -33,6 +33,7 @@ export default function RootLayout({
       disableTransitionOnChange
     >
       <NextTopLoader
+        color="#2299DD"
         initialPosition={0.08}
         crawlSpeed={200}
         height={3}
@@ -41,14 +42,8 @@ export default function RootLayout({
         easing="ease"
         speed={200}
         shadow="0 0 10px #2299DD,0 0 5px #2299DD"
-        template={`
-    <div class="bar" role="bar" style="background: linear-gradient(to right, #ff7e5f, #feb47b); transform: translateY(0); transition: transform 0.3s ease;">
-      <div class="peg" style="box-shadow: 0 0 10px #ff7e5f, 0 0 5px #feb47b;"></div>
-    </div> 
-    <div class="spinner" role="spinner">
-      <div class="spinner-icon"></div>
-    </div>
-  `}
+        template='<div class="bar" role="bar"><div class="peg"></div></div> 
+  <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
         zIndex={1600}
         showAtBottom={false}
       />

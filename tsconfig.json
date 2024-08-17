@@ -28,7 +28,8 @@
     ".next/types/**/*.ts",
     "utils/index.js",
     "components/shared/Video.tsx",
-    "app/api/upload/route.js"
+    "app/api/upload/route.js",
+    "app/index.jsx"
   ],
   "exclude": ["node_modules"]
 }

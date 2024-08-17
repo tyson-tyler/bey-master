@@ -11,12 +11,14 @@ import Hello from "../../../components/public/logo.svg";
 import { UserButton, useUser } from "@clerk/nextjs";
 import styles from "../_components/sidebar.module.css";
 import { IoDocument, IoShareSocialSharp } from "react-icons/io5";
+import { VscFeedback } from "react-icons/vsc";
 
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaGear, FaImage } from "react-icons/fa6";
 import Loader from "@/components/Loader"; // Import your loader component
 import { RiImageCircleFill } from "react-icons/ri";
 import { IoLogoFreebsdDevil } from "react-icons/io";
+import { FaRobot } from "react-icons/fa";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -59,6 +61,20 @@ const Sidebar = () => {
       icon: <IoLogoFreebsdDevil />,
       colorClass: "bg-purple-500",
       animationClass: styles.animateFlash,
+    },
+    {
+      href: "/dashboard/feedback",
+      label: "Feedback Builder",
+      icon: <VscFeedback />,
+      colorClass: "bg-orange-500",
+      animationClass: styles.animateRubberBand,
+    },
+    {
+      href: "/dashboard/edit",
+      label: "Ai Edit",
+      icon: <FaRobot />,
+      colorClass: "bg-green-500",
+      animationClass: styles.animateSwing,
     },
     {
       href: "/dashboard/billing",

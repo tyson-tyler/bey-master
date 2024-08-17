@@ -124,33 +124,10 @@
 .lb-inbox-notification-list-item {
   border: none;
 }
+/* components/EmojiRating.module.css */
 
 /* global.css or styles.module.css */
 
-.bar {
-  background: linear-gradient(
-    180deg,
-    #ff1493,
-    /* Bright Yellow */ #ffd700,
-    /* Light Yellow */ #0000ff,
-    /* Pink */ #8134af,
-    /* Purple */ #7b68ee,
-    /* Bright Yellow */ #00ff00 /* Light Yellow */ #a52a2a,
-    /* Bright Yellow */ #c0c0c0,
-    /* Light Yellow */ #a21acb,
-    /* Pink */ #33c5db,
-    /* Purple */ #f09f2d,
-    /* Bright Yellow */ #00ff4c /* Light Yellow */
-  ); /* Instagram-like gradient with additional colors */
-  background-size: 400% 100%; /* Stretch gradient */
-  border-radius: 2px;
-  height: 100%;
-  position: relative;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease-in-out; /* Smooth transition */
-  animation: gradientShift 3s linear infinite; /* Gradient animation */
-}
 canvas {
   width: 100%;
 }

@@ -8,11 +8,12 @@ import { useState, useEffect, useRef } from "react";
 import { useUser } from "@clerk/nextjs";
 import styles from "../app/dashboard/_components/sidebar.module.css";
 import { MdOutlineAttachMoney } from "react-icons/md";
-import { FaGear, FaVideo } from "react-icons/fa6";
+import { FaGear, FaRobot, FaVideo } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader";
 import { IoDocument } from "react-icons/io5";
 import { IoLogoFreebsdDevil } from "react-icons/io";
+import { VscFeedback } from "react-icons/vsc";
 
 const Sidebar1 = () => {
   const pathname = usePathname();
@@ -57,6 +58,20 @@ const Sidebar1 = () => {
       icon: <IoLogoFreebsdDevil />,
       colorClass: "bg-purple-500",
       animationClass: styles.animateFlash,
+    },
+    {
+      href: "/dashboard/edit",
+      label: "Ai Edit",
+      icon: <FaRobot />,
+      colorClass: "bg-green-500",
+      animationClass: styles.animateSwing,
+    },
+    {
+      href: "/dashboard/feedback",
+      label: "Feedback Builder",
+      icon: <VscFeedback />,
+      colorClass: "bg-orange-500",
+      animationClass: styles.animateRubberBand,
     },
   ];
 
