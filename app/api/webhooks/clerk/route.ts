@@ -1,10 +1,7 @@
-/* eslint-disable camelcase */
-import { clerkClient } from "@clerk/nextjs/server";
-import { WebhookEvent } from "@clerk/nextjs/server";
+import { clerkClient, WebhookEvent } from "@clerk/nextjs/server";
+import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-import { Webhook } from "svix";
-
 import { createUser, deleteUser, updateUser } from "@/lib/act/user.actions";
 
 export async function POST(req: Request) {
@@ -47,19 +44,23 @@ export async function POST(req: Request) {
     });
   }
 
-  const { id } = evt.data;
   const eventType = evt.type;
+  const { id } = evt.data;
+
+  if (!id) {
+    throw new Error("User ID is missing in the event data.");
+  }
 
   if (eventType === "user.created") {
-    const { id, email_addresses, image_url, first_name, last_name, username } =
+    const { email_addresses, image_url, first_name, last_name, username } =
       evt.data;
 
     const user = {
-      clerkId: id,
+      clerkId: id!,
       email: email_addresses[0].email_address,
       username: username!,
-      firstName: first_name ?? "", // Default to empty string if null
-      lastName: last_name ?? "", // Default to empty string if null
+      firstName: first_name ?? "",
+      lastName: last_name ?? "",
       photo: image_url,
     };
 
@@ -77,11 +78,11 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.updated") {
-    const { id, image_url, first_name, last_name, username } = evt.data;
+    const { image_url, first_name, last_name, username } = evt.data;
 
     const user = {
-      firstName: first_name ?? "", // Default to empty string if null
-      lastName: last_name ?? "", // Default to empty string if null
+      firstName: first_name ?? "",
+      lastName: last_name ?? "",
       username: username!,
       photo: image_url,
     };
@@ -92,15 +93,13 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.deleted") {
-    const { id } = evt.data;
-
     const deletedUser = await deleteUser(id!);
 
     return NextResponse.json({ message: "OK", user: deletedUser });
   }
 
-  console.log(`Webhook with ID ${id} and type ${eventType}`);
+  console.log(`Unhandled webhook with ID ${id} and type ${eventType}`);
   console.log("Webhook body:", body);
 
-  return new Response("", { status: 200 });
+  return new Response("okkk", { status: 200 });
 }
