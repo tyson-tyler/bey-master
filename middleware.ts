@@ -14,7 +14,7 @@ export default clerkMiddleware((auth, req) => {
 
 // Define public routes separately using authMiddleware
 export const publicAuthMiddleware = authMiddleware({
-  publicRoutes: ["/api/webhooks/clerk"], // Specify public routes here
+  publicRoutes: ["/app/api/webhooks/clerk"], // Specify public routes here
 });
 
 // Define which routes should be protected
