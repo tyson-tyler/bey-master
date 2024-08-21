@@ -1,11 +1,12 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useLayerStore } from "@/server/layer-store";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { ImageIcon, VideoIcon } from "lucide-react";
-import { useState } from "react";
+import { gsap } from "gsap";
 import UploadImage from "./upload-image";
 import UploadVideo from "./upload-video";
 
@@ -15,9 +16,41 @@ export default function UploadForm() {
   const layerComparisonMode = useLayerStore(
     (state) => state.layerComparisonMode
   );
-  if (!activeLayer.url && !layerComparisonMode)
+  const imageCardRef = useRef(null);
+  const videoCardRef = useRef(null);
+
+  // GSAP animation function
+  const animateCard = (ref: any, animationType: any) => {
+    if (ref.current) {
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, scale: 0.8, rotateY: animationType === "flip" ? 180 : 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          rotateY: 0,
+          duration: 0.6,
+          ease: animationType === "bounce" ? "bounce.out" : "power1.out",
+          stagger: 0.1,
+        }
+      );
+    }
+  };
+
+  useEffect(() => {
+    // Animate selected card
+    if (selectedType === "image") {
+      animateCard(imageCardRef, "bounce");
+      animateCard(videoCardRef, "flip");
+    } else if (selectedType === "video") {
+      animateCard(videoCardRef, "bounce");
+      animateCard(imageCardRef, "flip");
+    }
+  }, [selectedType]);
+
+  if (!activeLayer.url && !layerComparisonMode) {
     return (
-      <div className="w-full p-24 flex flex-col  justify-center  h-full">
+      <div className="w-full p-24 flex flex-col justify-center h-full">
         {selectedType === "image" ? <UploadImage /> : null}
         {selectedType === "video" ? <UploadVideo /> : null}
 
@@ -29,17 +62,20 @@ export default function UploadForm() {
           className="flex items-center justify-center gap-8 py-8"
         >
           <Card
-            onClick={(e) => setSelectedType("image")}
+            ref={imageCardRef}
+            onClick={() => setSelectedType("image")}
             className={cn(
-              "flex flex-col items-center justify-center py-4 px-6 gap-4 cursor-pointer",
-              selectedType === "image" ? "border-primary" : null
+              "flex flex-col items-center justify-center py-4 px-6 gap-4 cursor-pointer transition-all duration-500",
+              selectedType === "image"
+                ? "border-blue-500 border-2"
+                : "border-transparent"
             )}
           >
-            <CardContent className="flex items-center  space-x-2 p-0">
+            <CardContent className="flex items-center space-x-2 p-0">
               <RadioGroupItem value="image" id="image-mode" hidden />
               <Label
                 className={`${
-                  selectedType === "image" ? "text-primary" : null
+                  selectedType === "image" ? "text-blue-500" : null
                 }`}
                 htmlFor="image-mode"
               >
@@ -47,22 +83,25 @@ export default function UploadForm() {
               </Label>
             </CardContent>
             <ImageIcon
-              className={`${selectedType === "image" ? "text-primary" : null}`}
+              className={`${selectedType === "image" ? "text-blue-500" : null}`}
               size={36}
             />
           </Card>
           <Card
-            onClick={(e) => setSelectedType("video")}
+            ref={videoCardRef}
+            onClick={() => setSelectedType("video")}
             className={cn(
-              "flex flex-col items-center justify-center p-4 gap-4 cursor-pointer",
-              selectedType === "video" ? "border-primary" : null
+              "flex flex-col items-center justify-center p-4 gap-4 cursor-pointer transition-all duration-500",
+              selectedType === "video"
+                ? "border-blue-500 border-2"
+                : "border-transparent"
             )}
           >
-            <CardContent className="flex items-center  space-x-2 p-0">
+            <CardContent className="flex items-center space-x-2 p-0">
               <RadioGroupItem value="video" id="video-mode" hidden />
               <Label
                 className={`${
-                  selectedType === "video" ? "text-primary" : null
+                  selectedType === "video" ? "text-blue-500" : null
                 }`}
                 htmlFor="video-mode"
               >
@@ -70,11 +109,14 @@ export default function UploadForm() {
               </Label>
             </CardContent>
             <VideoIcon
-              className={`${selectedType === "video" ? "text-primary" : null}`}
+              className={`${selectedType === "video" ? "text-blue-500" : null}`}
               size={36}
             />
           </Card>
         </RadioGroup>
       </div>
     );
+  }
+
+  return null;
 }
