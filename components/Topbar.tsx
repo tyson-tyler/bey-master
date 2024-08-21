@@ -33,8 +33,8 @@ const Topbar = () => {
           <div className="flex items-center space-x-2 cursor-pointer">
             <Image
               src={Hello}
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               alt="hello"
               className="lg:mr-3 rounded-full flex md:hidden"
             />

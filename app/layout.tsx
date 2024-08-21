@@ -6,6 +6,7 @@ import { dark } from "@clerk/themes";
 import { cn } from "@/lib/utils";
 
 import Provider from "./Provider";
+import { ThemeProvider } from "@/components/theme-provider";
 // Import the QueryProvider
 
 const fontSans = FontSans({
@@ -42,7 +43,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen bg-background font-sans antialiased dark:text-white text-black",
             fontSans.variable,
             fontPlayfairDisplay.variable,
             fontRaleway.variable
