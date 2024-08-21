@@ -33,13 +33,6 @@ const Sidebar = () => {
       colorClass: "bg-blue-600",
       animationClass: styles.animateBounce, // Ensure correct class name from CSS module
     },
-    {
-      href: "/dashboard/did",
-      label: "Image",
-      icon: <RiImageCircleFill className="inline-block lg:mr-3" />,
-      colorClass: "bg-green-600",
-      animationClass: styles.animateSpin, // Ensure correct class name from CSS module
-    },
 
     {
       href: "/dashboard/document",
@@ -48,13 +41,7 @@ const Sidebar = () => {
       colorClass: "bg-pink-600",
       animationClass: styles.animateShake,
     },
-    {
-      href: "/dashboard/videourl",
-      label: "Ai Video",
-      icon: <FaVideo className="inline-block lg:mr-3" />,
-      colorClass: "bg-red-500",
-      animationClass: styles.animateSlideInLeft,
-    },
+
     {
       href: "/dashboard/logo",
       label: "Logo Builder",
@@ -62,13 +49,7 @@ const Sidebar = () => {
       colorClass: "bg-purple-500",
       animationClass: styles.animateFlash,
     },
-    {
-      href: "/dashboard/feedback",
-      label: "Feedback Builder",
-      icon: <VscFeedback />,
-      colorClass: "bg-orange-500",
-      animationClass: styles.animateRubberBand,
-    },
+
     {
       href: "/dashboard/edit",
       label: "Ai Edit",

@@ -44,13 +44,6 @@ const Sidebar1 = () => {
       colorClass: "bg-pink-600",
       animationClass: styles.animateShake,
     },
-    {
-      href: "/dashboard/videourl",
-      label: "Video Generation",
-      icon: <FaVideo />,
-      colorClass: "bg-red-500",
-      animationClass: styles.animateSlideInLeft,
-    },
 
     {
       href: "/dashboard/logo",
@@ -65,13 +58,6 @@ const Sidebar1 = () => {
       icon: <FaRobot />,
       colorClass: "bg-green-500",
       animationClass: styles.animateSwing,
-    },
-    {
-      href: "/dashboard/feedback",
-      label: "Feedback Builder",
-      icon: <VscFeedback />,
-      colorClass: "bg-orange-500",
-      animationClass: styles.animateRubberBand,
     },
   ];
 
