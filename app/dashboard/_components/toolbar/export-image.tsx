@@ -3,7 +3,7 @@
 import { useLayerStore } from "@/server/layer-store";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Download } from "lucide-react";
+import { Download, DownloadCloud, Loader2 } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -17,8 +17,11 @@ import { cn } from "@/lib/utils";
 export default function ExportAsset({ resource }: { resource: string }) {
   const activeLayer = useLayerStore((state) => state.activeLayer);
   const [selected, setSelected] = useState("original");
+  const [loading, setLoading] = useState(false);
+
   const handleDownload = async () => {
     if (activeLayer?.publicId) {
+      setLoading(true); // Start loading
       try {
         const res = await fetch(
           `/api/download?publicId=${activeLayer.publicId}&quality=${selected}&resource_type=${activeLayer.resourceType}&format=${activeLayer.format}&url=${activeLayer.url}`
@@ -27,7 +30,6 @@ export default function ExportAsset({ resource }: { resource: string }) {
           throw new Error("Failed to fetch image URL");
         }
         const data = await res.json();
-        console.log(data);
         if (data.error) {
           throw new Error(data.error);
         }
@@ -53,6 +55,8 @@ export default function ExportAsset({ resource }: { resource: string }) {
       } catch (error) {
         console.error("Download failed:", error);
         // Here you could show an error message to the user
+      } finally {
+        setLoading(false); // End loading
       }
     }
   };
@@ -61,7 +65,7 @@ export default function ExportAsset({ resource }: { resource: string }) {
     <Dialog>
       <DialogTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
-          <span className="flex gap-1 items-center justify-center flex-col text-xs font-medium">
+          <span className="flex gap-1 items-center justify-center flex-col text-[9px] font-medium">
             Export
             <Download size={18} />
           </span>
@@ -69,33 +73,40 @@ export default function ExportAsset({ resource }: { resource: string }) {
       </DialogTrigger>
       <DialogContent>
         <div>
-          <h3 className="text-center text-2xl font-medium pb-4">Export</h3>
+          <h3 className="text-center text-2xl font-medium pb-4">
+            <DownloadCloud className="w-5 h-5 mr-2" />
+            Export
+          </h3>
           <div className="flex flex-col gap-4">
             <Card
               onClick={() => setSelected("original")}
               className={cn(
-                selected === "original" ? "border-primary" : null,
+                selected === "original"
+                  ? "border-purple-500  transform transition-all scale-105 border-2 shadow-lg"
+                  : null,
                 "p-4 cursor-pointer"
               )}
             >
               <CardContent className="p-0">
                 <CardTitle className="text-md">Original</CardTitle>
                 <CardDescription>
-                  {activeLayer.width}X{activeLayer.height}
+                  {activeLayer.width} X {activeLayer.height}
                 </CardDescription>
               </CardContent>
             </Card>
             <Card
               onClick={() => setSelected("large")}
               className={cn(
-                selected === "large" ? "border-primary" : null,
+                selected === "large"
+                  ? "border-purple-500 transition-all transform scale-105 border-2 shadow-lg"
+                  : null,
                 "p-4 cursor-pointer"
               )}
             >
               <CardContent className="p-0">
                 <CardTitle className="text-md">Large</CardTitle>
                 <CardDescription>
-                  {(activeLayer.width! * 0.7).toFixed(0)}X
+                  {(activeLayer.width! * 0.7).toFixed(0)} X{" "}
                   {(activeLayer.height! * 0.7).toFixed(0)}
                 </CardDescription>
               </CardContent>
@@ -103,21 +114,25 @@ export default function ExportAsset({ resource }: { resource: string }) {
             <Card
               onClick={() => setSelected("medium")}
               className={cn(
-                selected === "medium" ? "border-primary" : null,
+                selected === "medium"
+                  ? "border-purple-500 transition-all transform scale-105 border-2 shadow-lg"
+                  : null,
                 "p-4 cursor-pointer"
               )}
             >
               <CardContent className="p-0">
                 <CardTitle className="text-md">Medium</CardTitle>
                 <CardDescription>
-                  {(activeLayer.width! * 0.5).toFixed(0)}X
+                  {(activeLayer.width! * 0.5).toFixed(0)} X{" "}
                   {(activeLayer.height! * 0.5).toFixed(0)}
                 </CardDescription>
               </CardContent>
             </Card>
             <Card
               className={cn(
-                selected === "small" ? "border-primary" : null,
+                selected === "small"
+                  ? "border-purple-500 transition-all transform scale-105 border-2 shadow-lg"
+                  : null,
                 "p-4 cursor-pointer"
               )}
               onClick={() => setSelected("small")}
@@ -125,15 +140,20 @@ export default function ExportAsset({ resource }: { resource: string }) {
               <CardContent className="p-0">
                 <CardTitle className="text-md">Small</CardTitle>
                 <CardDescription>
-                  {(activeLayer.width! * 0.3).toFixed(0)}X
+                  {(activeLayer.width! * 0.3).toFixed(0)} X{" "}
                   {(activeLayer.height! * 0.3).toFixed(0)}
                 </CardDescription>
               </CardContent>
             </Card>
           </div>
         </div>
-        <Button onClick={handleDownload}>
-          Download {selected} {resource}
+        <Button onClick={handleDownload} disabled={loading}>
+          {loading ? (
+            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+          ) : (
+            <DownloadCloud className="w-5 h-5 mr-2" />
+          )}
+          {loading ? "Downloading..." : `Download ${selected} ${resource}`}
         </Button>
       </DialogContent>
     </Dialog>

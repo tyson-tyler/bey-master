@@ -37,6 +37,7 @@ export default function SmartCrop() {
   const generating = useImageStore((state) => state.generating);
   const setActiveLayer = useLayerStore((state) => state.setActiveLayer);
   const [aspectRatio, setAspectRatio] = useState("16:9");
+  const [loading, setLoading] = useState("fasle");
 
   // GSAP Animation on card selection
   useEffect(() => {
@@ -96,7 +97,7 @@ export default function SmartCrop() {
     <Popover>
       <PopoverTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
-          <span className="flex gap-1 items-center flex-col text-xs font-medium">
+          <span className="flex gap-1 items-center flex-col text-[9px] font-medium">
             Smart Crop
             <Crop size={18} />
           </span>
@@ -113,8 +114,10 @@ export default function SmartCrop() {
           <div className={"flex gap-4 items-center justify-center pb-2"}>
             <Card
               className={cn(
-                aspectRatio === "16:9" ? "border-blue-500" : "",
-                "p-4 w-36 cursor-pointer smart-crop-card border-transparent border-2"
+                aspectRatio === "16:9"
+                  ? "shadow-xl border-2 border-purple-500"
+                  : "",
+                "p-4 w-36 cursor-pointer smart-crop-card "
               )}
               onClick={() => setAspectRatio("16:9")}
             >
@@ -130,7 +133,9 @@ export default function SmartCrop() {
             </Card>
             <Card
               className={cn(
-                aspectRatio === "9:16" ? "border-blue-500" : "",
+                aspectRatio === "9:16"
+                  ? "shadow-xl border-2 border-purple-500"
+                  : "",
                 "p-4 w-36 cursor-pointer smart-crop-card border-transparent border-2"
               )}
               onClick={() => setAspectRatio("9:16")}
@@ -147,8 +152,10 @@ export default function SmartCrop() {
             </Card>
             <Card
               className={cn(
-                aspectRatio === "1:1" ? "border-blue-500" : "",
-                "p-4 w-36 cursor-pointer smart-crop-card border-transparent border-2"
+                aspectRatio === "1:1"
+                  ? "shadow-xl border-2 border-purple-500"
+                  : "",
+                "p-4 w-36 cursor-pointer smart-crop-card border-transparent "
               )}
               onClick={() => setAspectRatio("1:1")}
             >

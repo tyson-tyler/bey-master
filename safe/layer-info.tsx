@@ -9,10 +9,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Ellipsis, Trash } from "lucide-react";
 import { Layer, useLayerStore } from "@/server/layer-store";
-import { EllipsisIcon } from "lucide-react";
-import { FaTrashAlt } from "react-icons/fa";
-import { VisuallyHidden } from "@reach/visually-hidden";
+import { useImageStore } from "@/server/image-store";
 
 export default function LayerInfo({
   layer,
@@ -25,58 +24,40 @@ export default function LayerInfo({
   const setActiveLayer = useLayerStore((state) => state.setActiveLayer);
   const removeLayer = useLayerStore((state) => state.removeLayer);
 
-  const handleDelete = (e: React.MouseEvent) => {
-    e.stopPropagation();
-
-    // Debugging output
-    console.log("Button clicked");
-    console.log("Current layers:", layers);
-    console.log("Layer index:", layerIndex);
-
-    // Ensure there are at least two layers before setting the active layer
-    if (layers.length > 1) {
-      const newActiveLayerId = layerIndex === 0 ? layers[1].id : layers[0].id;
-      console.log("Setting active layer to:", newActiveLayerId);
-      setActiveLayer(newActiveLayerId);
-    } else {
-      console.warn("Cannot delete the last layer.");
-    }
-  };
-
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={"outline"} className="bg-gray-50">
-          <EllipsisIcon size={12} />
+        <Button variant="outline">
+          <Ellipsis size={18} />
         </Button>
       </DialogTrigger>
-      <DialogContent className="text-black bg-gray-200 dark:bg-gray-800 dark:text-white">
-        <DialogHeader>
-          <VisuallyHidden>
-            <DialogTitle>Layer {layer.id} Information</DialogTitle>
-          </VisuallyHidden>
-        </DialogHeader>
+      <DialogContent className="text-xs">
         <h3 className="text-lg font-medium text-center mb-2">
           Layer {layer.id}
         </h3>
         <div className="py-4 space-y-0.5">
           <p>
-            <span className="font-bold">FileName :</span> {layer.name}
+            <span className="font-bold">Filename:</span> {layer.name}
           </p>
           <p>
-            <span className="font-bold">Format :</span> {layer.format}
+            <span className="font-bold">Format:</span> {layer.format}
           </p>
           <p>
-            <span className="font-bold">Size :</span> {layer.width}X
+            <span className="font-bold"> Size:</span> {layer.width}X
             {layer.height}
           </p>
         </div>
         <Button
-          className="flex justify-center items-center gap-2 bg-red-500 hover:bg-red-600 hover:border-red-500 transition hover:transform hover:scale-105"
-          onClick={handleDelete}
+          onClick={(e) => {
+            e.stopPropagation();
+            setActiveLayer(layerIndex === 0 ? layers[1].id : layers[0].id);
+            removeLayer(layer.id);
+          }}
+          variant={"destructive"}
+          className="flex items-center gap-2 w-full"
         >
-          <FaTrashAlt size={16} />
-          <span>Delete Layer</span>
+          <span> Delete Layer</span>
+          <Trash size={14} />
         </Button>
       </DialogContent>
     </Dialog>
