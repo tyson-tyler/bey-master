@@ -64,9 +64,12 @@ export default function ExportAsset({ resource }: { resource: string }) {
   return (
     <Dialog>
       <DialogTrigger disabled={!activeLayer?.url} asChild>
-        <Button variant="outline" className="py-8">
+        <Button
+          variant="outline"
+          className="py-8 hover:bg-transparent transform transition-all hover:scale-105"
+        >
           <span className="flex gap-1 items-center justify-center flex-col text-[9px] font-medium">
-            Export
+            <span className="hidden lg:flex">Export</span>
             <Download size={18} />
           </span>
         </Button>

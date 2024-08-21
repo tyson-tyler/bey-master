@@ -98,7 +98,7 @@ export default function SmartCrop() {
       <PopoverTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
           <span className="flex gap-1 items-center flex-col text-[9px] font-medium">
-            Smart Crop
+            <span className="hidden lg:flex">Smart Crop</span>
             <Crop size={18} />
           </span>
         </Button>

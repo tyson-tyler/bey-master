@@ -16,7 +16,6 @@ import LayerImage from "./layer-image";
 import LayerInfo from "@/safe/layer-info";
 import Image from "next/image";
 import Hello from "../../../../app/public/i.svg";
-import { IoIosImages } from "react-icons/io";
 export default function Layers() {
   const layers = useLayerStore((state) => state.layers);
   const activeLayer = useLayerStore((state) => state.activeLayer);
@@ -25,17 +24,17 @@ export default function Layers() {
   const setActiveLayer = useLayerStore((state) => state.setActiveLayer);
 
   return (
-    <Card className="basis-[320px] hidden  shrink-0 overflow-y-scroll overflow-x-hidden relative lg:flex flex-col shadow-2xl">
+    <Card className="basis-[320px] shrink-0 overflow-y-scroll overflow-x-hidden relative flex lg:hidden flex-col shadow-2xl">
       <CardHeader className="">
         <div className="flex  items-center gap-3">
-          <IoIosImages className="w-[3rem] h-[3rem] dark:text-white text-black" />
+          <Image src={Hello} width={40} height={40} alt="hello" />
           <div className="flex flex-col gap-1">
             <CardTitle className="text-sm">
               {activeLayer.name || "Layers"}
             </CardTitle>
             {activeLayer.width && activeLayer.height ? (
               <CardDescription>
-                {activeLayer.width}x{activeLayer.height}
+                {activeLayer.width} x {activeLayer.height}
               </CardDescription>
             ) : null}
           </div>
@@ -81,10 +80,11 @@ export default function Layers() {
               format: "",
             });
           }}
-          className="w-full flex gap-2 justify-center items-center"
+          className="w-full flex gap-2"
+          variant={"outline"}
         >
           <span>Create Layer</span>
-          <Layers2 className="text-white" size={18} />
+          <Layers2 className="text-gray-500" size={18} />
         </Button>
       </div>
     </Card>

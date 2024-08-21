@@ -24,7 +24,7 @@ export default function ActiveImage() {
           src={layer.url || ""}
           fill={true}
           className={cn(
-            "rounded-lg object-contain bg-white shadow-lg",
+            "rounded-lg object-contain bg-white shadow-lg dark:bg-gray-950",
             generating ? "animate-pulse" : ""
           )}
         />
@@ -34,7 +34,7 @@ export default function ActiveImage() {
           width={layer.width}
           height={layer.height}
           controls
-          className="rounded-lg object-contain bg-white shadow-lg max-w-full max-h-full"
+          className="rounded-lg object-contain bg-white dark:bg-gray-950 shadow-lg max-w-full max-h-full"
           src={layer.transcriptionURL || layer.url}
         />
       )}
@@ -51,7 +51,7 @@ export default function ActiveImage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="w-full relative h-svh p-24 bg-secondary flex flex-col items-center justify-center"
+        className="w-full relative mb-6 md:mb-[53px] lg:mb-0  lg:p-24 sm:p-6 p-6 bg-secondary dark:bg-gray-900 flex flex-col items-center justify-center"
       >
         <ImageComparison layers={comparisonLayers} />
       </motion.div>
@@ -59,7 +59,7 @@ export default function ActiveImage() {
   }
 
   return (
-    <div className="w-full relative h-svh p-24 bg-secondary flex flex-col items-center justify-center">
+    <div className="w-full relative mb-[50px] sm:mb-[55px] md:mb-[53px] lg:mb-0 dark:bg-gray-900  lg:p-24 sm:p-6 p-6 bg-secondary flex flex-col items-center justify-center">
       {renderLayer(activeLayer)}
     </div>
   );

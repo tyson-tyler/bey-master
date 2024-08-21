@@ -64,7 +64,9 @@ export default function VideoTranscription() {
           variant={"outline"}
         >
           <span className="flex gap-1 items-center justify-center flex-col text-xs font-medium">
-            {transcribing ? "Transcribing..." : "Transcribe"}
+            <span className="hidden lg:flex">
+              {transcribing ? "Transcribing..." : "Transcribe"}
+            </span>
             <Captions size={18} />
           </span>
         </Button>
@@ -78,7 +80,7 @@ export default function VideoTranscription() {
             rel="noopener noreferrer"
           >
             <span className="flex gap-1 items-center justify-center flex-col text-xs font-medium">
-              View Transcription
+              <span className="hidden lg:flex">View Transcription</span>
               <Captions size={18} />
             </span>
           </a>

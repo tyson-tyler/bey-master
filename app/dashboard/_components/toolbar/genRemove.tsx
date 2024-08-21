@@ -34,9 +34,12 @@ export default function GenRemove() {
   return (
     <Popover>
       <PopoverTrigger disabled={!activeLayer?.url} asChild>
-        <Button variant="outline" className="p-8">
+        <Button
+          variant="outline"
+          className="py-8 hover:bg-transparent transform transition-all hover:scale-105"
+        >
           <span className="flex gap-1 items-center text-[9px] justify-center flex-col  font-medium">
-            Object Remove
+            <span className="hidden lg:flex">Object Remove</span>
             <Eraser size={20} />
           </span>
         </Button>

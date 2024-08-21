@@ -150,11 +150,11 @@ export default function GenerativeFill() {
       >
         <Button
           variant="outline"
-          className="py-8"
+          className="py-8 hover:bg-transparent transform transition-all hover:scale-105"
           style={{ position: "relative" }}
         >
-          <span className="flex text-[9px] gap-1 items-center justify-center flex-col  font-medium">
-            Generative Fill
+          <span className="flex text-[9px]  gap-1 items-center justify-center flex-col  font-medium">
+            <span className="hidden lg:flex">Generative Fill</span>
             <Crop size={18} />
           </span>
         </Button>
