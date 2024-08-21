@@ -11,6 +11,8 @@ import Loading from "../toolbar/loading-screen";
 import VideoTools from "../toolbar/videoTools";
 import ExportAsset from "../toolbar/export-image";
 import { SheetLayer } from "../layers/coollayer";
+import { Button } from "@/components/ui/button";
+import { ArrowBigLeft } from "lucide-react";
 
 const Editor = () => {
   const activeLayer = useLayerStore((state) => state.activeLayer);
@@ -40,6 +42,12 @@ const Editor = () => {
         <div className="flex justify-center items-center">
           <ModeToggle />
         </div>
+      </div>
+      <div className="absoulte top-2 left-2 z-50">
+        <Button>
+          <ArrowBigLeft className="w-5 h-5 text-white mr-2" />
+          Back
+        </Button>
       </div>
       {/* <UploadImage /> */}
       <Loading />
