@@ -90,7 +90,7 @@ export default function SmartCrop() {
           <div className={"flex gap-4 items-center justify-center pb-2"}>
             <Card
               className={cn(
-                aspectRatio === "16:9" ? " border-primary" : "",
+                aspectRatio === "16:9" ? "border-blue-500" : "",
                 "p-4 w-36 cursor-pointer"
               )}
               onClick={() => setAspectRatio("16:9")}
@@ -107,7 +107,7 @@ export default function SmartCrop() {
             </Card>
             <Card
               className={cn(
-                aspectRatio === "9:16" ? " border-primary" : "",
+                aspectRatio === "9:16" ? " border-blue-500" : "",
                 "p-4 w-36 cursor-pointer"
               )}
               onClick={() => setAspectRatio("9:16")}
@@ -124,7 +124,7 @@ export default function SmartCrop() {
             </Card>
             <Card
               className={cn(
-                aspectRatio === "1:1" ? " border-primary" : "",
+                aspectRatio === "1:1" ? " border-blue-500" : "",
                 "p-4 w-36 cursor-pointer"
               )}
               onClick={() => setAspectRatio("1:1")}
