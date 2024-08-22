@@ -32,7 +32,7 @@ const Editor = () => {
       </div>
       <div
         className="flex  w-full bottom-0 fixed justify-center dark:bg-gray-950 bg-gray-50
-       z-50 gap-4 lg:hidden"
+       z-50 lg:hidden"
       >
         {activeLayer.resourceType === "image" ? <ImageTools /> : null}
         {activeLayer.resourceType === "video" ? <VideoTools /> : null}

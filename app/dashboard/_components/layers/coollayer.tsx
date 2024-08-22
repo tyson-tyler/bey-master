@@ -42,7 +42,7 @@ export function SheetLayer() {
         />
       </SheetTrigger>
       <SheetContent className="p-2">
-        <Card className="basis-[320px] h-screen shrink-0 overflow-y-scroll overflow-x-hidden relative flex lg:hidden flex-col">
+        <Card className="basis-[320px]  h-screen shrink-0 overflow-y-scroll overflow-x-hidden relative flex lg:hidden flex-col">
           <CardHeader className="">
             <div className="flex items-center gap-3">
               <IoIosImages className="w-[3rem] h-[3rem] dark:text-white text-black" />

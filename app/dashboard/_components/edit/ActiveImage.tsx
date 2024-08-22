@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import ImageComparison from "../layers/image-comparison";
 import { Button } from "@/components/ui/button";
 import { ArrowBigLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function ActiveImage() {
   const generating = useImageStore((state) => state.generating);
@@ -21,10 +22,12 @@ export default function ActiveImage() {
   const renderLayer = (layer: Layer) => (
     <div className="relative w-full h-full flex items-center justify-center">
       <div className="fixed top-2 lg:left-[12.5rem] left-[0.5rem] md:left-[0.5rem] z-50">
-        <Button className="lg:flex p-4 flex lg:rounded-md md:rounded-full">
-          <ArrowBigLeft className="w-5 h-5 text-white mr-0 lg:mr-2" />
-          <span className="lg:flex md:hidden hidden">Back</span>
-        </Button>
+        <Link href={"/dashboard"}>
+          <Button className="lg:flex p-4 flex lg:rounded-md md:rounded-full">
+            <ArrowBigLeft className="w-5 h-5 text-white mr-0 lg:mr-2" />
+            <span className="lg:flex md:hidden hidden">Back</span>
+          </Button>
+        </Link>
       </div>
       {layer.resourceType === "image" && (
         <Image

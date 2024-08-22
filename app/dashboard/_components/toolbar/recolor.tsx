@@ -44,7 +44,7 @@ export default function AIRecolor() {
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full">
+      <PopoverContent className="lg:w-full md:w-[90%]">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">Generative Recolor</h4>
@@ -73,10 +73,10 @@ export default function AIRecolor() {
                 </Badge>
               ))}
             </div>
-            <div className="grid grid-cols-3 items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-4">
               <Label htmlFor="width">Selection</Label>
-              <Input
-                className="col-span-2 h-8"
+              <input
+                className="col-span-2 w-full rounded-md px-3 py-5 h-8 border-2 border-gray-500 dark:border-gray-50 outline-none"
                 value={activeTag}
                 name="tag"
                 onChange={(e) => {
@@ -84,8 +84,10 @@ export default function AIRecolor() {
                 }}
               />
             </div>
-            <h3 className="text-xs">Suggested colors</h3>
-            <div className="flex gap-2">
+            <h3 className="text-xs flex flex-col md:flex-row justify-center md:justify-between items-center">
+              Suggested colors
+            </h3>
+            <div className="flex gap-2 justify-center items-center">
               <div
                 className="w-4 h-4 bg-blue-500 rounded-sm cursor-pointer"
                 onClick={() => setActiveColor("blue")}
@@ -103,13 +105,13 @@ export default function AIRecolor() {
                 onClick={() => setActiveColor("yellow")}
               ></div>
             </div>
-            <div className="grid grid-cols-3 items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-4">
               <Label htmlFor="maxWidth">Color</Label>
-              <Input
+              <input
                 name="color"
                 value={activeColor}
                 onChange={(e) => setActiveColor(e.target.value)}
-                className="col-span-2 h-8"
+                className="col-span-2 w-full rounded-md px-3 py-5 h-8 border-2 border-gray-500 dark:border-gray-50 outline-none"
               />
             </div>
           </div>

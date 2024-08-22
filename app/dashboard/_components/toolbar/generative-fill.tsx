@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Crop } from "lucide-react";
+import { Crop, Loader } from "lucide-react";
 import { useLayerStore } from "@/server/layer-store";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -153,7 +153,7 @@ export default function GenerativeFill() {
           className="py-8 hover:bg-transparent transform transition-all hover:scale-105"
           style={{ position: "relative" }}
         >
-          <span className="flex text-[9px]  gap-1 items-center justify-center flex-col  font-medium">
+          <span className="flex text-[9px] gap-1 items-center justify-center flex-col font-medium">
             <span className="hidden lg:flex">Generative Fill</span>
             <Crop size={18} />
           </span>
@@ -162,7 +162,7 @@ export default function GenerativeFill() {
       <AnimatePresence>
         {activeLayer?.url && (
           <PopoverContent
-            className="w-full shadow-lg rounded-lg p-4 bg-white dark:bg-gray-800"
+            className="w-full max-w-sm shadow-lg rounded-lg p-4 bg-white dark:bg-gray-800"
             asChild
           >
             <motion.div
@@ -170,7 +170,6 @@ export default function GenerativeFill() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              style={{ width: "300px", maxWidth: "100%" }}
             >
               <div className="flex flex-col h-full">
                 <div className="space-y-2">
@@ -178,32 +177,25 @@ export default function GenerativeFill() {
                     Generative Fill
                   </h4>
                   {activeLayer.width && activeLayer.height ? (
-                    <div className="flex justify-evenly">
-                      <div className="flex flex-col items-center">
+                    <div className="flex flex-row justify-between items-center md:items-start">
+                      <div className="flex flex-col gap-1 items-center">
                         <span className="text-xs">Current Size:</span>
                         <p className="text-sm text-primary font-bold">
                           {activeLayer.width}X{activeLayer.height}
                         </p>
                       </div>
-                      <div className="flex flex-col items-center">
+                      <div className="flex flex-col items-center mt-2 md:mt-0">
                         <span className="text-xs">New Size:</span>
                         <p className="text-sm text-primary font-bold">
-                          <Popover>
-                            <PopoverTrigger>
-                              {activeLayer.width + width}
-                            </PopoverTrigger>
-                            <PopoverContent>
-                              <Input name="width" type="number" />
-                            </PopoverContent>
-                          </Popover>
-                          X{activeLayer.height + height}
+                          {activeLayer.width + width}X
+                          {activeLayer.height + height}
                         </p>
                       </div>
                     </div>
                   ) : null}
                 </div>
-                <div className="flex gap-2 items-center justify-center">
-                  <div className="text-center">
+                <div className="flex flex-col md:flex-row gap-2 items-center justify-center mt-4">
+                  <div className="text-center w-full">
                     <Label htmlFor="maxWidth">Modify Width</Label>
                     <Input
                       name="width"
@@ -214,7 +206,7 @@ export default function GenerativeFill() {
                       className="h-8"
                     />
                   </div>
-                  <div className="text-center">
+                  <div className="text-center w-full mt-2 md:mt-0">
                     <Label htmlFor="maxHeight">Modify Height</Label>
                     <Input
                       name="height"
@@ -230,30 +222,44 @@ export default function GenerativeFill() {
                 </div>
                 {/* Preview */}
                 <div
-                  className="preview-container flex-grow"
+                  className="preview-container flex-grow mt-4"
                   style={{
                     width: `${PREVIEW_SIZE}px`,
                     height: `${PREVIEW_SIZE}px`,
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    marginTop: "1rem",
                   }}
                 >
                   <div className="preview" style={previewStyle}>
                     <div
                       className="preview-overlay"
                       style={previewOverlayStyle}
-                    ></div>
+                    />
                   </div>
                 </div>
-                <Button
-                  onClick={handleGenFill}
-                  className="mt-4"
-                  disabled={!activeLayer?.url || generating}
-                >
-                  {generating ? "Generating..." : "Generate"}
-                </Button>
+
+                {/* Expansion Indicators */}
+                <ExpansionIndicator value={width} axis="x" />
+                <ExpansionIndicator value={height} axis="y" />
+
+                {/* Button */}
+                <div className="flex justify-center mt-4">
+                  <Button
+                    disabled={generating}
+                    onClick={handleGenFill}
+                    className="w-full py-2"
+                  >
+                    {generating ? (
+                      <div className="flex">
+                        <Loader className="w-5 h-5 mr-2" />
+                        Generating...
+                      </div>
+                    ) : (
+                      "🖌️ Generate"
+                    )}
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </PopoverContent>

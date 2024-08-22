@@ -10,7 +10,14 @@ import {
 } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Crop, RefreshCcw, ScanFace, Square } from "lucide-react";
+import {
+  Crop,
+  Instagram,
+  RefreshCcw,
+  ScanFace,
+  Square,
+  YoutubeIcon,
+} from "lucide-react";
 import { useLayerStore } from "@/server/layer-store";
 import { genCrop } from "@/server/smartCrop";
 import { toast } from "sonner";
@@ -21,9 +28,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import TikTok from "../icons/tiktok";
-import Image from "next/image";
-import Youtube from "../icons/youtube";
+
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 
@@ -37,28 +42,6 @@ export default function SmartCrop() {
   const generating = useImageStore((state) => state.generating);
   const setActiveLayer = useLayerStore((state) => state.setActiveLayer);
   const [aspectRatio, setAspectRatio] = useState("16:9");
-  const [loading, setLoading] = useState("fasle");
-
-  // GSAP Animation on card selection
-  useEffect(() => {
-    const cards = document.querySelectorAll(".smart-crop-card");
-    gsap.to(cards, {
-      scale: 1.05,
-      borderColor: "blue",
-      ease: "power2.out",
-      duration: 0.3,
-      paused: true,
-      clearProps: "all",
-    });
-    gsap.utils.toArray(cards).forEach((card: any) => {
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, { scale: 1.05, borderColor: "blue" });
-      });
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, { scale: 1, borderColor: "transparent" });
-      });
-    });
-  }, [aspectRatio]);
 
   const handleGenCrop = async () => {
     setGenerating(true);
@@ -97,13 +80,13 @@ export default function SmartCrop() {
     <Popover>
       <PopoverTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
-          <span className="flex gap-1 items-center flex-col text-[9px] font-medium">
+          <span className="flex flex-col items-center gap-1 text-[9px] font-medium">
             <span className="hidden lg:flex">Smart Crop</span>
             <Crop size={18} />
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full">
+      <PopoverContent className="w-full max-w-md">
         <div className="flex flex-col h-full">
           <div className="space-y-2 pb-4">
             <h3 className="font-medium text-center py-2 leading-none">
@@ -111,62 +94,60 @@ export default function SmartCrop() {
             </h3>
           </div>
           <h4 className="text-md font-medium pb-2">Format</h4>
-          <div className={"flex gap-4 items-center justify-center pb-2"}>
+          <div className="flex gap-4 items-center justify-center pb-2">
             <Card
               className={cn(
-                aspectRatio === "16:9"
-                  ? "shadow-xl border-2 border-purple-500"
-                  : "",
-                "p-4 w-36 cursor-pointer smart-crop-card "
+                aspectRatio === "16:9" ? "bg-red-600 text-white" : "",
+                "p-4 w-24 sm:w-28 md:w-36 cursor-pointer smart-crop-card"
               )}
               onClick={() => setAspectRatio("16:9")}
             >
               <CardHeader className="text-center p-0">
-                <CardTitle className="text-md">Youtube</CardTitle>
+                <CardTitle className="text-sm sm:text-md">Youtube</CardTitle>
                 <CardDescription>
-                  <p className="text-sm font-bold">16:9</p>
+                  <p className="text-xs sm:text-sm font-bold">16:9</p>
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-center p-0 pt-2">
-                <Youtube />
+                <YoutubeIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
               </CardContent>
             </Card>
             <Card
               className={cn(
                 aspectRatio === "9:16"
-                  ? "shadow-xl border-2 border-purple-500"
+                  ? "shadow-xl border-2 bg-pink-800 text-white"
                   : "",
-                "p-4 w-36 cursor-pointer smart-crop-card border-transparent border-2"
+                "p-4 w-24 sm:w-28 md:w-36 cursor-pointer smart-crop-card border-transparent border-2"
               )}
               onClick={() => setAspectRatio("9:16")}
             >
               <CardHeader className="p-0 text-center">
-                <CardTitle className="text-md">Tiktok</CardTitle>
+                <CardTitle className="text-sm sm:text-md">Tiktok</CardTitle>
                 <CardDescription>
-                  <p className="text-sm font-bold">9:16</p>
+                  <p className="text-xs sm:text-sm font-bold">9:16</p>
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-center p-0 pt-2">
-                <TikTok />
+                <Instagram className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
               </CardContent>
             </Card>
             <Card
               className={cn(
                 aspectRatio === "1:1"
-                  ? "shadow-xl border-2 border-purple-500"
+                  ? "shadow-xl border-2 border-purple-500 bg-blue-900 text-white"
                   : "",
-                "p-4 w-36 cursor-pointer smart-crop-card border-transparent "
+                "p-4 w-24 sm:w-28 md:w-36 cursor-pointer smart-crop-card border-transparent"
               )}
               onClick={() => setAspectRatio("1:1")}
             >
               <CardHeader className="p-0 text-center">
-                <CardTitle className="text-md">Square</CardTitle>
+                <CardTitle className="text-sm sm:text-md">Square</CardTitle>
                 <CardDescription>
-                  <p className="text-sm font-bold">1:1</p>
+                  <p className="text-xs sm:text-sm font-bold">1:1</p>
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-center p-0 pt-2">
-                <Square className="w-10 h-10" />
+                <Square className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
               </CardContent>
             </Card>
           </div>
@@ -174,7 +155,6 @@ export default function SmartCrop() {
           <Button
             onClick={handleGenCrop}
             className="w-full mt-4"
-            variant={"outline"}
             disabled={!activeLayer.url || generating}
           >
             {generating ? "Cropping..." : "Smart Crop 🎨"}
