@@ -35,7 +35,7 @@ export default function ActiveImage() {
           src={layer.url || ""}
           fill={true}
           className={cn(
-            "rounded-lg object-contain bg-white shadow-lg dark:bg-gray-950",
+            "rounded-lg object-contain bg-white w-full shadow-lg dark:bg-gray-950",
             generating ? "animate-pulse" : ""
           )}
         />
@@ -45,7 +45,7 @@ export default function ActiveImage() {
           width={layer.width}
           height={layer.height}
           controls
-          className="rounded-lg object-contain bg-white dark:bg-gray-950 shadow-lg max-w-full max-h-full"
+          className="rounded-lg object-contain w-full bg-white dark:bg-gray-950 shadow-lg max-w-full max-h-full"
           src={layer.transcriptionURL || layer.url}
         />
       )}
