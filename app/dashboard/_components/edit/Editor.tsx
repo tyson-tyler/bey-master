@@ -39,9 +39,9 @@ const Editor = () => {
         {activeLayer.resourceType && (
           <ExportAsset resource={activeLayer.resourceType} />
         )}
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <ModeToggle />
-        </div>
+        </div> */}
         <div className="flex flex-col gap-2 z-50"></div>
       </div>
 

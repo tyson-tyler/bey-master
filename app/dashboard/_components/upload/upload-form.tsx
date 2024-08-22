@@ -51,7 +51,7 @@ export default function UploadForm() {
 
   if (!activeLayer.url && !layerComparisonMode) {
     return (
-      <div className="w-full p-24 flex flex-col justify-center h-full">
+      <div className="w-full relative mb-6 md:mb-[53px] lg:mb-0  lg:p-24 sm:p-0 p-0 bg-secondary dark:bg-gray-950  items-center  flex flex-col justify-center h-full">
         {selectedType === "image" ? <UploadImage /> : null}
         {selectedType === "video" ? <UploadVideo /> : null}
 
@@ -60,7 +60,7 @@ export default function UploadForm() {
           onValueChange={(e) => {
             setSelectedType(e);
           }}
-          className="flex items-center justify-center gap-8 py-8"
+          className="flex items-center justify-center gap-8 mb-[40px] sm:mb-[40px] md:mb-[20px] lg:mb-0 py-8"
         >
           <Card
             ref={imageCardRef}
