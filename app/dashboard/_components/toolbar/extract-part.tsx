@@ -51,7 +51,7 @@ export default function ExtractPart() {
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full">
+      <PopoverContent className="lg:w-full md:w-[75%] sm:w-[75%] w-[75%]">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">AI Extract</h4>
@@ -59,16 +59,16 @@ export default function ExtractPart() {
               Extract specific areas or objects from your image using AI.
             </p>
           </div>
-          <div className="grid gap-2">
+          <div className="flex flex-col gap-2">
             {prompts.map((prompt, index) => (
-              <div key={index} className="grid grid-cols-3 items-center gap-4">
+              <div key={index} className="flex flex-col items-center gap-4">
                 <Label htmlFor={`prompt-${index}`}>Prompt {index + 1}</Label>
-                <Input
+                <input
                   id={`prompt-${index}`}
                   value={prompt}
                   onChange={(e) => updatePrompt(index, e.target.value)}
                   placeholder="Describe what to extract"
-                  className="col-span-2 h-8"
+                  className="col-span-2 h-8 border-2 w-full border-black dark:border-white rounded-md p-5"
                 />
               </div>
             ))}
@@ -79,6 +79,7 @@ export default function ExtractPart() {
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="multiple"
+                className="border-2 border-purple-500"
                 checked={multiple}
                 onCheckedChange={(checked) => setMultiple(checked as boolean)}
               />
@@ -87,19 +88,20 @@ export default function ExtractPart() {
 
             <RadioGroup value={mode} onValueChange={setMode}>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="default" id="mode-default" />
+                <input type="radio" value="default" id="mode-default" />
                 <Label htmlFor="mode-default">
                   Default (transparent background)
                 </Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="mask" id="mode-mask" />
+                <input type="radio" value="mask" id="mode-mask" />
                 <Label htmlFor="mode-mask">Mask</Label>
               </div>
             </RadioGroup>
 
             <div className="flex items-center space-x-2">
               <Checkbox
+                className="border-2 border-purple-500"
                 id="invert"
                 checked={invert}
                 onCheckedChange={(checked) => setInvert(checked as boolean)}

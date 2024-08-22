@@ -36,7 +36,7 @@ export default function AIBackgroundReplace() {
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full">
+      <PopoverContent className="lg:w-full md:w-[75%] sm:w-[75%] w-[75%]">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">
@@ -46,15 +46,15 @@ export default function AIBackgroundReplace() {
               Replace the background of your image with AI-generated content.
             </p>
           </div>
-          <div className="grid gap-2">
-            <div className="grid grid-cols-3 items-center gap-4">
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-col items-center gap-4">
               <Label htmlFor="prompt">Prompt (optional)</Label>
-              <Input
+              <input
                 id="prompt"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Describe the new background"
-                className="col-span-2 h-8"
+                className="col-span-2 w-full h-8 border-2 border-black dark:border-white rounded-md p-5"
               />
             </div>
           </div>
