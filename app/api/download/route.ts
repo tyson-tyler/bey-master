@@ -40,10 +40,13 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    // Ensure activeUrl is HTTPS
     const parts = activeUrl!.split("/upload/");
     const url = selected
-      ? `${parts[0]}/upload/${selected}/${parts[1]}`
-      : activeUrl!;
+      ? `${parts[0].replace(/^http:\/\//, "https://")}/upload/${selected}/${
+          parts[1]
+        }`
+      : activeUrl!.replace(/^http:\/\//, "https://");
 
     // Poll the URL to check if the image is processed
     let isProcessed = false;

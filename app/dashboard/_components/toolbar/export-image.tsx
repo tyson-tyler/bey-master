@@ -15,7 +15,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 export default function ExportAsset({ resource }: { resource: string }) {
-  const activeLayer = useLayerStore((state) => state.activeLayer);
+  const activeLayer: any = useLayerStore((state) => state.activeLayer);
   const [selected, setSelected] = useState("original");
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +24,13 @@ export default function ExportAsset({ resource }: { resource: string }) {
       setLoading(true); // Start loading
       try {
         const res = await fetch(
-          `/api/download?publicId=${activeLayer.publicId}&quality=${selected}&resource_type=${activeLayer.resourceType}&format=${activeLayer.format}&url=${activeLayer.url}`
+          `/api/download?publicId=${
+            activeLayer.publicId
+          }&quality=${selected}&resource_type=${
+            activeLayer.resourceType
+          }&format=${activeLayer.format}&url=${encodeURIComponent(
+            activeLayer.url
+          )}`
         );
         if (!res.ok) {
           throw new Error("Failed to fetch image URL");
@@ -34,8 +40,10 @@ export default function ExportAsset({ resource }: { resource: string }) {
           throw new Error(data.error);
         }
 
-        // Fetch the image
-        const imageResponse = await fetch(data.url);
+        // Ensure the image URL is HTTPS
+        const imageResponse = await fetch(
+          data.url.replace(/^http:\/\//, "https://")
+        );
         if (!imageResponse.ok) {
           throw new Error("Failed to fetch image");
         }
@@ -85,7 +93,7 @@ export default function ExportAsset({ resource }: { resource: string }) {
               onClick={() => setSelected("original")}
               className={cn(
                 selected === "original"
-                  ? "border-purple-500  transform transition-all scale-105 border-2 shadow-lg"
+                  ? "border-purple-500 transform transition-all scale-105 border-2 shadow-lg"
                   : null,
                 "p-4 cursor-pointer"
               )}
