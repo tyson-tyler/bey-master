@@ -30,13 +30,7 @@ const Sidebar1 = () => {
       colorClass: "bg-blue-600",
       animationClass: styles.animateBounce,
     },
-    {
-      href: "/dashboard/did",
-      label: "Image",
-      icon: <RiImageCircleFill />,
-      colorClass: "bg-purple-600",
-      animationClass: styles.animatePulse,
-    },
+
     {
       href: "/dashboard/document",
       label: "Document",

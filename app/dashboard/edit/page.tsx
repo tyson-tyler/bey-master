@@ -115,7 +115,11 @@ const LandingPage = () => {
       >
         {/* Star Background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="w-full h-full bg-[url('/path-to-your-star-image.png')] bg-cover bg-center opacity-50"></div>
+          <div
+            className="w-full
+          bg-none
+          h-full dark:bg-[url('https://img.freepik.com/free-photo/beautiful-constellations-planet_23-2149988827.jpg?ga=GA1.1.2133301198.1715612077&semt=ais_hybrid')] bg-cover bg-center opacity-50"
+          ></div>
         </div>
 
         {/* Computing Chips Background */}
