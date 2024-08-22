@@ -42,13 +42,9 @@ const Editor = () => {
         <div className="flex justify-center items-center">
           <ModeToggle />
         </div>
+        <div className="flex flex-col gap-2 z-50"></div>
       </div>
-      <div className="absoulte top-2 left-2 z-50">
-        <Button>
-          <ArrowBigLeft className="w-5 h-5 text-white mr-2" />
-          Back
-        </Button>
-      </div>
+
       {/* <UploadImage /> */}
       <Loading />
       <UploadForm />

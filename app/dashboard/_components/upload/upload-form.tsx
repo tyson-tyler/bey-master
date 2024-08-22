@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 import { useLayerStore } from "@/server/layer-store";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { ImageIcon, VideoIcon } from "lucide-react";
+import { ArrowBigLeft, ImageIcon, VideoIcon } from "lucide-react";
 import { gsap } from "gsap";
 import UploadImage from "./upload-image";
 import UploadVideo from "./upload-video";
+import { Button } from "@/components/ui/button";
 
 export default function UploadForm() {
   const activeLayer = useLayerStore((state) => state.activeLayer);
