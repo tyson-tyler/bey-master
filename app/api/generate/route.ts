@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { ImageModel } from "@/models";
 import { connecToDB } from "@/lib/mongodb";
-import { replicate } from "@/utils/replicate";
+import { replicate } from "@/lib/ai/replicate";
 
 export async function POST(req: Request) {
   const body = await req.json();
