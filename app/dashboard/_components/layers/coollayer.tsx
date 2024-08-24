@@ -1,13 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -42,10 +35,10 @@ export function SheetLayer() {
         />
       </SheetTrigger>
       <SheetContent className="p-2">
-        <Card className="basis-[320px]  h-screen shrink-0 overflow-y-scroll overflow-x-hidden relative flex lg:hidden flex-col">
-          <CardHeader className="">
+        <Card className="basis-[320px] h-full shrink-0 overflow-y-scroll overflow-x-hidden relative flex lg:hidden flex-col">
+          <CardHeader>
             <div className="flex items-center gap-3">
-              <IoIosImages className="w-[3rem] h-[3rem] dark:text-white text-black" />
+              <IoIosImages className="lg:w-[3rem] md:w-[30px] sm:w-[25px] sm:h-[25px] w-[25px] h-[25px] md:h-[30px] lg:h-[3rem] dark:text-white text-black" />
               <div className="flex flex-col gap-1">
                 <CardTitle className="text-sm">
                   {activeLayer.name || "Layers"}
@@ -58,33 +51,47 @@ export function SheetLayer() {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="h-screen p-2">
-            {layers.map((layer, index) => (
-              <div
-                className={cn(
-                  "cursor-pointer ease-in-out w-full dark:hover:bg-gray-800 hover:bg-gray-200 rounded-md border border-transparent",
-                  { "animate-pulse": generating }
-                )}
-                key={layer.id}
-                onClick={() => {
-                  if (generating) return;
-                  setActiveLayer(layer.id);
-                  setOpen(false); // Close the sheet when a layer is selected
-                }}
-              >
-                <div className="relative p-4 flex items-center w-full">
-                  <div className="flex gap-4 items-center h-8 w-full justify-between">
-                    {!layer.url ? (
-                      <p className="text-xs font-medium justify-self-end">
-                        New Layer
-                      </p>
-                    ) : null}
-                    <LayerImage layer={layer} />
-                    <LayerInfo layer={layer} layerIndex={index} />
+          <CardContent
+            className="h-full p-2"
+            style={{
+              msOverflowStyle: "none", // Hide scrollbar in IE and Edge
+              scrollbarWidth: "none", // Hide scrollbar in Firefox
+            }}
+          >
+            {/* Hide scrollbar in WebKit-based browsers */}
+            <style jsx>{`
+              .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+            <div className="hide-scrollbar">
+              {layers.map((layer, index) => (
+                <div
+                  className={cn(
+                    "cursor-pointer ease-in-out w-full dark:hover:bg-gray-800 hover:bg-gray-200 rounded-md border border-transparent",
+                    { "animate-pulse": generating }
+                  )}
+                  key={layer.id}
+                  onClick={() => {
+                    if (generating) return;
+                    setActiveLayer(layer.id);
+                    setOpen(false); // Close the sheet when a layer is selected
+                  }}
+                >
+                  <div className="relative p-4 flex items-center w-full">
+                    <div className="flex gap-4 items-center h-8 w-full justify-between">
+                      {!layer.url ? (
+                        <p className="text-xs font-medium justify-self-end">
+                          New Layer
+                        </p>
+                      ) : null}
+                      <LayerImage layer={layer} />
+                      <LayerInfo layer={layer} layerIndex={index} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </CardContent>
           <div className="sticky justify-center w-full p-4 bottom-0 bg-card flex gap-2 shrink-0">
             <Button

@@ -1,17 +1,8 @@
 "use client";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Ellipsis, Trash } from "lucide-react";
+import { Trash } from "lucide-react";
 import { Layer, useLayerStore } from "@/server/layer-store";
-import { useImageStore } from "@/server/image-store";
 
 export default function LayerInfo({
   layer,
@@ -24,42 +15,21 @@ export default function LayerInfo({
   const setActiveLayer = useLayerStore((state) => state.setActiveLayer);
   const removeLayer = useLayerStore((state) => state.removeLayer);
 
+  const handleDelete = () => {
+    setActiveLayer(layerIndex === 0 ? layers[1].id : layers[0].id);
+    removeLayer(layer.id);
+  };
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline" className="bg-transparent">
-          <Ellipsis size={10} />
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="text-xs">
-        <h3 className="text-lg font-medium text-center mb-2">
-          Layer {layer.id}
-        </h3>
-        <div className="py-4 space-y-0.5">
-          <p>
-            <span className="font-bold">Filename:</span> {layer.name}
-          </p>
-          <p>
-            <span className="font-bold">Format:</span> {layer.format}
-          </p>
-          <p>
-            <span className="font-bold"> Size:</span> {layer.width}X
-            {layer.height}
-          </p>
-        </div>
-        <Button
-          onClick={(e) => {
-            e.stopPropagation();
-            setActiveLayer(layerIndex === 0 ? layers[1].id : layers[0].id);
-            removeLayer(layer.id);
-          }}
-          variant={"destructive"}
-          className="flex items-center gap-2 w-full"
-        >
-          <span> Delete Layer</span>
-          <Trash size={14} />
-        </Button>
-      </DialogContent>
-    </Dialog>
+    <Button
+      onClick={(e) => {
+        e.stopPropagation();
+        handleDelete();
+      }}
+      variant="ghost"
+      className="flex  justify-center hover:border-2 hover:border-red-500 text-red-500  items-center  rounded-md"
+    >
+      <Trash size={14} />
+    </Button>
   );
 }

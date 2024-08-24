@@ -4,6 +4,9 @@ interface IImage {
   imageUrl: string;
   prompt: string;
 }
+interface IStory {
+  story: Story;
+}
 
 const ImageSchema = new Schema<IImage>(
   {
@@ -20,3 +23,15 @@ const ImageSchema = new Schema<IImage>(
 );
 
 export const ImageModel = models.Image || model<IImage>("Image", ImageSchema);
+
+const StorySchema = new Schema<IStory>(
+  {
+    story: {
+      type: Object,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+export const StoryModel = models.Story || model<IStory>("Story", StorySchema);
