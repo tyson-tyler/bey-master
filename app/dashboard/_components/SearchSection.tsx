@@ -57,6 +57,7 @@ const SearchSection = () => {
             className="transition duration-300 ease-in-out transform hover:scale-105"
           />
         </div>
+        {/* <Sidebar /> */}
       </div>
 
       <TemplateListSection userSearchInput={userSearchInput} />

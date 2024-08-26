@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Editor from "../dashboard/_components/edit/Editor";
+import Editor from "../_components/edit/Editor";
 import { ImageStore } from "@/server/image-store";
 import { LayerStore } from "@/server/layer-store";
 

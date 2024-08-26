@@ -197,69 +197,76 @@ export default function GenerativeFill() {
                 <div className="flex flex-col md:flex-row gap-2 items-center justify-center mt-4">
                   <div className="text-center w-full">
                     <Label htmlFor="maxWidth">Modify Width</Label>
-                    <Input
-                      name="width"
-                      type="range"
-                      max={activeLayer.width}
-                      value={width}
-                      onChange={(e) => setWidth(parseInt(e.target.value))}
-                      className="h-8"
-                    />
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <Input
+                        name="width"
+                        type="range"
+                        max={activeLayer.width}
+                        value={width}
+                        onChange={(e) => setWidth(parseInt(e.target.value))}
+                        className="h-8 accent-blue-500"
+                      />
+                    </motion.div>
                   </div>
                   <div className="text-center w-full mt-2 md:mt-0">
                     <Label htmlFor="maxHeight">Modify Height</Label>
-                    <Input
-                      name="height"
-                      type="range"
-                      min={-activeLayer.height! + 100}
-                      max={activeLayer.height}
-                      value={height}
-                      step={2}
-                      onChange={(e) => setHeight(parseInt(e.target.value))}
-                      className="h-8"
-                    />
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <Input
+                        name="height"
+                        type="range"
+                        min={-activeLayer.height! + 100}
+                        max={activeLayer.height}
+                        value={height}
+                        step={2}
+                        onChange={(e) => setHeight(parseInt(e.target.value))}
+                        className="h-8 accent-blue-500"
+                      />
+                    </motion.div>
                   </div>
                 </div>
                 {/* Preview */}
                 <div
-                  className="preview-container flex-grow mt-4"
+                  className="preview-container mt-8"
                   style={{
-                    width: `${PREVIEW_SIZE}px`,
+                    position: "relative",
+                    maxWidth: `${PREVIEW_SIZE}px`,
                     height: `${PREVIEW_SIZE}px`,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    margin: "0 auto",
                   }}
                 >
-                  <div className="preview" style={previewStyle}>
-                    <div
-                      className="preview-overlay"
-                      style={previewOverlayStyle}
-                    />
-                  </div>
-                </div>
-
-                {/* Expansion Indicators */}
-                <ExpansionIndicator value={width} axis="x" />
-                <ExpansionIndicator value={height} axis="y" />
-
-                {/* Button */}
-                <div className="flex justify-center mt-4">
-                  <Button
-                    disabled={generating}
-                    onClick={handleGenFill}
-                    className="w-full py-2"
+                  <motion.div
+                    style={previewStyle}
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
                   >
-                    {generating ? (
-                      <div className="flex">
-                        <Loader className="w-5 h-5 mr-2" />
-                        Generating...
-                      </div>
-                    ) : (
-                      "🖌️ Generate"
-                    )}
-                  </Button>
+                    <motion.div
+                      className="overlay"
+                      style={previewOverlayStyle}
+                      animate={{ opacity: 0.6 }}
+                      initial={{ opacity: 0 }}
+                    />
+                  </motion.div>
+                  <ExpansionIndicator value={width} axis="x" />
+                  <ExpansionIndicator value={height} axis="y" />
                 </div>
+                <Button
+                  variant="outline"
+                  className="w-full mt-4 flex justify-center items-center bg-gradient-to-r from-blue-500 to-green-400 text-white hover:scale-105 transform transition-transform duration-300"
+                  onClick={handleGenFill}
+                  disabled={generating || width === 0 || height === 0}
+                >
+                  {generating ? <Loader className="animate-spin" /> : "Apply"}
+                </Button>
               </div>
             </motion.div>
           </PopoverContent>
