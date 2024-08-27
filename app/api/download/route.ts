@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import cloudinary from "cloudinary";
-import { checkImageProcessing } from "@/server/url";
+import { checkImageProcessing } from "@/components/server/server-url";
 
 cloudinary.v2.config({
   api_key: process.env.CLOUDINARY_API_KEY,

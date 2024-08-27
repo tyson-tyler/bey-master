@@ -11,15 +11,17 @@ import Loading from "../toolbar/loading-screen";
 import VideoTools from "../toolbar/videoTools";
 import ExportAsset from "../toolbar/export-image";
 import { SheetLayer } from "../layers/coollayer";
+import { Button } from "@/components/ui/button";
+import { ArrowBigLeft } from "lucide-react";
 
 const Editor = () => {
   const activeLayer = useLayerStore((state) => state.activeLayer);
   return (
     <div className="flex h-screen">
       <div className="py-6 lg:block hidden px-4 w-[105px] shrink-0">
-        {/* <div className="pb-12 text-center">
+        <div className="pb-12 text-center">
           <ModeToggle />
-        </div> */}
+        </div>
         <div className="lg:flex  flex-col gap-4 hidden">
           {activeLayer.resourceType === "image" ? <ImageTools /> : null}
           {activeLayer.resourceType === "video" ? <VideoTools /> : null}
@@ -37,10 +39,13 @@ const Editor = () => {
         {activeLayer.resourceType && (
           <ExportAsset resource={activeLayer.resourceType} />
         )}
-
+        {/* <div className="flex justify-center items-center">
+          <ModeToggle />
+        </div> */}
         <div className="flex flex-col gap-2 z-50"></div>
       </div>
 
+      {/* <UploadImage /> */}
       <Loading />
       <UploadForm />
       <ActiveImage />
