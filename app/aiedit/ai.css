@@ -63,3 +63,6 @@
     @apply bg-background text-foreground;
   }
 }
+.border-primary {
+  border: 2px blue solid;
+}

@@ -42,7 +42,7 @@ export default function ExtractPart() {
     <Popover>
       <PopoverTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
-          <span className="flex gap-1 text-[8px] items-center justify-center flex-col text-xs font-medium">
+          <span className="flex gap-1 text-[8px] items-center justify-center flex-col  font-medium">
             <span className="md:block hidden">AI Extract</span>
             <Scissors size={18} />
           </span>

@@ -35,7 +35,7 @@ export default function AIRecolor() {
     <Popover>
       <PopoverTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
-          <span className="flex gap-1 items-center text-[8px] justify-center flex-col text-xs font-medium">
+          <span className="flex gap-1 items-center text-[8px] justify-center flex-col  font-medium">
             <span className="md:block hidden">AI Recolor</span>
             <Paintbrush size={18} />
           </span>

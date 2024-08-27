@@ -14,7 +14,7 @@ export default function Footer() {
   const activeLayer = useLayerStore((state) => state.activeLayer);
   return (
     <>
-      <div className="w-full flex justify-center gap-2 md:hidden fixed bottom-0 z-50  dark:bg-gray-950 dark:text-white bg-white text-black">
+      <div className="w-full flex   justify-center gap-2 md:hidden fixed bottom-0 z-50  dark:bg-gray-950 dark:text-white bg-white text-black">
         <GenerativeFill />
         <AIRecolor />
         <GenRemove />

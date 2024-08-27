@@ -17,14 +17,14 @@ export default function ActiveImage() {
   if (!activeLayer.url && comparedLayers.length === 0) return null;
 
   const renderLayer = (layer: Layer) => (
-    <div className="relative w-full h-full flex items-center justify-center">
+    <div className="relative w-full h-full mb-[60px] md:mb-0 flex items-center justify-center">
       {layer.resourceType === "image" && (
         <Image
           alt={layer.name || "Image"}
           src={layer.url || ""}
           fill={true}
           className={cn(
-            "rounded-lg object-contain",
+            "rounded-lg object-contain ",
             generating ? "animate-pulse" : ""
           )}
         />
@@ -34,7 +34,7 @@ export default function ActiveImage() {
           width={layer.width}
           height={layer.height}
           controls
-          className="rounded-lg object-contain max-w-full max-h-full"
+          className="rounded-lg object-contain max-w-full mb-[60px] md:mb-0 max-h-full"
           src={layer.transcriptionURL || layer.url}
         />
       )}
@@ -59,7 +59,7 @@ export default function ActiveImage() {
   }
 
   return (
-    <div className="w-full relative h-svh p-7 bg-secondary flex flex-col items-center justify-center">
+    <div className="w-full relative h-svh p-8  bg-secondary flex flex-col items-center justify-center">
       {renderLayer(activeLayer)}
     </div>
   );
