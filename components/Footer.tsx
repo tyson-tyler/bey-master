@@ -11,7 +11,7 @@ import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaGear, FaRobot, FaVideo } from "react-icons/fa6";
 import { UserButton } from "@clerk/nextjs";
 import Loader from "./Loader";
-import { IoDocument } from "react-icons/io5";
+import { IoDocument, IoDocumentAttachSharp } from "react-icons/io5";
 import { IoLogoFreebsdDevil } from "react-icons/io";
 import { VscFeedback } from "react-icons/vsc";
 
@@ -45,6 +45,13 @@ const Sidebar1 = () => {
       icon: <IoLogoFreebsdDevil />,
       colorClass: "bg-purple-500",
       animationClass: styles.animateFlash,
+    },
+    {
+      href: "/dashboard/file",
+      label: "File Converter",
+      icon: <IoDocumentAttachSharp />,
+      colorClass: "bg-red-500",
+      animationClass: styles.animateSlideInLeft,
     },
     {
       href: "/dashboard/edit",

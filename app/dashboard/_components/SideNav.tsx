@@ -10,7 +10,11 @@ import Image from "next/image";
 import Hello from "../../../components/public/logo.svg";
 import { UserButton, useUser } from "@clerk/nextjs";
 import styles from "../_components/sidebar.module.css";
-import { IoDocument, IoShareSocialSharp } from "react-icons/io5";
+import {
+  IoDocument,
+  IoDocumentAttachSharp,
+  IoShareSocialSharp,
+} from "react-icons/io5";
 import { VscFeedback } from "react-icons/vsc";
 
 import { MdOutlineAttachMoney } from "react-icons/md";
@@ -48,6 +52,13 @@ const Sidebar = () => {
       icon: <IoLogoFreebsdDevil />,
       colorClass: "bg-purple-500",
       animationClass: styles.animateFlash,
+    },
+    {
+      href: "/dashboard/file",
+      label: "File Converter",
+      icon: <IoDocumentAttachSharp />,
+      colorClass: "bg-red-500",
+      animationClass: styles.animateSlideInLeft,
     },
 
     {

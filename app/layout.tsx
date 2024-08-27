@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import Provider from "./Provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/toaster";
 // Import the QueryProvider
 
 const fontSans = FontSans({
@@ -65,6 +66,7 @@ export default function RootLayout({
             zIndex={1600}
             showAtBottom={false}
           />
+          <Toaster />
           <Provider>{children}</Provider>
         </body>
       </html>
