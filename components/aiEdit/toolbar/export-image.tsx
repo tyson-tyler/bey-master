@@ -3,7 +3,7 @@
 import { useLayerStore } from "../layer-store";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Download } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -17,8 +17,11 @@ import { cn } from "@/lib/utils";
 export default function ExportAsset({ resource }: { resource: string }) {
   const activeLayer = useLayerStore((state) => state.activeLayer);
   const [selected, setSelected] = useState("original");
+  const [loading, setLoading] = useState(false); // Loading state
+
   const handleDownload = async () => {
     if (activeLayer?.publicId) {
+      setLoading(true); // Set loading to true when starting the download
       try {
         const res = await fetch(
           `/api/download?publicId=${activeLayer.publicId}&quality=${selected}&resource_type=${activeLayer.resourceType}&format=${activeLayer.format}&url=${activeLayer.url}`
@@ -27,7 +30,6 @@ export default function ExportAsset({ resource }: { resource: string }) {
           throw new Error("Failed to fetch image URL");
         }
         const data = await res.json();
-        console.log(data);
         if (data.error) {
           throw new Error(data.error);
         }
@@ -52,7 +54,9 @@ export default function ExportAsset({ resource }: { resource: string }) {
         URL.revokeObjectURL(downloadUrl);
       } catch (error) {
         console.error("Download failed:", error);
-        // Here you could show an error message to the user
+        // Show an error message to the user if needed
+      } finally {
+        setLoading(false); // Set loading to false after the download is done
       }
     }
   };
@@ -61,7 +65,7 @@ export default function ExportAsset({ resource }: { resource: string }) {
     <Dialog>
       <DialogTrigger disabled={!activeLayer?.url} asChild>
         <Button variant="outline" className="py-8">
-          <span className="flex gap-1 items-center text-[8px] justify-center flex-col  font-medium">
+          <span className="flex gap-1 items-center text-[8px] justify-center flex-col font-medium">
             <span className="hidden md:block">Export</span>
             <Download size={18} />
           </span>
@@ -132,8 +136,12 @@ export default function ExportAsset({ resource }: { resource: string }) {
             </Card>
           </div>
         </div>
-        <Button onClick={handleDownload}>
-          Download {selected} {resource}
+        <Button onClick={handleDownload} disabled={loading}>
+          {loading ? (
+            <Loader2 className="animate-spin mr-2" size={16} />
+          ) : (
+            `Download ${selected} ${resource}`
+          )}
         </Button>
       </DialogContent>
     </Dialog>

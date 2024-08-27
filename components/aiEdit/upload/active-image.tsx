@@ -59,7 +59,7 @@ export default function ActiveImage() {
   }
 
   return (
-    <div className="w-full relative h-svh p-8  bg-secondary flex flex-col items-center justify-center">
+    <div className="w-full relative h-svh p-8  dark:bg-gray-900 bg-gray-200 flex flex-col items-center justify-center">
       {renderLayer(activeLayer)}
     </div>
   );
