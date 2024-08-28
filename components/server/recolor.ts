@@ -1,6 +1,6 @@
 "use server";
 
-import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
+import { v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
 
@@ -24,6 +24,7 @@ async function checkImageProcessing(url: string) {
     }
     return false;
   } catch (error) {
+    console.error("Error checking image processing:", error);
     return false;
   }
 }
@@ -36,8 +37,9 @@ export const recolorImage = actionClient
 
     // Poll the URL to check if the image is processed
     let isProcessed = false;
-    const maxAttempts = 20;
-    const delay = 1000; // 1 second
+    const maxAttempts = 10; // Reduce attempts to 10
+    const delay = 2000; // Increase delay to 2 seconds
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       isProcessed = await checkImageProcessing(recolorUrl);
       if (isProcessed) {
@@ -47,8 +49,9 @@ export const recolorImage = actionClient
     }
 
     if (!isProcessed) {
-      throw new Error("Image processing timed out");
+      throw new Error("Image processing timed out or failed.");
     }
-    console.log(recolorUrl);
+
+    console.log("Processed Image URL:", recolorUrl);
     return { success: recolorUrl };
   });

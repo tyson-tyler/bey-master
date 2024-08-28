@@ -43,6 +43,7 @@ export const replaceBackground = actionClient
     let isProcessed = false;
     const maxAttempts = 20;
     const delay = 1000; // 1 second
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       isProcessed = await checkImageProcessing(bgReplaceUrl);
       if (isProcessed) {
@@ -54,6 +55,7 @@ export const replaceBackground = actionClient
     if (!isProcessed) {
       throw new Error("Image processing timed out");
     }
+
     console.log(bgReplaceUrl);
     return { success: bgReplaceUrl };
   });

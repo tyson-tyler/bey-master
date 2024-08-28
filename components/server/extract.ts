@@ -19,14 +19,12 @@ const extractSchema = z.object({
   format: z.string(),
 });
 
-async function checkImageProcessing(url: string) {
+async function checkImageProcessing(url: string): Promise<boolean> {
   try {
     const response = await fetch(url);
-    if (response.ok) {
-      return true;
-    }
-    return false;
+    return response.ok;
   } catch (error) {
+    console.error("Error checking image processing:", error);
     return false;
   }
 }
@@ -52,10 +50,14 @@ export const extractImage = actionClient
 
       // Poll the URL to check if the image is processed
       let isProcessed = false;
-      const maxAttempts = 20;
-      const delay = 1000; // 1 second
+      const maxAttempts = 30; // Increased number of attempts
+      const delay = 3000; // Increased delay to 3 seconds
       for (let attempt = 0; attempt < maxAttempts; attempt++) {
         isProcessed = await checkImageProcessing(extractUrl);
+        console.log(
+          `Attempt ${attempt + 1}: Image processing status - ${isProcessed}`
+        );
+
         if (isProcessed) {
           break;
         }

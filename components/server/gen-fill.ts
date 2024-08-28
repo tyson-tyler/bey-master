@@ -23,6 +23,9 @@ async function checkImageProcessing(url: string) {
     const response = await fetch(url);
     if (response.ok) {
       return true;
+    } else if (response.status === 504) {
+      // Retry the request if a 504 error occurs
+      return false;
     }
     return false;
   } catch (error) {
@@ -36,12 +39,12 @@ export const genFill = actionClient
     const parts = activeImage.split("/upload/");
 
     const fillUrl = `${parts[0]}/upload/ar_${aspect},b_gen_fill,c_pad,w_${width},h_${height}/${parts[1]}`;
-    console.log(genFill);
+    console.log(fillUrl);
 
     // Poll the URL to check if the image is processed
     let isProcessed = false;
-    const maxAttempts = 20;
-    const delay = 1000; // 1 second
+    const maxAttempts = 30; // Increase attempts to 30
+    const delay = 2000; // Increase delay to 2 seconds
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       isProcessed = await checkImageProcessing(fillUrl);
       if (isProcessed) {

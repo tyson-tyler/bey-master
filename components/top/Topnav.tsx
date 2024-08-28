@@ -9,6 +9,7 @@ import Hello from "../../components/public/logo.svg";
 import { ModeToggle } from "../Toogle";
 import { Library } from "lucide-react";
 import { Button } from "../ui/button";
+import { GoTelescopeFill } from "react-icons/go";
 // Replace with your logo path
 
 const Topbar = () => {
@@ -50,8 +51,8 @@ const Topbar = () => {
       </div>
       <div className="flex justify-center  items-center  gap-2">
         <Button className="transform transition-all hover:scale-105">
-          <Library className="w-6 text-white h-6 hover:scale-105 transition-all transform     flex justify-center items-center" />
-          <span className="lg:flex md:flex hidden">{""} Library</span>
+          <GoTelescopeFill className="w-6 text-white h-6 hover:scale-105 transition-all transform     flex justify-center items-center lg:mr-2" />
+          <span className="lg:flex md:flex hidden">{""} Explore</span>
         </Button>
 
         <ModeToggle />

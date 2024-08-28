@@ -14,6 +14,7 @@ import Loader from "./Loader";
 import { IoDocument, IoDocumentAttachSharp } from "react-icons/io5";
 import { IoLogoFreebsdDevil } from "react-icons/io";
 import { VscFeedback } from "react-icons/vsc";
+import { Book, BookAIcon } from "lucide-react";
 
 const Sidebar1 = () => {
   const pathname = usePathname();
@@ -52,6 +53,13 @@ const Sidebar1 = () => {
       icon: <IoDocumentAttachSharp />,
       colorClass: "bg-red-500",
       animationClass: styles.animateSlideInLeft,
+    },
+    {
+      href: "/dashboard/Learn",
+      label: "Learn Easy",
+      icon: <Book />,
+      colorClass: "bg-orange-500",
+      animationClass: styles.animateTada,
     },
     {
       href: "/dashboard/edit",

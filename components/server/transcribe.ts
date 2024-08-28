@@ -60,8 +60,8 @@ export const initiateTranscription = actionClient
       });
 
       // Poll for completion
-      const maxAttempts = 20;
-      const delay = 2000;
+      const maxAttempts = 30; // Increased number of attempts
+      const delay = 3000; // Increased delay to 3 seconds
       let status = "pending";
 
       for (let attempt = 0; attempt < maxAttempts; attempt++) {

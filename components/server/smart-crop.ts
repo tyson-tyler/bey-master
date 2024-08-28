@@ -1,6 +1,6 @@
 "use server";
 
-import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
+import { v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
 
@@ -16,7 +16,7 @@ const genFillSchema = z.object({
   height: z.string(),
 });
 
-async function checkImageProcessing(url: string) {
+async function checkVideoProcessing(url: string) {
   try {
     const response = await fetch(url);
     if (response.ok) {
@@ -24,6 +24,7 @@ async function checkImageProcessing(url: string) {
     }
     return false;
   } catch (error) {
+    console.error("Error checking video processing:", error);
     return false;
   }
 }
@@ -32,14 +33,15 @@ export const genCrop = actionClient
   .schema(genFillSchema)
   .action(async ({ parsedInput: { activeVideo, aspect, height } }) => {
     const parts = activeVideo.split("/upload/");
-    //https://res.cloudinary.com/demo/image/upload/ar_16:9,b_gen_fill,c_pad,w_1500/docs/moped.jpg
     const fillUrl = `${parts[0]}/upload/ar_${aspect},c_fill,g_auto,h_${height}/${parts[1]}`;
-    // Poll the URL to check if the image is processed
+
+    // Poll the URL to check if the video is processed
     let isProcessed = false;
-    const maxAttempts = 20;
-    const delay = 1000; // 1 second
+    const maxAttempts = 30; // Increased attempts to 30
+    const delay = 2000; // Increased delay to 2 seconds
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
-      isProcessed = await checkImageProcessing(fillUrl);
+      isProcessed = await checkVideoProcessing(fillUrl);
       if (isProcessed) {
         break;
       }
@@ -47,7 +49,10 @@ export const genCrop = actionClient
     }
 
     if (!isProcessed) {
+      console.error("Video processing failed after multiple attempts.");
       return { error: "Video processing failed" };
     }
+
+    console.log("Processed Video URL:", fillUrl);
     return { success: fillUrl };
   });

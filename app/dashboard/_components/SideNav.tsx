@@ -23,6 +23,7 @@ import Loader from "@/components/Loader"; // Import your loader component
 import { RiImageCircleFill } from "react-icons/ri";
 import { IoLogoFreebsdDevil } from "react-icons/io";
 import { FaRobot } from "react-icons/fa";
+import { Book } from "lucide-react";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -59,6 +60,13 @@ const Sidebar = () => {
       icon: <IoDocumentAttachSharp />,
       colorClass: "bg-red-500",
       animationClass: styles.animateSlideInLeft,
+    },
+    {
+      href: "/dashboard/Learn",
+      label: "Learn Easy",
+      icon: <Book />,
+      colorClass: "bg-orange-500",
+      animationClass: styles.animateTada,
     },
 
     {
