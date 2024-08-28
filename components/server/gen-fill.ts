@@ -33,6 +33,15 @@ async function checkImageProcessing(url: string) {
   }
 }
 
+function reloadPageWithRetries(retryCount: number) {
+  if (retryCount < 5) {
+    // Wait a bit before reloading
+    setTimeout(() => {
+      location.reload();
+    }, 2000); // 2-second delay before reload
+  }
+}
+
 export const genFill = actionClient
   .schema(genFillSchema)
   .action(async ({ parsedInput: { activeImage, aspect, width, height } }) => {
@@ -45,6 +54,8 @@ export const genFill = actionClient
     let isProcessed = false;
     const maxAttempts = 30; // Increase attempts to 30
     const delay = 2000; // Increase delay to 2 seconds
+    let retryCount = 0;
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       isProcessed = await checkImageProcessing(fillUrl);
       if (isProcessed) {
@@ -54,7 +65,10 @@ export const genFill = actionClient
     }
 
     if (!isProcessed) {
+      retryCount++;
+      reloadPageWithRetries(retryCount);
       return { error: "Image processing failed" };
     }
+
     return { success: fillUrl };
   });
