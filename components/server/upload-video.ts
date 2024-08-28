@@ -1,3 +1,4 @@
+"use server";
 import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
