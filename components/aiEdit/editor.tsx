@@ -14,24 +14,6 @@ import ActiveImage from "./upload/active-image";
 import SmLayer from "./layers/smlayer";
 import Footer from "./toolbar/footer";
 
-// UploadImage Component
-function UploadImage() {
-  useEffect(() => {
-    // This code will only run in the browser
-    if (typeof document !== "undefined") {
-      // Your client-side code that interacts with the document object
-      console.log("This is running in the browser!");
-      // Example: interacting with the document
-      const element = document.getElementById("example");
-      if (element) {
-        element.textContent = "Hello, Client!";
-      }
-    }
-  }, []);
-
-  return <div id="example">Upload Image Component</div>;
-}
-
 // Editor Component
 export default function Editor() {
   const activeLayer = useLayerStore((state) => state.activeLayer);
@@ -50,7 +32,7 @@ export default function Editor() {
       <Layers />
       <SmLayer />
       <Footer />
-      <UploadImage /> {/* Including the UploadImage component here */}
+      {/* Including the UploadImage component here */}
     </div>
   );
 }
