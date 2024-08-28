@@ -1,5 +1,4 @@
 "use server";
-
 import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
@@ -40,6 +39,11 @@ export const uploadImage = actionClient
             use_filename: true,
             unique_filename: false,
             filename_override: file.name,
+            transformation: [
+              { quality: "auto" }, // Automatically adjust the image quality
+              { fetch_format: "auto" }, // Automatically select the best format (e.g., WebP)
+              { width: 1500, crop: "limit" }, // Resize the image to a max width of 1500px
+            ],
           },
           (error, result) => {
             if (error || !result) {

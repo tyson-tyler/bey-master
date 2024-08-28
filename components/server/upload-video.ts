@@ -1,5 +1,3 @@
-"use server";
-
 import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
@@ -41,6 +39,8 @@ export const uploadVideo = actionClient
             use_filename: true,
             unique_filename: false,
             filename_override: file.name,
+            chunk_size: 6000000, // Use chunked uploads if necessary
+            timeout: 600000, // Increase the timeout limit
           },
           (error, result) => {
             if (error || !result) {
