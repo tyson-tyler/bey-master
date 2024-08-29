@@ -2,13 +2,16 @@
 import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
+import sharp from "sharp";
 
+// Cloudinary configuration
 cloudinary.config({
   cloud_name: "dw5f8ze3g",
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
 
+// Define the schema for form data
 const formData = z.object({
   image: z.instanceof(FormData),
 });
@@ -17,6 +20,7 @@ type UploadResult =
   | { success: UploadApiResponse; error?: never }
   | { error: string; success?: never };
 
+// Image upload function
 export const uploadImage = actionClient
   .schema(formData)
   .action(async ({ parsedInput: { image } }): Promise<UploadResult> => {
@@ -29,21 +33,23 @@ export const uploadImage = actionClient
     const file = formImage as File;
 
     try {
+      // Convert the file to an ArrayBuffer
       const arrayBuffer = await file.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
+
+      // Compress the image using sharp
+      const compressedBuffer = await sharp(buffer)
+        .resize({ width: 1500 }) // Resize to a max width of 1500px
+        .webp({ quality: 80 }) // Convert to WebP format with 80% quality
+        .toBuffer();
 
       return new Promise<UploadResult>((resolve, reject) => {
         const uploadStream = cloudinary.uploader.upload_stream(
           {
-            upload_preset: "xilaac6a",
             use_filename: true,
             unique_filename: false,
             filename_override: file.name,
-            transformation: [
-              { quality: "auto" }, // Automatically adjust the image quality
-              { fetch_format: "auto" }, // Automatically select the best format (e.g., WebP)
-              { width: 1500, crop: "limit" }, // Resize the image to a max width of 1500px
-            ],
+            resource_type: "image",
           },
           (error, result) => {
             if (error || !result) {
@@ -56,7 +62,8 @@ export const uploadImage = actionClient
           }
         );
 
-        uploadStream.end(buffer);
+        // End the upload stream with the compressed buffer
+        uploadStream.end(compressedBuffer);
       });
     } catch (error) {
       console.error("Error processing file:", error);

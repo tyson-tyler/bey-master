@@ -14,6 +14,7 @@ const BlogPost = () => {
     if (id) {
       const fetchData = async () => {
         const res = await fetch(`/api/insights/${id}`);
+        console.log(res);
         const data = await res.json();
         setInsight(data);
       };
@@ -34,6 +35,7 @@ const BlogPost = () => {
           <h1 className="text-4xl font-bold text-white mb-4">
             {insight.title}
           </h1>
+
           <Image
             src={insight.imgUrl}
             width={1160}
@@ -41,7 +43,11 @@ const BlogPost = () => {
             alt={insight.title}
             className="w-full h-auto rounded-lg mb-4"
           />
-          <p className="text-lg text-secondary-white">{insight.subtitle}</p>
+          <p className="text-sm text-gray-300 text-center mt-3">
+            {insight.subtitle}
+          </p>
+
+          {/* <p className="text-sm dark:text-white text-black">{insight.t}</p> */}
         </div>
       </div>
     </>

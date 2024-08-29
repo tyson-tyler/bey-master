@@ -4,29 +4,45 @@ import { v2 as cloudinary } from "cloudinary";
 import { actionClient } from "./safe-action";
 import z from "zod";
 
+// Configure Cloudinary
 cloudinary.config({
   cloud_name: "dw5f8ze3g",
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
 
+// Define the schema for the background replacement action
 const bgReplaceSchema = z.object({
   prompt: z.string().optional(),
   activeImage: z.string(),
 });
 
-async function checkImageProcessing(url: string) {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      return true;
+// Function to check if the image processing is complete
+async function checkImageProcessing(url: string): Promise<boolean> {
+  const maxRetries = 5; // Number of retries for 504 errors
+  const retryDelay = 2000; // Delay between retries in milliseconds
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        return true; // Image processed successfully
+      }
+      if (response.status === 504) {
+        console.warn(`Attempt ${attempt + 1}: 504 error, retrying...`);
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
+        continue; // Retry if 504 error occurs
+      }
+      return false; // Other non-200 status
+    } catch (error) {
+      console.error(`Attempt ${attempt + 1}: Error occurred`, error);
+      await new Promise((resolve) => setTimeout(resolve, retryDelay));
     }
-    return false;
-  } catch (error) {
-    return false;
   }
+  return false; // Processing failed after retries
 }
 
+// Background replacement action
 export const replaceBackground = actionClient
   .schema(bgReplaceSchema)
   .action(async ({ parsedInput: { prompt, activeImage } }) => {
